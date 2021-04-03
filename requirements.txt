@@ -1,0 +1,7 @@
+sctokenizer
+click
+appdirs
+jinja2
+pandas
+beautifulsoup4
+requests

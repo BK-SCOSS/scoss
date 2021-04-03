@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Matches for submission/a01-sample.py and submission/a01-sample.py</title>
+	<script type="text/javascript">
+	const setFrame = (el, html) => {
+	  if (el.contentDocument) {
+	    el.document = el.contentDocument;
+	  }
+	  if (el.document !== null) {
+	    el.document.open();
+	    el.document.writeln(html);
+	    el.document.close();
+	  }
+	};
+
+	const loadFrameContent = function(frame ,text) {
+	  const waitForEl = () => {
+	    const frameEl = document.getElementById(frame);
+	    if (frameEl === null) {
+	      setTimeout(waitForEl, 10);
+	      return;
+	    }
+	    setFrame(frameEl, text);
+	  };
+	  setTimeout(waitForEl, 10);
+	};
+
+	const top_html = String.raw`
+<<<>>>
+`;
+
+	const left_html = String.raw`
+<<<>>>
+`;
+
+	const right_html = String.raw`
+<<<>>>
+`;	
+	
+	loadFrameContent("top", top_html);
+	loadFrameContent("content0", left_html);	
+	loadFrameContent("content1", right_html);
+</script>
+</head>
+<!-- <body> -->
+<frameset rows="150,*"><frameset cols="1000,*"><frame frameborder="0" name="top" id="top" /></frameset><frameset cols="50%,50%"><frame name="0" id="content0" /><frame name="1" id="content1" /></frameset></frameset>
+  <!-- <iframe id="content" src="#" frameBorder="0"></iframe> -->
+<!-- </body> -->
+</html>

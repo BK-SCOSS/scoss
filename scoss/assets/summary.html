@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet" />
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        text-align: center;
+        }
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1.5px solid #000000;
+        padding: 8px;
+        }
+        
+        th {
+        cursor: pointer;
+        background-color: rgb(39, 37, 36);
+        color: #fff;
+        }
+        body{
+            background-color: rgb(233, 233, 233);
+        }
+
+        </style>
+</head>
+<body>
+
+<h2>Result</h2>
+
+<table id="usersTable">
+    <tr>
+        {%for head in heads%}
+        <th>{{head}} <i class="fa fa-sort"></i></th>
+        {%endfor%}
+    </tr>
+    {%for link in links%}
+    <tr class="item">
+    <td>{{link['source1']}}</a></td>
+    <td>{{link['source2']}}</a></td>
+    {%for metric in link['scores'] %}
+        {% if 'alignments' in link %}
+            <td><a href="{{link['alignments'][metric]}}"  target="_blank" >{{link['scores'][metric]}}</a></td>
+        {% else %}
+            <td><span>{{link['scores'][metric]}}</span></td>
+        {% endif %}
+    {%endfor%}
+    </tr>
+    {%endfor%}
+</table>
+<script>
+    let tid = "#usersTable";
+    let headers = document.querySelectorAll(tid + " th");
+
+    // Sort the table element when clicking on the table headers
+    headers.forEach(function(element, i) {
+        element.addEventListener("click", function() {
+        w3.sortHTML(tid, ".item", "td:nth-child(" + (i + 1) + ")");
+        });
+    });
+</script>
+</body>
+</html>
