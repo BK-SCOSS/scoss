@@ -4,9 +4,9 @@ with open("README.md", mode='r', encoding='utf-8') as fh:
     long_description = fh.read()
 
 PROJECT_URLS = {
-    'Bug Tracker': 'https://github.com/ngocjr7/geneticpython/issues',
-    'Documentation': 'https://github.com/ngocjr7/geneticpython/blob/master/README.md',
-    'Source Code': 'https://github.com/ngocjr7/geneticpython'
+    'Bug Tracker': 'https://github.com/ngocjr7/scoss/issues',
+    'Documentation': 'https://github.com/ngocjr7/scoss/blob/master/README.md',
+    'Source Code': 'https://github.com/ngocjr7/scoss'
 }
 
 with open('requirements.txt') as f:
