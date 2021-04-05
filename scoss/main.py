@@ -46,14 +46,14 @@ def get_all_files(contest_path):
     return all_files
 
 def create_dir(filepath):
-    wdir = os.path.dirname(filepath)
+    wdir = filepath
+    if os.path.isfile(os.path.abspath(filepath)):
+        wdir = os.path.dirname(filepath)
     if not os.path.exists(wdir):
         try:
             os.makedirs(wdir)
         except OSError: # Guard against race condition
             pass
-            # if exc.errno != errno.EEXIST:
-            #     raise Exception("something happends while creating folder")
 
 def get_all_plagiarism(input_dir, output_dir, threshold_combination_type='AND', moss_threshold=None,
     count_operator_threshold=None, set_operator_threshold=None, hash_operator_threshold=None):
@@ -75,7 +75,8 @@ def get_all_plagiarism(input_dir, output_dir, threshold_combination_type='AND', 
     for (dir_name, ext), file_list in all_files.items(): 
         cur_dir_name = '{}_{}'.format(dir_name, ext)
         cur_dir_path = os.path.join(result_dir, cur_dir_name)
-        # create_dir(os.path.join(result_dir, cur_dir))
+        # print(cur_dir_path)
+        create_dir(cur_dir_path)
         scoss_matches_dict = {}
         if count_operator_threshold != None or \
             set_operator_threshold != None or \
@@ -220,7 +221,7 @@ def get_all_plagiarism(input_dir, output_dir, threshold_combination_type='AND', 
                                     metric=metric, score=span, \
                                     data1=html1, data2=html2)
                 name_file = '{}_{}_{}.html'.format(src1, src2, metric)
-                create_dir(name_file)
+                # create_dir(name_file)
                 with open(os.path.join(cur_dir_path, name_file), 'w', encoding='utf-8') as file:
                     file.write(compe)
                 dic['scores'][metric] = span
@@ -235,7 +236,7 @@ def get_all_plagiarism(input_dir, output_dir, threshold_combination_type='AND', 
     if not heads:
         print("There is no plagiarism activities!")
         sys.exit(0)
-    all_links = sorted(all_links, key = lambda i: i['scores']['average_score'][1].split('">')[-1].split('%')[0], reverse=True)
+    all_links = sorted(all_links, key = lambda i: i['scores']['average_score'].split('">')[-1].split('%')[0], reverse=True)
     page = Environment().from_string(HTML1).render(heads=heads, links=all_links)
     with open(os.path.join(output_dir, 'all_summary.html'), 'w') as file:
         file.write(page)
@@ -246,7 +247,7 @@ def get_all_plagiarism(input_dir, output_dir, threshold_combination_type='AND', 
         for link in all_links:
             row = [link['source1'], link['source2']]
             for k, v in link['scores'].items():
-                row.append(v[1].split('">')[-1].split('%')[0]+'%')
+                row.append(v.split('">')[-1].split('%')[0]+'%')
             writer.writerow(row)
         
         
