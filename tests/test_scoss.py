@@ -2,7 +2,6 @@ from sctokenizer import Source
 from scoss.metrics.token_based_metric import TokenBasedMetric
 from scoss.metrics import CountOperator, SetOperator, HashOperator
 from scoss import Scoss
-from app.config import URL
 import requests
 import time
 import scoss
@@ -109,10 +108,11 @@ def test_run():
         print(token)
 
 if __name__ == '__main__':
-    test_scoss()
+    # test_scoss()
+    # test_scoss_cmd()
     # test_run()
     # python3 tests/test_scoss.py 
-    # test_scoss_or()
+    test_scoss_or()
     # test_scoss_and()
     # test_scoss_csv()
     # url = URL + '/api/problems/' + str(1602940099000)
