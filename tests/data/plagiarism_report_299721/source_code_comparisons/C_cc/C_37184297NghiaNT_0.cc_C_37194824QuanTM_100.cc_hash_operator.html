@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>hash_operator</th>
+    </tr>
+    <tr>
+    <td>C_37184296NgaNT_0.cc</a></td>
+    <td>C_37184251HaHT_100.cc</a></td>
+    <td><span style="color: rgb(52, 0, 0)">20.75%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>C_37184296NgaNT_0.cc</th>
+    <th>C_37184251HaHT_100.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: red">1	#include &ltiostream&gt</pre><pre style="color: red">2	#include &ltbits/stdc++.h&gt</pre><pre style="color: red">3	using namespace std;</pre><pre >4	</pre><pre >5	int travelproblem(int graph[][15],int s,int V, int M )</pre><pre >6	{</pre><pre >7		// store all vertex apart from source vertex</pre><pre style="color: black">8		vector&ltint&gt vertex;</pre><pre style="color: black">9		for (int i = 0; i &lt V; i++)</pre><pre style="color: black">10		{</pre><pre style="color: black">11			if (i != s)</pre><pre style="color: black">12			{</pre><pre style="color: black">13				vertex.push_back(i);</pre><pre style="color: black">14				// Store minimum weight - Halminton circle</pre><pre style="color: black">15			}</pre><pre style="color: black">16		}</pre><pre style="color: black">17		int count = 0;</pre><pre style="color: black">18		do</pre><pre style="color: black">19		{</pre><pre style="color: black">20			// Store current path</pre><pre style="color: black">21			int current_pathweight = 0;</pre><pre style="color: black">22			// Compute the current path weight</pre><pre style="color: black">23			int k =s;</pre><pre style="color: black">24			for (int i = 0; i &lt vertex.size(); i++)</pre><pre style="color: black">25			{</pre><pre style="color: black">26				current_pathweight += graph[k][vertex[i]];</pre><pre style="color: black">27				k= vertex[i];</pre><pre style="color: red">28			}</pre><pre style="color: black">29			current_pathweight += graph[k][s];</pre><pre style="color: black">30	</pre><pre style="color: black">31			// Upgrace minimum</pre><pre style="color: black">32			if (current_pathweight &lt= M)</pre><pre style="color: black">33			{</pre><pre style="color: black">34				count ++;</pre><pre style="color: black">35			}</pre><pre style="color: black">36		}</pre><pre style="color: black">37		while(</pre><pre style="color: black">38			next_permutation(vertex.begin(),vertex.end()));</pre><pre style="color: black">39			return count;</pre><pre style="color: red">40	}</pre><pre style="color: black">41	</pre><pre style="color: black">42	</pre><pre style="color: black">43	int main(){</pre><pre style="color: black">44		int N;</pre><pre style="color: black">45		int M;</pre><pre style="color: black">46		cin &gt&gt N &gt&gt M;</pre><pre style="color: black">47		int distance[15][15];</pre><pre style="color: red">48	</pre><pre >49		for (int i = 0; i &lt M; i++)</pre><pre >50		{</pre><pre >51			for (int j = 0; i &lt N; j++)</pre><pre >52			{</pre><pre >53				cin &gt&gt distance[i][j];</pre><pre style="color: black">54			}</pre><pre style="color: black">55		}</pre><pre style="color: black">56		cout &lt&lt travelproblem(distance,0,N,M) &lt&lt endl;</pre><pre style="color: black">57		return 0;</pre><pre style="color: black">58	</pre><pre style="color: red">59	}</pre></td>
+    <td><pre style="color: red">1	#include &ltiostream&gt</pre><pre style="color: red">2	#include &ltbits/stdc++.h&gt</pre><pre style="color: red">3	using namespace std;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">4	int n,m;</pre><pre style="color: black">5	int C[30][30];</pre><pre style="color: black">6	int X[30]; </pre><pre style="color: black">7	bool visited[30];</pre><pre style="color: black">8	int T[30];</pre><pre style="color: black">9	long long Count;</pre><pre style="color: black">10	int minCost = INT_MAX;</pre><pre style="color: black">11	void input(){</pre><pre style="color: black">12	    cin &gt&gt n &gt&gt m;</pre><pre style="color: black">13	    for(int i=1;i&lt=n;i++){</pre><pre style="color: black">14	        for(int j=1;j&lt=n;j++){</pre><pre style="color: black">15	            cin &gt&gt C[i][j];</pre><pre style="color: black">16	            if(i!=j && minCost &gt C[i][j]) minCost = C[i][j];</pre><pre style="color: black">17	        }</pre><pre style="color: black">18	    }</pre><pre style="color: black">19	}</pre><pre style="color: black">20	void init(){</pre><pre style="color: black">21	    visited[1] = true;</pre><pre style="color: black">22	    X[1] = 1;</pre><pre style="color: black">23	    T[1] = 0;</pre><pre style="color: red">24	}</pre><pre style="color: black">25	</pre><pre style="color: black">26	void Try(int k){</pre><pre style="color: black">27	    for(int v=2;v&lt=n;v++){</pre><pre style="color: black">28	        if(visited[v]==false){</pre><pre style="color: black">29	            X[k] = v;</pre><pre style="color: black">30	            T[k] = T[k-1]+C[X[k-1]][v];</pre><pre style="color: black">31	            if(T[k]+(n-k+1)*minCost&lt=m){</pre><pre style="color: black">32	                if(k&ltn){</pre><pre style="color: black">33	                    visited[v] = true;</pre><pre style="color: black">34	                    Try(k+1);</pre><pre style="color: black">35	                    visited[v] = false;</pre><pre style="color: red">36	                }</pre><pre style="color: black">37	                else{</pre><pre style="color: black">38	                    if(T[n]+C[X[n]][1] &lt= m) Count++;</pre><pre style="color: black">39	                }</pre><pre style="color: black">40	            }</pre><pre style="color: black">41	        }</pre><pre style="color: black">42	    }</pre><pre style="color: black">43	}</pre><pre style="color: red">44	</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">45	int main(){</pre><pre style="color: black">46	    input();</pre><pre style="color: black">47	    init();</pre><pre style="color: black">48	    Try(2);</pre><pre style="color: black">49	    cout &lt&lt Count &lt&lt endl;</pre><pre style="color: red">50	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

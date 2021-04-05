@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>hash_operator</th>
+    </tr>
+    <tr>
+    <td>A_371947999MinhNM_100.cc</a></td>
+    <td>A_37184284lanch_100.cc</a></td>
+    <td><span style="color: rgb(76, 0, 0)">29.82%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>A_371947999MinhNM_100.cc</th>
+    <th>A_37184284lanch_100.cc</th> 
+</tr>
+<tr>
+    <td><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">1	#include&ltbits/stdc++.h&gt</pre><pre style="color: red">2	using namespace std;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">3	int main(){</pre><pre style="color: black">4		int n,m,s=0,cnt=0;</pre><pre style="color: black">5		cin &gt&gtn&gt&gtm;</pre><pre style="color: black">6		int arr[n];</pre><pre style="color: black">7		for(int i=0;i&ltn;i++){</pre><pre style="color: black">8			cin &gt&gtarr[i];</pre><pre style="color: black">9		}</pre><pre style="color: black">10		for(int i=0;i&ltn;i++){</pre><pre style="color: black">11	        s=arr[i];</pre><pre style="color: black">12	        if(s&lt=m) cnt++;</pre><pre style="color: black">13	        for(int j=i+1;j&ltn;j++){</pre><pre style="color: black">14	            s+=arr[j];</pre><pre style="color: black">15	            if(s&lt=m) cnt++;</pre><pre style="color: black">16	            else break;</pre><pre style="color: red">17	        }</pre><pre style="color: red">18	    }</pre><pre >  </pre><pre >  </pre><pre style="color: black">19	    cout &lt&ltcnt;</pre><pre style="color: red">20	}</pre></td>
+    <td><pre >1	#include &ltiostream&gt</pre><pre >2	#include &ltmath.h&gt</pre><pre >3	//#include &ltalgorithm&gt</pre><pre style="color: black">4	</pre><pre style="color: red">5	using namespace std;</pre><pre >6	long long a[1000001],b[10000001];</pre><pre >7	long long n, m, tmp;</pre><pre >8	</pre><pre >9	</pre><pre style="color: red">10	int main() {</pre><pre style="color: black">11	    long long count = 0;</pre><pre style="color: black">12	    cin &gt&gt n; cin &gt&gt m;</pre><pre style="color: black">13	    b[0]=0;</pre><pre style="color: black">14	</pre><pre style="color: black">15	    for (int i=1;i&lt=n;i++) {</pre><pre style="color: black">16	        cin&gt&gta[i];</pre><pre style="color: black">17	        b[i]=b[i-1]+a[i];</pre><pre style="color: black">18	    }</pre><pre style="color: black">19	    </pre><pre style="color: black">20	    for (int i = 1; i &lt= n; i++){</pre><pre style="color: black">21	        for (int j = 0; j &lt i; j++){</pre><pre style="color: black">22	            tmp = b[i] - b[j];</pre><pre style="color: black">23	            if (tmp &lt= m) count ++;</pre><pre style="color: red">24	        }</pre><pre style="color: red">25	    }</pre><pre >26	    cout &lt&lt count &lt&lt endl;</pre><pre >27	</pre><pre style="color: black">28		return 0;</pre><pre style="color: red">29	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

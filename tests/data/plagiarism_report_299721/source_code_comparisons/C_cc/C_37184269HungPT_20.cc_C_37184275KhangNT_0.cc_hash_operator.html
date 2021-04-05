@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>hash_operator</th>
+    </tr>
+    <tr>
+    <td>C_37184296NgaNT_0.cc</a></td>
+    <td>C_37184251HaHT_100.cc</a></td>
+    <td><span style="color: rgb(45, 0, 0)">17.78%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>C_37184296NgaNT_0.cc</th>
+    <th>C_37184251HaHT_100.cc</th> 
+</tr>
+<tr>
+    <td><pre >1	#include &ltiostream&gt</pre><pre >2	</pre><pre >3	using namespace std;</pre><pre >4	int n;</pre><pre >5	int a[15][15];</pre><pre >6	int m,count=0;</pre><pre >7	int Bool[16] = { 0 };//Đánh dấu chưa có phần tử nào sử dụng hết</pre><pre >8	unsigned int A[16];//Lưu hoán vị vào mảng A</pre><pre >9	int dem=0, soHoanvi;</pre><pre >10	</pre><pre >11	int giaiThua(int n)</pre><pre >12	{</pre><pre >13	    if (n == 1)</pre><pre >14	        return 1;</pre><pre >15	    return n * giaiThua(n - 1);</pre><pre >16	}</pre><pre >17	         unsigned int sum= 0;</pre><pre >18	 </pre><pre >19	    </pre><pre >20	    void xuat() {</pre><pre >21	     </pre><pre >22	        sum = 0;</pre><pre >23	        </pre><pre style="color: black">24	    for (int i = 1; i &lt= n; i++){</pre><pre style="color: black">25	        </pre><pre style="color: black">26	        if (i&ltn){</pre><pre style="color: black">27	              sum+=a[A[i]-1][A[i+1]-1];</pre><pre style="color: black">28	              </pre><pre style="color: black">29	        }</pre><pre style="color: black">30	        else {</pre><pre style="color: black">31	                          sum+=a[A[n]-1][0];</pre><pre style="color: black">32	 </pre><pre style="color: black">33	 </pre><pre style="color: red">34	        }</pre><pre >35	 </pre><pre >36	    </pre><pre style="color: black">37	    }</pre><pre style="color: black">38	    if (sum&lt=m){</pre><pre style="color: black">39	        count++;</pre><pre style="color: red">40	    }</pre><pre >41	    </pre><pre style="color: red">42	}</pre><pre >43	 </pre><pre >44	 </pre><pre >45	void Try(int k) {</pre><pre >46	    //cout&lt&ltdem&lt&ltendl;</pre><pre >47	   </pre><pre >48	    for (int i = 1; i &lt= n; i++) {</pre><pre >49	        //Kiểm tra nếu phần tử chưa được chọn thì sẽ đánh dấu</pre><pre >50	         if (dem &lt= soHoanvi)</pre><pre >51	        if (!Bool[i]) {</pre><pre >52	            </pre><pre >53	            A[k] = i; // Lưu một phần tử vào hoán vị</pre><pre >54	          </pre><pre >55	            Bool[i] = 1;//Đánh dấu đã dùng</pre><pre >56	            if (k == n)//Kiểm tra nếu đã chứa một hoán vị thì xuất</pre><pre >57	            {</pre><pre >58	                 if (dem &lt= soHoanvi){</pre><pre style="color: black">59	                xuat();</pre><pre style="color: black">60	                dem++;</pre><pre style="color: black">61	                 }</pre><pre style="color: red">62	            }</pre><pre >63	            else{</pre><pre >64	                if (dem &lt= soHoanvi)</pre><pre >65	                                Try(k + 1);</pre><pre >66	</pre><pre style="color: black">67	            }</pre><pre style="color: black">68	            Bool[i] = 0;</pre><pre style="color: black">69	        }</pre><pre style="color: red">70	    }</pre><pre style="color: black">71	}</pre><pre style="color: black">72	int main()</pre><pre style="color: black">73	{</pre><pre style="color: black">74	    A[1] = -1;</pre><pre style="color: black">75	   cin &gt&gt n &gt&gt m;</pre><pre style="color: black">76	       soHoanvi = giaiThua(n)/n;</pre><pre style="color: black">77	</pre><pre style="color: black">78	   for (int i=0;i&ltn;i++){</pre><pre style="color: black">79	       for (int j=0;j&ltn;j++){</pre><pre style="color: black">80	        cin&gt&gta[i][j];</pre><pre style="color: red">81	       }</pre><pre >82	           // cout &lt&lt endl;</pre><pre >83	   </pre><pre style="color: red">84	  }</pre><pre >85	   Try(1);</pre><pre >86	   std::cout &lt&lt count &lt&lt std::endl;</pre><pre style="color: black">87	    </pre><pre style="color: black">88	    </pre><pre style="color: black">89	    </pre><pre style="color: black">90	    </pre><pre style="color: black">91	    </pre><pre style="color: red">92	}</pre></td>
+    <td><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">1	#include &ltbits/stdc++.h&gt</pre><pre style="color: black">2	#define MAX_N 15</pre><pre style="color: black">3	#define MAX_M 1000000</pre><pre style="color: black">4	using namespace std;</pre><pre style="color: black">5	int N,M,c[MAX_N][MAX_N],o=0,x[MAX_N],cou;</pre><pre style="color: black">6	bool assigned[MAX_N];</pre><pre style="color: black">7	void input(){</pre><pre style="color: black">8	    cin&gt&gtN&gt&gtM;</pre><pre style="color: black">9	    for(int i=0;i&lt=N-1;i++){</pre><pre style="color: black">10	        assigned[i]=false;</pre><pre style="color: red">11	    }</pre><pre >  </pre><pre >  </pre><pre style="color: black">12	    for(int i=0;i&lt=N-1;i++){</pre><pre style="color: black">13	        for(int j=0;j&lt=N-1;j++)</pre><pre style="color: black">14	            cin&gt&gtc[i][j];</pre><pre style="color: red">15	    }</pre><pre >  </pre><pre style="color: red">16	}</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">17	bool check(int v,int k){</pre><pre style="color: black">18	    if(assigned[k]) {return false;}</pre><pre style="color: black">19	    return true;</pre><pre style="color: red">20	}</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">21	void solution(){</pre><pre style="color: black">22	    if(o&lt=M)</pre><pre style="color: black">23	    {cou = cou+1;}</pre><pre style="color: red">24	}</pre><pre style="color: black">25	void TRY(int k){</pre><pre style="color: black">26	    for(int v=0;v&lt=N-1;v++){</pre><pre style="color: black">27	        if(check(v,k)){</pre><pre style="color: black">28	        x[k]=v;</pre><pre style="color: black">29	        assigned[k]=true;</pre><pre style="color: black">30	        o=o+c[k][v];</pre><pre style="color: black">31	        if(k==N) solution();</pre><pre style="color: black">32	        else TRY(k+1);</pre><pre style="color: black">33	        o=o-c[k][v];</pre><pre style="color: black">34	        assigned[k]=false;</pre><pre style="color: red">35	        }</pre><pre >  </pre><pre >  </pre><pre style="color: red">36	    }</pre><pre >  </pre><pre >  </pre><pre style="color: black">37	    cout&lt&ltcou&lt&ltendl;</pre><pre style="color: black">38	}</pre><pre style="color: black">39	int main(){</pre><pre style="color: black">40	    input();</pre><pre style="color: black">41	    TRY(0);return 0;</pre><pre style="color: red">42	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

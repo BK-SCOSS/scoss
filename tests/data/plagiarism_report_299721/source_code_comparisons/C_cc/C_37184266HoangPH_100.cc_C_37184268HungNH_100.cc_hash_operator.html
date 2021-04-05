@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>hash_operator</th>
+    </tr>
+    <tr>
+    <td>C_37184296NgaNT_0.cc</a></td>
+    <td>C_37184251HaHT_100.cc</a></td>
+    <td><span style="color: rgb(104, 0, 0)">40.78%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>C_37184296NgaNT_0.cc</th>
+    <th>C_37184251HaHT_100.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: black">1	#include &ltiostream&gt</pre><pre style="color: red">2	using namespace std;</pre><pre >  </pre><pre >  </pre><pre style="color: black">3	int check[16] = {};</pre><pre style="color: black">4	int n,m;</pre><pre style="color: black">5	int a[16][16];</pre><pre style="color: black">6	int x[16];</pre><pre style="color: black">7	int cmin = 99999;</pre><pre style="color: black">8	int ans = 0;</pre><pre style="color: black">9	void input()</pre><pre style="color: black">10	{</pre><pre style="color: black">11	    cin&gt&gtn&gt&gtm;</pre><pre style="color: black">12	    for(int i = 1; i &lt= n; i++)</pre><pre style="color: black">13	    {</pre><pre style="color: black">14	        for (int j = 1; j &lt=n ;j++)</pre><pre style="color: black">15	        {</pre><pre style="color: black">16	            cin&gt&gta[i][j];</pre><pre style="color: black">17	            if (i != j )</pre><pre style="color: black">18	            {</pre><pre style="color: black">19	                cmin = min(cmin,a[i][j]);</pre><pre style="color: black">20	            }</pre><pre style="color: red">21	        }</pre><pre style="color: red">22	    }</pre><pre style="color: black">23	}</pre><pre style="color: black">24	int max1 = 0;</pre><pre style="color: black">25	void Try(int i)</pre><pre style="color: red">26	{</pre><pre style="color: black">27	    for (int v =2; v &lt=n ;v++)</pre><pre style="color: black">28	    {</pre><pre style="color: black">29	        if (check[v] == 0)</pre><pre style="color: black">30	        {</pre><pre style="color: black">31	            x[i] = v;</pre><pre style="color: black">32	            check[v] = 1;</pre><pre style="color: black">33	            max1 += a[x[i-1]][x[i]];</pre><pre style="color: black">34	            if (i == n)</pre><pre style="color: black">35	            {</pre><pre style="color: black">36	                if (max1 + a[x[i]][1] &lt= m)</pre><pre style="color: black">37	                {</pre><pre style="color: black">38	                 /*   for (int j = 1; j &lt= n ;j++)</pre><pre style="color: black">39	                    {</pre><pre style="color: black">40	                        cout&lt&ltx[j]&lt&lt" ";</pre><pre style="color: red">41	                    }</pre><pre >42	                    cout&lt&ltendl;*/</pre><pre style="color: black">43	                    </pre><pre style="color: black">44	                    ans ++;</pre><pre style="color: black">45	                }</pre><pre style="color: black">46	            }else</pre><pre style="color: red">47	            {</pre><pre style="color: black">48	                if (max1 + (n-i)*cmin &lt= m)</pre><pre style="color: red">49	                {</pre><pre style="color: black">50	                    Try(i+1);</pre><pre style="color: red">51	                }</pre><pre style="color: red">52	            }</pre><pre >  </pre><pre >  </pre><pre style="color: black">53	            check[v] = 0;</pre><pre style="color: black">54	            max1 -= a[x[i-1]][x[i]];</pre><pre style="color: black">55	        }</pre><pre style="color: black">56	    }</pre><pre style="color: black">57	}</pre><pre style="color: black">58	int main()</pre><pre style="color: red">59	{</pre><pre >  </pre><pre >  </pre><pre style="color: black">60	    x[1] = 1;</pre><pre style="color: black">61	    input();</pre><pre style="color: black">62	    Try(2);</pre><pre style="color: black">63	    cout&lt&ltans;</pre><pre style="color: red">64	}</pre></td>
+    <td><pre style="color: black">1	#include &ltbits/stdc++.h&gt</pre><pre style="color: red">2	using namespace std;</pre><pre >3	const int N=100;</pre><pre >4	const long long INF=1e18;</pre><pre style="color: black">5	long long c[20][20];</pre><pre style="color: black">6	long long x[100],appear[100];</pre><pre style="color: black">7	long long n,m,f,minf,dem;</pre><pre style="color: black">8	long long cmin;</pre><pre style="color: black">9	</pre><pre style="color: black">10	bool check(int v,int k){</pre><pre style="color: black">11		return appear[v]==0;</pre><pre style="color: black">12	}</pre><pre style="color: black">13	</pre><pre style="color: black">14	void in(){</pre><pre style="color: black">15		if (f+c[x[n]][x[1]]&ltminf) minf=f+c[x[n]][x[1]];</pre><pre style="color: black">16		if (f+c[x[n]][x[1]]&lt=m) {</pre><pre style="color: black">17			dem++;</pre><pre style="color: black">18			// for (int i = 1; i &lt= n; ++i)</pre><pre style="color: black">19			// {</pre><pre style="color: black">20			// 	cout&lt&ltx[i]&lt&lt" ";</pre><pre style="color: black">21			// }</pre><pre style="color: black">22			// cout&lt&ltf+c[x[n]][x[1]]&lt&ltendl;</pre><pre style="color: red">23		}</pre><pre style="color: red">24	}</pre><pre style="color: black">25	</pre><pre style="color: black">26	void xuly(int k){</pre><pre style="color: black">27		for (int v = 2; v &lt= n; ++v)</pre><pre style="color: red">28		{</pre><pre style="color: black">29			if(check(v,k)){</pre><pre style="color: black">30				x[k]=v;</pre><pre style="color: black">31				appear[v]=1; //update</pre><pre style="color: black">32				f=f+c[x[k-1]][x[k]];</pre><pre style="color: black">33				if (k==n) in();</pre><pre style="color: black">34				else {</pre><pre style="color: black">35					if (f+cmin*(n-k+1)&lt=m)</pre><pre style="color: black">36						xuly(k+1);</pre><pre style="color: black">37				}</pre><pre style="color: black">38				appear[v]=0; //recover</pre><pre style="color: black">39				f=f-c[x[k-1]][x[k]];</pre><pre style="color: black">40			}</pre><pre style="color: black">41		}</pre><pre style="color: black">42	}</pre><pre style="color: red">43	</pre><pre >  </pre><pre style="color: black">44	int main(){</pre><pre style="color: black">45	// 	freopen("inp.txt","r", stdin);</pre><pre style="color: black">46		cin &gt&gtn&gt&gtm;</pre><pre style="color: black">47		for (int i = 1; i &lt= n; ++i)</pre><pre style="color: red">48		{</pre><pre style="color: black">49			for (int j = 1; j &lt= n; ++j)</pre><pre style="color: red">50			{</pre><pre style="color: black">51				c[i][j]=INF;</pre><pre style="color: red">52			}</pre><pre style="color: red">53		}</pre><pre >54		memset(appear,0,100);</pre><pre >55		minf=INF; f=0;</pre><pre style="color: black">56		cmin=INF; dem=0;</pre><pre style="color: black">57		x[1]=1;</pre><pre style="color: black">58		appear[1]=1;</pre><pre style="color: black">59		for (int i = 1; i &lt= n; ++i)</pre><pre style="color: black">60		{</pre><pre style="color: black">61			for (int j = 1; j &lt= n; ++j)</pre><pre style="color: red">62			{</pre><pre >63				cin&gt&gtc[i][j];</pre><pre >64				if (c[i][j]!=0) cmin = c[i][j]&gtcmin ? cmin:c[i][j];</pre><pre style="color: black">65			}</pre><pre style="color: black">66		}</pre><pre style="color: black">67		xuly(2);</pre><pre style="color: black">68		cout&lt&ltdem;</pre><pre style="color: red">69	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

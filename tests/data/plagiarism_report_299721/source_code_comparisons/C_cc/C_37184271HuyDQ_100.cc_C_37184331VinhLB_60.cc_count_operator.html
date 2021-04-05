@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>C_37184296NgaNT_0.cc</a></td>
+    <td>C_37184251HaHT_100.cc</a></td>
+    <td><span style="color: rgb(124, 0, 0)">48.65%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>C_37184296NgaNT_0.cc</th>
+    <th>C_37184251HaHT_100.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: red">1	#include &ltbits/stdc++.h&gt</pre><pre style="color: red">2	using namespace std;</pre><pre style="color: black">3	const int N = 100;</pre><pre style="color: black">4	const int INF = 1000000000;</pre><pre style="color: black">5	long long c[N][N];</pre><pre style="color: black">6	long long cmin=INF;</pre><pre style="color: black">7	int x[N];</pre><pre style="color: black">8	int n;</pre><pre style="color: black">9	int m;</pre><pre style="color: black">10	int cnt=0;</pre><pre style="color: black">11	bool appear[N];</pre><pre style="color: black">12	long long f;</pre><pre style="color: black">13	void input(){</pre><pre style="color: black">14	    cin &gt&gt n &gt&gt m;</pre><pre style="color: black">15	    for(int i = 1; i &lt= n; i++){</pre><pre style="color: black">16	        for(int j = 1; j &lt= n; j++){</pre><pre style="color: black">17	            cin &gt&gt c[i][j];</pre><pre style="color: black">18	            if (i != j && cmin &gt c[i][j])</pre><pre style="color: black">19	                cmin = c[i][j];</pre><pre style="color: red">20	    }</pre><pre >  </pre><pre style="color: red">21	    }</pre><pre >  </pre><pre >  </pre><pre style="color: black">22	}</pre><pre style="color: black">23	void solution(){</pre><pre style="color: black">24	    if(f + c[x[n]][x[1]] &lt= m){</pre><pre style="color: black">25	        cnt++;</pre><pre style="color: black">26	    }</pre><pre style="color: red">27	}</pre><pre style="color: black">28	void TRY(int k){</pre><pre style="color: black">29	    for(int v =1; v &lt= n; v++){</pre><pre style="color: black">30	        if(!appear[v]){</pre><pre style="color: black">31	            x[k] = v;</pre><pre style="color: black">32	            appear[v] = true;</pre><pre style="color: black">33	            f = f + c[x[k-1]][x[k]];</pre><pre style="color: black">34	            if(k == n) solution();</pre><pre style="color: black">35	            else{</pre><pre style="color: black">36	                 if((n  - k) * cmin + f &lt m)</pre><pre style="color: black">37	                    TRY(k+1);</pre><pre style="color: black">38	            }</pre><pre style="color: black">39	            appear[v] = false;</pre><pre style="color: black">40	            f = f - c[x[k-1]][x[k]];</pre><pre style="color: red">41	        }</pre><pre >  </pre><pre style="color: black">42	</pre><pre style="color: red">43	    }</pre><pre style="color: red">44	}</pre><pre style="color: black">45	void solve(){</pre><pre style="color: black">46	    for(int v = 1; v &lt= n; v++) appear[v] = false;</pre><pre style="color: black">47	    f = 0;</pre><pre style="color: black">48	    x[1] = 1;</pre><pre style="color: black">49	    appear[1] = true;</pre><pre style="color: black">50	    TRY(2);</pre><pre style="color: black">51	    cout &lt&lt  cnt &lt&lt endl;</pre><pre style="color: red">52	}</pre><pre style="color: black">53	int main(){</pre><pre style="color: black">54	    input();</pre><pre style="color: black">55	    // cout &lt&lt cmin;</pre><pre style="color: black">56	    solve();</pre><pre style="color: red">57	}</pre></td>
+    <td><pre style="color: red">1	#include &ltbits/stdc++.h&gt</pre><pre style="color: red">2	using namespace std;</pre><pre style="color: black">3	</pre><pre style="color: black">4	const int MAX = 20;</pre><pre style="color: black">5	</pre><pre style="color: black">6	int M, N, noTour = 0, curDistance = 0;</pre><pre style="color: black">7	int a[MAX][MAX];</pre><pre style="color: black">8	bool visited[MAX];</pre><pre style="color: black">9	pair&ltbool, int&gt init = pair&ltbool, int&gt(false, 0);</pre><pre style="color: black">10	</pre><pre style="color: black">11	bool check(int k, int v) {</pre><pre style="color: black">12	    if (k == v) return false;</pre><pre style="color: black">13	    if (visited[v]) return false;</pre><pre style="color: black">14	    return true;</pre><pre style="color: black">15	}</pre><pre style="color: black">16	</pre><pre style="color: black">17	bool done() {</pre><pre style="color: black">18	    for (int i = 1; i &lt= N; i++) {</pre><pre style="color: black">19	        if (!visited[i]) return false;</pre><pre style="color: red">20	    }</pre><pre >21	    return true;</pre><pre style="color: red">22	}</pre><pre >23	</pre><pre >24	void goTour(int k) {</pre><pre style="color: black">25	    for (int v = 1; v &lt= N; v++) {</pre><pre style="color: black">26	        if (check(k, v)) {</pre><pre style="color: black">27	            if (!init.first) {</pre><pre style="color: black">28	                init.first = true;</pre><pre style="color: black">29	                init.second = k;</pre><pre style="color: red">30	            }</pre><pre style="color: black">31	            curDistance += a[k][v];</pre><pre style="color: black">32	            visited[k] = true;</pre><pre style="color: black">33	            visited[v] = true;</pre><pre style="color: black">34	            if (done()) {</pre><pre style="color: black">35	                curDistance += a[v][init.second];</pre><pre style="color: black">36	                if (curDistance &lt= M) {</pre><pre style="color: black">37	                    noTour += 1;</pre><pre style="color: black">38	                }</pre><pre style="color: black">39	                curDistance -= a[v][init.second];</pre><pre style="color: black">40	            } else {</pre><pre style="color: black">41	                if (curDistance &lt M) {</pre><pre style="color: black">42	                    goTour(v);</pre><pre style="color: black">43	                }</pre><pre style="color: red">44	            }</pre><pre >45	            curDistance -= a[k][v];</pre><pre style="color: black">46	            visited[v] = false;</pre><pre style="color: red">47	        }</pre><pre style="color: red">48	    }</pre><pre style="color: black">49	}</pre><pre style="color: black">50	</pre><pre style="color: black">51	int main() {</pre><pre style="color: black">52	    cin &gt&gt N &gt&gt M;</pre><pre style="color: black">53	    for (int i = 1; i &lt= N; i++) {</pre><pre style="color: black">54	        for (int j = 1; j &lt= N; j++) {</pre><pre style="color: black">55	            cin &gt&gt a[i][j];</pre><pre style="color: red">56	        }</pre><pre style="color: black">57	        visited[i] = false;</pre><pre style="color: black">58	    }</pre><pre style="color: black">59	    goTour(1);</pre><pre style="color: black">60	    cout &lt&lt noTour;</pre><pre style="color: red">61	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

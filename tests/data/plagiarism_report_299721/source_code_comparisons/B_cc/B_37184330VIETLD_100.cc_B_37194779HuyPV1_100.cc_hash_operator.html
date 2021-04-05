@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>hash_operator</th>
+    </tr>
+    <tr>
+    <td>B_8858173193KhanhNQ_100.cc</a></td>
+    <td>B_37180007anhlh_80.cc</a></td>
+    <td><span style="color: rgb(93, 0, 0)">36.84%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>B_8858173193KhanhNQ_100.cc</th>
+    <th>B_37180007anhlh_80.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: black">1	#include&ltiostream&gt</pre><pre style="color: black">2	#include&ltbits/stdc++.h&gt</pre><pre style="color: red">3	using namespace std;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">4	const long long N = 1000000007;</pre><pre style="color: black">5	int main(){</pre><pre style="color: black">6	    long long n;</pre><pre style="color: red">7	    cin &gt&gt n;</pre><pre >  </pre><pre style="color: black">8	    long long product = 1;</pre><pre style="color: black">9	    long long a[1000000];</pre><pre style="color: black">10	    for(long long i = 0;i&ltn;i++){</pre><pre style="color: black">11	        cin &gt&gt a[i];</pre><pre style="color: black">12	        product = (product*(a[i]))%N;</pre><pre style="color: red">13	    }</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">14	    cout &lt&lt product%N;</pre><pre style="color: red">15	}</pre></td>
+    <td><pre style="color: black">1	#include &ltbits/stdc++.h&gt</pre><pre style="color: black">2	</pre><pre style="color: red">3	using namespace std;</pre><pre >4	</pre><pre >5	const int MOD=1000000007;</pre><pre >6	const int N=1000001;</pre><pre >7	int a[N];</pre><pre >8	int n;</pre><pre style="color: black">9	long long kq;</pre><pre style="color: black">10	</pre><pre style="color: black">11	void in_solve(){</pre><pre style="color: red">12	    cin &gt&gt n;</pre><pre >13	    kq=1;</pre><pre style="color: black">14	    for (int i=1;i&lt=n;i++){</pre><pre style="color: black">15	        cin &gt&gt a[i];</pre><pre style="color: black">16	        kq= ((kq%MOD) *(a[i]%MOD ))%MOD ;</pre><pre style="color: black">17	    }</pre><pre style="color: black">18	    cout &lt&lt kq%MOD &lt&lt endl;</pre><pre style="color: red">19	}</pre><pre >20	</pre><pre >21	int main(){</pre><pre >22	    in_solve();</pre><pre style="color: black">23	</pre><pre style="color: red">24	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

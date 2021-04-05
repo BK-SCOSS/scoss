@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>C_37184296NgaNT_0.cc</a></td>
+    <td>C_37184251HaHT_100.cc</a></td>
+    <td><span style="color: rgb(141, 0, 0)">55.56%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>C_37184296NgaNT_0.cc</th>
+    <th>C_37184251HaHT_100.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: red">1	#include &ltbits/stdc++.h&gt</pre><pre >2	</pre><pre style="color: red">3	using namespace std;</pre><pre style="color: red">4	</pre><pre style="color: black">5	const int N=1000;</pre><pre style="color: black">6	int n,m,cmin,f,cnt;</pre><pre style="color: black">7	int c[N][N];</pre><pre style="color: black">8	int x[N];</pre><pre style="color: black">9	bool appear[N];</pre><pre style="color: black">10	</pre><pre style="color: black">11	void input(){</pre><pre style="color: black">12	    cin &gt&gt n &gt&gt m;</pre><pre style="color: black">13	    cmin=9999999;</pre><pre style="color: black">14	    for (int i=1;i&lt=n;i++)</pre><pre style="color: black">15	        for (int j=1;j&lt=n;j++){</pre><pre style="color: black">16	            cin &gt&gt c[i][j];</pre><pre style="color: black">17	            if (cmin&gtc[i][j] && i!=j) cmin=c[i][j];</pre><pre style="color: red">18	        }</pre><pre style="color: red">19	}</pre><pre style="color: red">20	</pre><pre style="color: red">21	void solution(){</pre><pre >  </pre><pre >  </pre><pre style="color: black">22	    if (f+c[x[n]][x[1]]&lt=m) cnt++;</pre><pre style="color: red">23	}</pre><pre style="color: red">24	</pre><pre style="color: red">25	void TRY(int k){</pre><pre style="color: black">26	    for(int v =1; v &lt= n; v++){</pre><pre style="color: red">27	        if(!appear[v]){</pre><pre style="color: black">28	            x[k] = v;</pre><pre style="color: red">29	            appear[v] = true;</pre><pre >30	            f = f + c[x[k-1]][x[k]];</pre><pre >31	            if(k == n) solution();</pre><pre >32	            else{</pre><pre >33	                if(f + cmin*(n-k+1) &lt= m)</pre><pre style="color: black">34	                    TRY(k+1);</pre><pre style="color: black">35	            }</pre><pre style="color: red">36	            appear[v] = false;</pre><pre >37	            f = f - c[x[k-1]][x[k]];</pre><pre >38	        }</pre><pre >39	</pre><pre style="color: red">40	    }</pre><pre style="color: red">41	}</pre><pre >42	</pre><pre >43	void solve(){</pre><pre >44	    cnt=0;</pre><pre >45	    for(int v = 1; v &lt= n; v++) appear[v] = false;</pre><pre >46	    f = 0;</pre><pre >47	    x[1] = 1;</pre><pre >48	    appear[1] = true;</pre><pre >49	    TRY(2);</pre><pre >50	    cout &lt&lt  cnt &lt&lt endl;</pre><pre style="color: red">51	}</pre><pre style="color: red">52	</pre><pre style="color: red">53	int main(){</pre><pre style="color: red">54	    input();</pre><pre >  </pre><pre style="color: black">55	    solve();</pre><pre style="color: red">56	}</pre></td>
+    <td><pre style="color: red">1	#include &ltbits/stdc++.h&gt</pre><pre >  </pre><pre style="color: red">2	using namespace std;</pre><pre style="color: red">3	</pre><pre style="color: black">4	int N;</pre><pre style="color: black">5	int M;</pre><pre style="color: black">6	int c[15][15];</pre><pre style="color: black">7	int tour[15]; </pre><pre style="color: black">8	int cnt=0;</pre><pre style="color: black">9	int tourLen;</pre><pre style="color: black">10	bool appear[15];</pre><pre style="color: black">11	</pre><pre style="color: black">12	</pre><pre style="color: black">13	void input() {</pre><pre style="color: black">14	    cin &gt&gt N &gt&gt M;</pre><pre style="color: black">15	    for (int i=0;i&ltN;i++) {</pre><pre style="color: black">16	        for (int j=0;j&ltN;j++) cin &gt&gt c[i][j];</pre><pre style="color: red">17	    }</pre><pre style="color: red">18	}</pre><pre style="color: red">19	</pre><pre style="color: red">20	void solution() {</pre><pre >21	    cnt++;</pre><pre >22	    cout &lt&lt "Solution " &lt&lt cnt &lt&lt ": ";</pre><pre style="color: black">23	    for (int i=1;i&lt=N;i++) cout &lt&lt tour[i] &lt&lt " "; cout &lt&lt endl;</pre><pre style="color: red">24	}</pre><pre style="color: red">25	</pre><pre style="color: red">26	void TRY(int k) {</pre><pre style="color: black">27	    for (int v=1;v&ltN;v++) {</pre><pre style="color: red">28	        if (!appear[v]) {</pre><pre style="color: black">29	            tour[k] = v;</pre><pre style="color: red">30	            appear[v] = true;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">31	            if (k==N) solution();</pre><pre style="color: black">32	            else TRY(k+1);</pre><pre style="color: red">33	            appear[v] = false;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">34	        }</pre><pre style="color: red">35	    }</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">36	}</pre><pre style="color: red">37	</pre><pre style="color: red">38	int main() {</pre><pre style="color: red">39	    input();</pre><pre >40	    TRY(1);</pre><pre style="color: black">41	    return 0;</pre><pre style="color: red">42	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

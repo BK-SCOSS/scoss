@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>hash_operator</th>
+    </tr>
+    <tr>
+    <td>C_37184296NgaNT_0.cc</a></td>
+    <td>C_37184251HaHT_100.cc</a></td>
+    <td><span style="color: rgb(52, 0, 0)">20.78%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>C_37184296NgaNT_0.cc</th>
+    <th>C_37184251HaHT_100.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: red">1	#include &ltbits/stdc++.h&gt</pre><pre >  </pre><pre style="color: black">2	</pre><pre style="color: red">3	using namespace std;</pre><pre >  </pre><pre >  </pre><pre style="color: black">4	#define MAX 1e6</pre><pre style="color: black">5	</pre><pre style="color: black">6	int n, cost[16][16], m;</pre><pre style="color: black">7	int x[16];</pre><pre style="color: black">8	</pre><pre style="color: black">9	long long cmin = 1e7;</pre><pre style="color: black">10	long long f;</pre><pre style="color: black">11	int visit[16];</pre><pre style="color: black">12	</pre><pre style="color: black">13	int countRes = 0;</pre><pre style="color: black">14	</pre><pre style="color: black">15	void input(){</pre><pre style="color: black">16	    cin &gt&gt n &gt&gt m;</pre><pre style="color: black">17	    for(int i = 1; i &lt= n; i++){</pre><pre style="color: black">18	        for(int j = 1; j &lt= n; j++){</pre><pre style="color: black">19	            long long a;</pre><pre style="color: black">20	            cin &gt&gt a;</pre><pre style="color: black">21	            cost[i][j] = a;</pre><pre style="color: black">22	</pre><pre style="color: black">23	        }</pre><pre style="color: red">24	    }</pre><pre style="color: black">25	</pre><pre style="color: red">26	}</pre><pre >  </pre><pre style="color: black">27	</pre><pre style="color: black">28	int TRY(int k){</pre><pre style="color: black">29	    for(int i = 1; i &lt= n; i++){</pre><pre style="color: black">30	        if(!visit[i]){</pre><pre style="color: black">31	            x[k] = i;</pre><pre style="color: black">32	            visit[i] = 1;</pre><pre style="color: black">33	            f += cost[x[k-1]][x[k]];</pre><pre style="color: black">34	            if(k==n){</pre><pre style="color: black">35	                if(f + cost[x[n]][x[1]] &lt m) {</pre><pre style="color: black">36	                    countRes++;</pre><pre style="color: black">37	                }</pre><pre style="color: black">38	            }</pre><pre style="color: black">39	            else{</pre><pre style="color: black">40	                TRY(k+1);</pre><pre style="color: red">41	            }</pre><pre style="color: black">42	            visit[i]= 0;</pre><pre style="color: black">43	            f -= cost[x[k-1]][x[k]];</pre><pre style="color: red">44	        }</pre><pre style="color: red">45	    }</pre><pre style="color: red">46	}</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">47	</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">48	void solve(){</pre><pre style="color: black">49	    for(int i = 1; i &lt= n; i++){</pre><pre style="color: black">50	        visit[i] = 0;</pre><pre style="color: red">51	    }</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">52	    f = 0;</pre><pre style="color: black">53	    x[1] = 1;</pre><pre style="color: black">54	    visit[1] = 1;</pre><pre style="color: black">55	    TRY(2);</pre><pre style="color: black">56	    cout &lt&lt countRes;</pre><pre style="color: black">57	}</pre><pre style="color: black">58	</pre><pre style="color: black">59	int main(){</pre><pre style="color: black">60	    input();</pre><pre style="color: black">61	   </pre><pre style="color: black">62	    solve();</pre><pre style="color: black">63	    return 0;</pre><pre style="color: red">64	}</pre></td>
+    <td><pre style="color: red">1	#include &ltbits/stdc++.h&gt</pre><pre >2	#define N 20</pre><pre style="color: black">3	int n, m;</pre><pre style="color: red">4	using namespace std;</pre><pre >5	int arr[N][N];</pre><pre >6	bool appear[N];</pre><pre style="color: black">7	int cmin = 1000000;</pre><pre style="color: black">8	int ftemp = 0;</pre><pre style="color: black">9	int cnt = 0;</pre><pre style="color: black">10	int Log[N];</pre><pre style="color: black">11	bool check(int k, int i)</pre><pre style="color: black">12	{</pre><pre style="color: black">13	    return !appear[i];</pre><pre style="color: black">14	}</pre><pre style="color: black">15	void solution()</pre><pre style="color: black">16	{</pre><pre style="color: black">17	    ftemp += arr[Log[n - 1]][0];</pre><pre style="color: black">18	    if(ftemp &lt= m)</pre><pre style="color: black">19	    {</pre><pre style="color: black">20	        cnt += 1;</pre><pre style="color: black">21	        // cout &lt&lt ftemp &lt&lt endl;</pre><pre style="color: black">22	        // for(int i = 0; i &lt n; i++)</pre><pre style="color: black">23	        // {</pre><pre style="color: black">24	        //     cout &lt&lt Log[i] &lt&lt " ";</pre><pre style="color: black">25	        // }</pre><pre style="color: black">26	        // cout &lt&lt endl;</pre><pre style="color: red">27	    }</pre><pre style="color: black">28	    ftemp -= arr[Log[n - 1]][0];   </pre><pre style="color: red">29	}</pre><pre >30	void solve(int k)</pre><pre style="color: black">31	{</pre><pre style="color: black">32	    for(int i = 1; i &lt n; i++)</pre><pre style="color: black">33	    {   </pre><pre style="color: black">34	        if(check(k, i))</pre><pre style="color: black">35	        {</pre><pre style="color: black">36	            Log[k] = i;</pre><pre style="color: black">37	            ftemp += arr[Log[k - 1]][i];</pre><pre style="color: black">38	            appear[i] = true;</pre><pre style="color: black">39	            if(k == n - 1)</pre><pre style="color: black">40	                solution();</pre><pre style="color: black">41	            else</pre><pre style="color: black">42	            {</pre><pre style="color: black">43	                if(ftemp + (n - k) &lt= m)</pre><pre style="color: black">44	                    solve(k + 1);</pre><pre style="color: red">45	            }</pre><pre style="color: black">46	            ftemp -= arr[Log[k - 1]][i];</pre><pre style="color: black">47	            appear[i] = false;</pre><pre style="color: red">48	        }</pre><pre style="color: red">49	    }   </pre><pre style="color: red">50	}</pre><pre >51	int main()</pre><pre >52	{</pre><pre >53	    cin &gt&gt n &gt&gt m;</pre><pre style="color: red">54	    </pre><pre >55	    for(int i = 0; i &lt n; i++)</pre><pre >56	    {</pre><pre >57	        for(int j = 0; j &lt n; j++)</pre><pre >58	        {</pre><pre >59	            cin &gt&gt arr[i][j];</pre><pre >60	            if(i != j && cmin &gt arr[i][i])</pre><pre >61	                cmin = arr[i][j];</pre><pre >62	        }</pre><pre >63	    }</pre><pre style="color: black">64	    for(int i = 0; i &lt n; i++)</pre><pre style="color: black">65	    {</pre><pre style="color: black">66	        appear[i] = false;</pre><pre style="color: red">67	    }</pre><pre >68	    appear[0] = true;</pre><pre >69	    solve(1);</pre><pre >70	    // vector&ltint&gt per(n);</pre><pre >71	    // for(int i = 0; i &lt n; i++)</pre><pre >72	    //     per[i] = i; </pre><pre >73	    // int cnt = 0;</pre><pre >74	    // while(next_permutation(per.begin() + 1, per.end()))</pre><pre >75	    // {</pre><pre >76	    //     int sum = 0;</pre><pre >77	    //     int k = 0;</pre><pre >78	    //     int i = 0;</pre><pre style="color: black">79	    //     for(i = 0; i &lt n; i++)</pre><pre style="color: black">80	    //     {</pre><pre style="color: black">81	    //         sum += arr[k][per[i]];</pre><pre style="color: black">82	    //         if(sum + (n - i + 1)*cmin &gt= m)</pre><pre style="color: black">83	    //             break;</pre><pre style="color: black">84	    //         k = per[i];</pre><pre style="color: black">85	    //     }</pre><pre style="color: black">86	    //     sum += arr[per[n - 1]][0];</pre><pre style="color: black">87	    //     if(sum &lt= m)</pre><pre style="color: black">88	    //         cnt++;</pre><pre style="color: black">89	    // }</pre><pre style="color: black">90	    cout &lt&lt cnt &lt&lt endl;</pre><pre style="color: red">91	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>hash_operator</th>
+    </tr>
+    <tr>
+    <td>A_371947999MinhNM_100.cc</a></td>
+    <td>A_37184284lanch_100.cc</a></td>
+    <td><span style="color: rgb(87, 0, 0)">34.23%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>A_371947999MinhNM_100.cc</th>
+    <th>A_37184284lanch_100.cc</th> 
+</tr>
+<tr>
+    <td><pre >1	#include &ltiostream&gt</pre><pre style="color: red">2	</pre><pre style="color: black">3	</pre><pre style="color: red">4	using namespace std;</pre><pre >5	</pre><pre style="color: black">6	</pre><pre style="color: red">7	</pre><pre style="color: red">8	int main()</pre><pre style="color: red">9	{</pre><pre >  </pre><pre >  </pre><pre style="color: black">10	    int N,M,a[100007],countt=0;</pre><pre style="color: black">11	     cin &gt&gt N &gt&gt M;</pre><pre style="color: black">12	     for (int i=0;i&ltN;i++){</pre><pre style="color: black">13	        cin &gt&gt a[i];</pre><pre style="color: red">14	     }</pre><pre >  </pre><pre style="color: black">15	      for (int i=0;i&ltN;i++){</pre><pre style="color: black">16	            int k = (i+1),weight = 0;</pre><pre style="color: black">17	        for (int j = i;j&ltk;j++){</pre><pre style="color: black">18	        </pre><pre style="color: black">19	            if (weight+a[j]&lt=M){</pre><pre style="color: black">20	                weight+=a[j];</pre><pre style="color: black">21	                countt++;</pre><pre style="color: black">22	                 k++;</pre><pre style="color: red">23	            }</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">24	            if (j==N-1) break;</pre><pre style="color: black">25	        }</pre><pre style="color: black">26	     }</pre><pre style="color: black">27	     cout&lt&ltcountt;</pre><pre style="color: black">28	</pre><pre style="color: black">29	</pre><pre style="color: black">30	    return 0;</pre><pre style="color: red">31	}</pre></td>
+    <td><pre >  </pre><pre style="color: red">1	</pre><pre style="color: black">2	#include &ltbits/stdc++.h&gt</pre><pre style="color: red">3	using namespace std;</pre><pre >  </pre><pre style="color: black">4	#define N 1000000</pre><pre style="color: red">5	 </pre><pre style="color: red">6	int main()</pre><pre style="color: red">7	{</pre><pre >8	    int n, m;</pre><pre >9	    cin &gt&gt n &gt&gt m;</pre><pre style="color: black">10	    int arr[100000];</pre><pre style="color: black">11	    for(int i = 0; i &lt n; i++)</pre><pre style="color: black">12	    {</pre><pre style="color: black">13	        cin &gt&gt arr[i];</pre><pre style="color: red">14	    }</pre><pre >15	    int cnt = 0;</pre><pre style="color: black">16	    for(int i = 0; i &lt n; i++)</pre><pre style="color: black">17	    {</pre><pre style="color: black">18	        int temp = arr[i];</pre><pre style="color: black">19	        if(temp &lt= m)</pre><pre style="color: black">20	            cnt += 1;</pre><pre style="color: black">21	        else</pre><pre style="color: black">22	        {</pre><pre style="color: black">23	            continue;</pre><pre style="color: red">24	        }</pre><pre >25	        int j = i + 1;</pre><pre >26	        while(j &lt n && temp &lt= m)</pre><pre >27	        {</pre><pre style="color: black">28	            temp += arr[j];</pre><pre style="color: black">29	            if(temp &lt= m)</pre><pre style="color: black">30	                cnt += 1;</pre><pre style="color: black">31	            j++;</pre><pre style="color: black">32	        }</pre><pre style="color: black">33	    }</pre><pre style="color: black">34	    cout &lt&lt cnt &lt&lt endl;</pre><pre style="color: red">35	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>B_8858173193KhanhNQ_100.cc</a></td>
+    <td>B_37180007anhlh_80.cc</a></td>
+    <td><span style="color: rgb(144, 0, 0)">56.67%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>B_8858173193KhanhNQ_100.cc</th>
+    <th>B_37180007anhlh_80.cc</th> 
+</tr>
+<tr>
+    <td><pre >1	#include &ltiostream&gt</pre><pre style="color: red">2	#include &ltbits/stdc++.h&gt</pre><pre style="color: black">3	#define M 1000000007;</pre><pre style="color: red">4	using namespace std;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">5	int main(){</pre><pre style="color: black">6	    int n;</pre><pre style="color: red">7	    cin &gt&gt n;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">8	    long long *A;</pre><pre style="color: black">9	    unsigned long long product = 1; </pre><pre style="color: black">10	    A = (long long*)malloc(sizeof(long long)*(n));</pre><pre style="color: black">11	    for(int i=0;i&ltn;i++){</pre><pre style="color: black">12	        cin &gt&gt A[i];</pre><pre style="color: black">13	        product *= A[i]%M;</pre><pre style="color: black">14	        product %=M;</pre><pre style="color: red">15	    }</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">16	    cout &lt&lt product;</pre><pre style="color: red">17	}</pre></td>
+    <td><pre >  </pre><pre style="color: red">1	#include&ltbits/stdc++.h&gt</pre><pre style="color: black">2	</pre><pre style="color: red">3	using namespace std ;</pre><pre >4	</pre><pre >5	#define MAX 1000001</pre><pre >6	#define MOD 1000000007</pre><pre >7	int n , a[MAX];</pre><pre >8	unsigned long long res=1 ;</pre><pre >9	</pre><pre >10	void input()</pre><pre style="color: black">11	{</pre><pre style="color: black">12	    int temp ;</pre><pre style="color: red">13	    cin &gt&gt n ;</pre><pre >14	    for( int i=0 ; i&ltn ; i++ )</pre><pre >15	    {</pre><pre >16	        cin &gt&gt temp ;</pre><pre style="color: black">17	        res = ((res%MOD) * (temp%MOD) )%MOD ;</pre><pre style="color: black">18	    }</pre><pre style="color: black">19	}</pre><pre style="color: black">20	</pre><pre style="color: black">21	void solve()</pre><pre style="color: black">22	{</pre><pre style="color: black">23	    cout &lt&lt res%MOD &lt&lt endl ;</pre><pre style="color: red">24	}</pre><pre >25	</pre><pre >26	int main()</pre><pre >27	{</pre><pre >28	    input() ;</pre><pre style="color: black">29	    solve() ;</pre><pre style="color: red">30	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

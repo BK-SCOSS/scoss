@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>C_37184296NgaNT_0.cc</a></td>
+    <td>C_37184251HaHT_100.cc</a></td>
+    <td><span style="color: rgb(142, 0, 0)">55.81%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>C_37184296NgaNT_0.cc</th>
+    <th>C_37184251HaHT_100.cc</th> 
+</tr>
+<tr>
+    <td><pre >1	#include &ltiostream&gt</pre><pre >2	</pre><pre >3	using namespace std;</pre><pre >4	int n;</pre><pre >5	int a[15][15];</pre><pre >6	int m,count=0;</pre><pre >7	int Bool[16] = { 0 };//Đánh dấu chưa có phần tử nào sử dụng hết</pre><pre >8	unsigned int A[16];//Lưu hoán vị vào mảng A</pre><pre >9	int dem=0, soHoanvi;</pre><pre >10	</pre><pre >11	int giaiThua(int n)</pre><pre >12	{</pre><pre >13	    if (n == 1)</pre><pre >14	        return 1;</pre><pre >15	    return n * giaiThua(n - 1);</pre><pre >16	}</pre><pre style="color: black">17	         unsigned int sum= 0;</pre><pre style="color: black">18	 </pre><pre style="color: black">19	    </pre><pre style="color: black">20	    void xuat() {</pre><pre style="color: black">21	     </pre><pre style="color: black">22	        sum = 0;</pre><pre style="color: red">23	        </pre><pre style="color: black">24	    for (int i = 1; i &lt= n; i++){</pre><pre style="color: red">25	        </pre><pre >26	        if (i&ltn){</pre><pre style="color: black">27	              sum+=a[A[i]-1][A[i+1]-1];</pre><pre style="color: red">28	              </pre><pre >29	        }</pre><pre >30	        else {</pre><pre style="color: black">31	                          sum+=a[A[n]-1][0];</pre><pre style="color: red">32	 </pre><pre style="color: black">33	 </pre><pre style="color: black">34	        }</pre><pre style="color: black">35	 </pre><pre style="color: black">36	    </pre><pre style="color: black">37	    }</pre><pre style="color: black">38	    if (sum&lt=m){</pre><pre style="color: black">39	        count++;</pre><pre style="color: black">40	    }</pre><pre style="color: black">41	    </pre><pre style="color: red">42	}</pre><pre style="color: black">43	 </pre><pre style="color: black">44	 </pre><pre style="color: black">45	void Try(int k) {</pre><pre style="color: red">46	    //cout&lt&ltdem&lt&ltendl;</pre><pre >47	   </pre><pre >48	    for (int i = 1; i &lt= n; i++) {</pre><pre style="color: red">49	        //Kiểm tra nếu phần tử chưa được chọn thì sẽ đánh dấu</pre><pre >50	         if (dem &lt= soHoanvi)</pre><pre >51	        if (!Bool[i]) {</pre><pre >52	            </pre><pre style="color: black">53	            A[k] = i; // Lưu một phần tử vào hoán vị</pre><pre style="color: black">54	          </pre><pre style="color: black">55	            Bool[i] = 1;//Đánh dấu đã dùng</pre><pre style="color: black">56	            if (k == n)//Kiểm tra nếu đã chứa một hoán vị thì xuất</pre><pre style="color: black">57	            {</pre><pre style="color: black">58	                 if (dem &lt= soHoanvi){</pre><pre style="color: black">59	                xuat();</pre><pre style="color: black">60	                dem++;</pre><pre style="color: red">61	                 }</pre><pre style="color: red">62	            }</pre><pre >63	            else{</pre><pre style="color: black">64	                if (dem &lt= soHoanvi)</pre><pre style="color: black">65	                                Try(k + 1);</pre><pre style="color: black">66	</pre><pre style="color: black">67	            }</pre><pre style="color: black">68	            Bool[i] = 0;</pre><pre style="color: red">69	        }</pre><pre style="color: red">70	    }</pre><pre style="color: red">71	}</pre><pre style="color: black">72	int main()</pre><pre style="color: black">73	{</pre><pre style="color: black">74	    A[1] = -1;</pre><pre style="color: red">75	   cin &gt&gt n &gt&gt m;</pre><pre style="color: black">76	       soHoanvi = giaiThua(n)/n;</pre><pre style="color: black">77	</pre><pre style="color: black">78	   for (int i=0;i&ltn;i++){</pre><pre style="color: black">79	       for (int j=0;j&ltn;j++){</pre><pre style="color: black">80	        cin&gt&gta[i][j];</pre><pre style="color: red">81	       }</pre><pre >82	           // cout &lt&lt endl;</pre><pre >83	   </pre><pre style="color: red">84	  }</pre><pre >85	   Try(1);</pre><pre >86	   std::cout &lt&lt count &lt&lt std::endl;</pre><pre >87	    </pre><pre style="color: black">88	    </pre><pre style="color: black">89	    </pre><pre style="color: black">90	    </pre><pre style="color: black">91	    </pre><pre style="color: red">92	}</pre></td>
+    <td><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">1	//</pre><pre style="color: black">2	//  main.cpp</pre><pre style="color: black">3	//  Midterm_TSPCOUNT</pre><pre style="color: black">4	//</pre><pre style="color: black">5	//  Created by Nguyễn Trường on 10/23/20.</pre><pre style="color: black">6	//</pre><pre style="color: red">7	</pre><pre style="color: black">8	#include &ltiostream&gt</pre><pre style="color: red">9	</pre><pre >  </pre><pre style="color: black">10	using namespace std;</pre><pre style="color: red">11	</pre><pre >  </pre><pre >  </pre><pre style="color: black">12	int n, m, c[20][20], tt[20], mark[20], ans = 0, kc = 0, cmin = 999999999;</pre><pre style="color: red">13	</pre><pre style="color: black">14	void tryy(int i){</pre><pre style="color: black">15	    for (int v=2; v&lt=n; v++) {</pre><pre style="color: black">16	        if (!mark[v]) {</pre><pre style="color: black">17	            tt[i] = v;</pre><pre style="color: black">18	            mark[v] = 1;</pre><pre style="color: black">19	            if (i==1) {</pre><pre style="color: black">20	                kc += c[1][v];</pre><pre style="color: black">21	            } else {</pre><pre style="color: black">22	                kc += c[tt[i-1]][v];</pre><pre style="color: red">23	            }</pre><pre style="color: black">24	            if (i==n-1) {</pre><pre style="color: black">25	                if (kc + c[v][1] &lt= m) {</pre><pre style="color: black">26	                    ans++;</pre><pre style="color: red">27	//                    for (int j=1; j&lt=n-1; j++){</pre><pre >  </pre><pre >  </pre><pre style="color: red">28	//                        cout &lt&lt tt[j] &lt&lt " ";</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">29	//                    }</pre><pre style="color: black">30	//                    cout &lt&lt c[v][1] &lt&lt " ";</pre><pre style="color: black">31	//                    cout &lt&lt ":" &lt&lt kc+c[v][1];</pre><pre style="color: black">32	//                    cout &lt&lt endl;</pre><pre style="color: black">33	                }</pre><pre style="color: black">34	            } else {</pre><pre style="color: black">35	                if (kc + cmin*(n-i) &lt= m) {</pre><pre style="color: black">36	                    tryy(i+1);</pre><pre style="color: red">37	                }</pre><pre style="color: red">38	            }</pre><pre >  </pre><pre style="color: black">39	            mark[v] = 0;</pre><pre style="color: black">40	            if (i==1) {</pre><pre style="color: black">41	                kc -= c[1][v];</pre><pre style="color: black">42	            } else {</pre><pre style="color: black">43	                kc -= c[tt[i-1]][v];</pre><pre style="color: red">44	            }</pre><pre style="color: red">45	        }</pre><pre style="color: red">46	    }</pre><pre style="color: black">47	}</pre><pre style="color: black">48	</pre><pre style="color: black">49	int main(int argc, const char * argv[]) {</pre><pre style="color: red">50	    cin &gt&gt n &gt&gt m;</pre><pre style="color: black">51	    for (int i=1; i&lt=n; i++) {</pre><pre style="color: black">52	        for (int j=1; j&lt=n; j++) {</pre><pre style="color: black">53	            cin &gt&gt c[i][j];</pre><pre style="color: black">54	            if (i!=j) {</pre><pre style="color: black">55	                cmin = cmin &lt c[i][j] ? cmin : c[i][j];</pre><pre style="color: red">56	            }</pre><pre >  </pre><pre >  </pre><pre style="color: red">57	        }</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">58	    }</pre><pre style="color: black">59	    tryy(1);</pre><pre style="color: black">60	    cout &lt&lt ans;</pre><pre style="color: black">61	    return 0;</pre><pre style="color: red">62	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

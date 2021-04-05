@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>B_8858173193KhanhNQ_100.cc</a></td>
+    <td>B_37180007anhlh_80.cc</a></td>
+    <td><span style="color: rgb(157, 0, 0)">61.76%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>B_8858173193KhanhNQ_100.cc</th>
+    <th>B_37180007anhlh_80.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: red">1	#include &ltbits/stdc++.h&gt</pre><pre style="color: red">2	using namespace std;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">3	</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">4	unsigned long long p = 1000000007;</pre><pre style="color: red">5	</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">6	int main() {</pre><pre style="color: black">7	    int n,a[1000001];</pre><pre style="color: black">8	    cin &gt&gtn;</pre><pre style="color: black">9	    for (int i=1;i&lt=n;i++)cin &gt&gta[i];</pre><pre style="color: black">10	    int tmp=a[1];</pre><pre style="color: black">11	    for (int i=2;i&lt=n;i++){</pre><pre style="color: black">12	        tmp=((unsigned long long)(tmp)*a[i])%p;</pre><pre style="color: red">13	        </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">14	    }</pre><pre >  </pre><pre style="color: black">15	    cout &lt&lt tmp;</pre><pre style="color: red">16	    return 0;</pre><pre style="color: red">17	}</pre></td>
+    <td><pre style="color: red">1	#include &ltbits/stdc++.h&gt</pre><pre style="color: red">2	using namespace std;</pre><pre >3	</pre><pre >4	int const MOD = 1000000007;</pre><pre >5	int N;</pre><pre >6	unsigned long long s[1000000];</pre><pre >7	unsigned long long product = 1;</pre><pre style="color: red">8	</pre><pre >9	void input() {</pre><pre >10	    cin &gt&gt N;</pre><pre >11	    for (int i=0;i&ltN;i++) cin &gt&gt s[i];</pre><pre style="color: black">12	}</pre><pre style="color: red">13	</pre><pre >14	unsigned long long prodMod(unsigned long long a,unsigned long long b) {</pre><pre >15	    unsigned long long res = 0;</pre><pre >16	    a %= MOD;</pre><pre style="color: black">17	    while (b) {</pre><pre style="color: black">18	        if (b & 1) res = (res+a) % MOD;</pre><pre style="color: black">19	        a = (2*a) % MOD;</pre><pre style="color: black">20	        b &gt&gt=1;</pre><pre style="color: black">21	    }</pre><pre style="color: black">22	    return res;</pre><pre style="color: black">23	}</pre><pre style="color: red">24	</pre><pre >25	int main() {</pre><pre >26	    input();</pre><pre >27	    product *= prodMod(s[0],s[1]);</pre><pre >28	    for (int j=2;j&ltN;j++) {</pre><pre >29	        product = prodMod(product,s[j]);</pre><pre style="color: red">30	    }</pre><pre >31	    product %= MOD;</pre><pre style="color: black">32	    cout &lt&lt product;</pre><pre style="color: red">33	    return 0;</pre><pre style="color: red">34	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

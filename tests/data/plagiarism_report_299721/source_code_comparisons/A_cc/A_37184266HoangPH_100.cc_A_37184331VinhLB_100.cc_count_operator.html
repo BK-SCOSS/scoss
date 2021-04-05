@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>A_371947999MinhNM_100.cc</a></td>
+    <td>A_37184284lanch_100.cc</a></td>
+    <td><span style="color: rgb(135, 0, 0)">52.94%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>A_371947999MinhNM_100.cc</th>
+    <th>A_37184284lanch_100.cc</th> 
+</tr>
+<tr>
+    <td><pre >1	#include &ltiostream&gt</pre><pre style="color: black">2	#include &ltvector&gt</pre><pre style="color: red">3	using namespace std;</pre><pre >4	</pre><pre >5	int n,m;</pre><pre >6	</pre><pre >7	int ans = 0;</pre><pre style="color: red">8	</pre><pre >9	int main()</pre><pre >10	{</pre><pre >11	    cin &gt&gt n &gt&gt m;</pre><pre >12	    int a[n];</pre><pre >13	    for (int i = 0; i &ltn ;i++)</pre><pre style="color: black">14	    {</pre><pre style="color: black">15	        cin &gt&gt a[i];</pre><pre style="color: black">16	    }</pre><pre style="color: black">17	    vector &ltint&gt b[n];</pre><pre style="color: red">18	</pre><pre >19	    for (int i = 0; i &lt n ; i++)</pre><pre >20	    {</pre><pre >21	        if (a[i] &lt= m )</pre><pre >22	        {</pre><pre >23	            b[i].push_back(a[i]);</pre><pre style="color: black">24	        }</pre><pre style="color: black">25	    }</pre><pre style="color: black">26	    int j = 1;</pre><pre style="color: black">27	     for (int i = 1; i&ltn ; i++)</pre><pre style="color: black">28	    {</pre><pre style="color: black">29	        for (int v = j-1 ; v &gt= 0 ; v--)</pre><pre style="color: black">30	        {</pre><pre style="color: black">31	            int M = b[i][b[i].size()-1] + a[v];</pre><pre style="color: black">32	            if (M &lt= m)</pre><pre style="color: black">33	            {</pre><pre style="color: black">34	                b[i].push_back(M);</pre><pre style="color: black">35	            }else</pre><pre style="color: black">36	            {</pre><pre style="color: black">37	                break;</pre><pre style="color: red">38	            }</pre><pre style="color: red">39	        }</pre><pre >40	        j++;</pre><pre style="color: red">41	    }</pre><pre style="color: black">42	    for (int i = 0 ; i&lt n ;i++ )</pre><pre style="color: black">43	    {</pre><pre style="color: black">44	        ans += b[i].size();</pre><pre style="color: black">45	    }</pre><pre style="color: black">46	    cout&lt&ltans;</pre><pre style="color: black">47	</pre><pre style="color: black">48	</pre><pre style="color: black">49	</pre><pre style="color: red">50	}</pre></td>
+    <td><pre >  </pre><pre style="color: black">1	#include &ltbits/stdc++.h&gt</pre><pre style="color: red">2	using namespace std;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">3	</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">4	const int MAX = 100000;</pre><pre style="color: black">5	int N, M;</pre><pre style="color: black">6	int a[MAX];</pre><pre style="color: black">7	int noSeq = 0;</pre><pre style="color: red">8	</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">9	void subSeq(int k, int v) {</pre><pre style="color: black">10	    if (k &gt N) return;</pre><pre style="color: black">11	    if (v &gt N) {</pre><pre style="color: black">12	        subSeq(k + 1, k + 1);</pre><pre style="color: black">13	    } else {</pre><pre style="color: black">14	        int curSum = 0;</pre><pre style="color: black">15	        for (int i = k; i &lt= v; i++) {</pre><pre style="color: black">16	            curSum += a[i];</pre><pre style="color: black">17	        }</pre><pre style="color: black">18	        if (curSum &lt= M) {</pre><pre style="color: black">19	            noSeq += 1;</pre><pre style="color: black">20	            subSeq(k, v + 1);</pre><pre style="color: black">21	        } else {</pre><pre style="color: black">22	            subSeq(k + 1, k + 1);</pre><pre style="color: red">23	        }</pre><pre style="color: red">24	    }</pre><pre >  </pre><pre style="color: red">25	}</pre><pre style="color: black">26	</pre><pre style="color: black">27	int main() {</pre><pre style="color: black">28	    cin &gt&gt N &gt&gt M;</pre><pre style="color: black">29	    for (int i = 1; i &lt= N; i++) {</pre><pre style="color: black">30	        cin &gt&gt a[i];</pre><pre style="color: black">31	    }</pre><pre style="color: black">32	    subSeq(1, 1);</pre><pre style="color: black">33	    cout &lt&lt noSeq;</pre><pre style="color: red">34	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

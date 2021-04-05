@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>A_371947999MinhNM_100.cc</a></td>
+    <td>A_37184284lanch_100.cc</a></td>
+    <td><span style="color: rgb(156, 0, 0)">61.29%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>A_371947999MinhNM_100.cc</th>
+    <th>A_37184284lanch_100.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: red">1	#include &ltbits/stdc++.h&gt</pre><pre style="color: red">2	using namespace std;</pre><pre >3	</pre><pre >4	const int MAXN = 1e5+1;</pre><pre >5	int a[MAXN];</pre><pre >6	</pre><pre style="color: red">7	int main() {</pre><pre >8		//freopen("1.inp", "r", stdin);</pre><pre >9	</pre><pre style="color: black">10		int n, m;</pre><pre style="color: red">11		cin &gt&gt n &gt&gt m;</pre><pre style="color: black">12		int sum0 = 0, i0 = -1; </pre><pre style="color: black">13		int sum = 0;</pre><pre style="color: black">14		long long ans = 0;</pre><pre style="color: black">15		for(int i = 0; i &lt n; i++) {</pre><pre style="color: black">16			cin &gt&gt a[i];</pre><pre style="color: black">17			sum += a[i];</pre><pre style="color: black">18			while(sum - sum0 &gt m) {</pre><pre style="color: black">19				i0++;</pre><pre style="color: black">20				sum0 += a[i0];</pre><pre style="color: black">21			}</pre><pre style="color: black">22			ans += (1ll*i-i0);</pre><pre style="color: red">23		}</pre><pre style="color: black">24		cout &lt&lt ans &lt&lt endl;</pre><pre style="color: black">25		return 0;</pre><pre style="color: red">26	}</pre></td>
+    <td><pre style="color: red">1	#include&ltbits/stdc++.h&gt</pre><pre style="color: red">2	using namespace std;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">3	int main(){</pre><pre >  </pre><pre >  </pre><pre style="color: black">4		int n,m,s=0,cnt=0;</pre><pre style="color: red">5		cin &gt&gtn&gt&gtm;</pre><pre style="color: black">6		int arr[n];</pre><pre style="color: black">7		for(int i=0;i&ltn;i++){</pre><pre style="color: black">8			cin &gt&gtarr[i];</pre><pre style="color: black">9		}</pre><pre style="color: black">10		for(int i=0;i&ltn;i++){</pre><pre style="color: black">11	        s=arr[i];</pre><pre style="color: black">12	        if(s&lt=m) cnt++;</pre><pre style="color: black">13	        for(int j=i+1;j&ltn;j++){</pre><pre style="color: black">14	            s+=arr[j];</pre><pre style="color: black">15	            if(s&lt=m) cnt++;</pre><pre style="color: black">16	            else break;</pre><pre style="color: red">17	        }</pre><pre style="color: black">18	    }</pre><pre style="color: black">19	    cout &lt&ltcnt;</pre><pre style="color: red">20	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

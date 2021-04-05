@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>C_37184296NgaNT_0.cc</a></td>
+    <td>C_37184251HaHT_100.cc</a></td>
+    <td><span style="color: rgb(120, 0, 0)">47.22%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>C_37184296NgaNT_0.cc</th>
+    <th>C_37184251HaHT_100.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: red">1	#include &ltiostream&gt</pre><pre style="color: black">2	</pre><pre style="color: red">3	using namespace std;</pre><pre style="color: black">4	int n;</pre><pre style="color: black">5	int a[15][15];</pre><pre style="color: black">6	int m,count=0;</pre><pre style="color: black">7	int Bool[16] = { 0 };//Đánh dấu chưa có phần tử nào sử dụng hết</pre><pre style="color: black">8	unsigned int A[16];//Lưu hoán vị vào mảng A</pre><pre style="color: black">9	int dem=0, soHoanvi;</pre><pre style="color: black">10	</pre><pre style="color: black">11	int giaiThua(int n)</pre><pre style="color: red">12	{</pre><pre >13	    if (n == 1)</pre><pre style="color: black">14	        return 1;</pre><pre style="color: black">15	    return n * giaiThua(n - 1);</pre><pre style="color: red">16	}</pre><pre style="color: black">17	         unsigned int sum= 0;</pre><pre style="color: black">18	 </pre><pre style="color: black">19	    </pre><pre style="color: black">20	    void xuat() {</pre><pre style="color: black">21	     </pre><pre style="color: black">22	        sum = 0;</pre><pre style="color: black">23	        </pre><pre style="color: black">24	    for (int i = 1; i &lt= n; i++){</pre><pre style="color: black">25	        </pre><pre style="color: black">26	        if (i&ltn){</pre><pre style="color: black">27	              sum+=a[A[i]-1][A[i+1]-1];</pre><pre style="color: black">28	              </pre><pre style="color: red">29	        }</pre><pre >30	        else {</pre><pre >31	                          sum+=a[A[n]-1][0];</pre><pre >32	 </pre><pre >33	 </pre><pre style="color: black">34	        }</pre><pre style="color: red">35	 </pre><pre style="color: black">36	    </pre><pre style="color: black">37	    }</pre><pre style="color: black">38	    if (sum&lt=m){</pre><pre style="color: red">39	        count++;</pre><pre style="color: red">40	    }</pre><pre >41	    </pre><pre style="color: red">42	}</pre><pre >43	 </pre><pre >44	 </pre><pre >45	void Try(int k) {</pre><pre >46	    //cout&lt&ltdem&lt&ltendl;</pre><pre >47	   </pre><pre style="color: black">48	    for (int i = 1; i &lt= n; i++) {</pre><pre style="color: black">49	        //Kiểm tra nếu phần tử chưa được chọn thì sẽ đánh dấu</pre><pre style="color: black">50	         if (dem &lt= soHoanvi)</pre><pre style="color: black">51	        if (!Bool[i]) {</pre><pre style="color: red">52	            </pre><pre >53	            A[k] = i; // Lưu một phần tử vào hoán vị</pre><pre style="color: red">54	          </pre><pre >55	            Bool[i] = 1;//Đánh dấu đã dùng</pre><pre >56	            if (k == n)//Kiểm tra nếu đã chứa một hoán vị thì xuất</pre><pre >57	            {</pre><pre >58	                 if (dem &lt= soHoanvi){</pre><pre >59	                xuat();</pre><pre >60	                dem++;</pre><pre style="color: black">61	                 }</pre><pre style="color: black">62	            }</pre><pre style="color: black">63	            else{</pre><pre style="color: black">64	                if (dem &lt= soHoanvi)</pre><pre style="color: black">65	                                Try(k + 1);</pre><pre style="color: red">66	</pre><pre >67	            }</pre><pre >68	            Bool[i] = 0;</pre><pre >69	        }</pre><pre >70	    }</pre><pre >71	}</pre><pre style="color: black">72	int main()</pre><pre style="color: red">73	{</pre><pre >74	    A[1] = -1;</pre><pre >75	   cin &gt&gt n &gt&gt m;</pre><pre >76	       soHoanvi = giaiThua(n)/n;</pre><pre >77	</pre><pre style="color: black">78	   for (int i=0;i&ltn;i++){</pre><pre style="color: black">79	       for (int j=0;j&ltn;j++){</pre><pre style="color: black">80	        cin&gt&gta[i][j];</pre><pre style="color: red">81	       }</pre><pre >82	           // cout &lt&lt endl;</pre><pre >83	   </pre><pre style="color: red">84	  }</pre><pre >85	   Try(1);</pre><pre >86	   std::cout &lt&lt count &lt&lt std::endl;</pre><pre >87	    </pre><pre >88	    </pre><pre style="color: black">89	    </pre><pre style="color: black">90	    </pre><pre style="color: red">91	    </pre><pre style="color: red">92	}</pre></td>
+    <td><pre style="color: red">1	#include &ltiostream&gt</pre><pre style="color: black">2	#include &ltbits/stdc++.h&gt</pre><pre style="color: red">3	using namespace std;</pre><pre style="color: black">4	</pre><pre style="color: black">5	int travelproblem(int graph[][15],int s,int V, int M )</pre><pre style="color: black">6	{</pre><pre style="color: black">7		// store all vertex apart from source vertex</pre><pre style="color: black">8		vector&ltint&gt vertex;</pre><pre style="color: black">9		for (int i = 0; i &lt V; i++)</pre><pre style="color: black">10		{</pre><pre style="color: black">11			if (i != s)</pre><pre style="color: red">12			{</pre><pre >  </pre><pre style="color: black">13				vertex.push_back(i);</pre><pre style="color: black">14				// Store minimum weight - Halminton circle</pre><pre style="color: red">15			}</pre><pre style="color: black">16		}</pre><pre style="color: black">17		int count = 0;</pre><pre style="color: black">18		do</pre><pre style="color: black">19		{</pre><pre style="color: black">20			// Store current path</pre><pre style="color: black">21			int current_pathweight = 0;</pre><pre style="color: black">22			// Compute the current path weight</pre><pre style="color: black">23			int k =s;</pre><pre style="color: black">24			for (int i = 0; i &lt vertex.size(); i++)</pre><pre style="color: black">25			{</pre><pre style="color: black">26				current_pathweight += graph[k][vertex[i]];</pre><pre style="color: black">27				k= vertex[i];</pre><pre style="color: red">28			}</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">29			current_pathweight += graph[k][s];</pre><pre style="color: red">30	</pre><pre style="color: black">31			// Upgrace minimum</pre><pre style="color: black">32			if (current_pathweight &lt= M)</pre><pre style="color: black">33			{</pre><pre style="color: red">34				count ++;</pre><pre style="color: red">35			}</pre><pre >  </pre><pre style="color: red">36		}</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">37		while(</pre><pre style="color: black">38			next_permutation(vertex.begin(),vertex.end()));</pre><pre style="color: black">39			return count;</pre><pre style="color: black">40	}</pre><pre style="color: red">41	</pre><pre >  </pre><pre style="color: red">42	</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">43	int main(){</pre><pre style="color: black">44		int N;</pre><pre style="color: black">45		int M;</pre><pre style="color: black">46		cin &gt&gt N &gt&gt M;</pre><pre style="color: black">47		int distance[15][15];</pre><pre style="color: red">48	</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">49		for (int i = 0; i &lt M; i++)</pre><pre style="color: red">50		{</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">51			for (int j = 0; i &lt N; j++)</pre><pre style="color: black">52			{</pre><pre style="color: black">53				cin &gt&gt distance[i][j];</pre><pre style="color: red">54			}</pre><pre >  </pre><pre >  </pre><pre style="color: red">55		}</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">56		cout &lt&lt travelproblem(distance,0,N,M) &lt&lt endl;</pre><pre style="color: black">57		return 0;</pre><pre style="color: red">58	</pre><pre style="color: red">59	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

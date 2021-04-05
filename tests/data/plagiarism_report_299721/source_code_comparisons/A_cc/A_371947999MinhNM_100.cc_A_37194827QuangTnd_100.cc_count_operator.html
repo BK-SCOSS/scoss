@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>A_371947999MinhNM_100.cc</a></td>
+    <td>A_37184284lanch_100.cc</a></td>
+    <td><span style="color: rgb(161, 0, 0)">63.33%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>A_371947999MinhNM_100.cc</th>
+    <th>A_37184284lanch_100.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: black">1	#include &ltbits/stdc++.h&gt</pre><pre style="color: black">2	using namespace std;</pre><pre style="color: red">3	</pre><pre >4	int a[10001], m, n, s;</pre><pre style="color: black">5	int res = 0;</pre><pre style="color: red">6	</pre><pre style="color: black">7	int countsub (int a[], int n, int k)</pre><pre style="color: black">8	{</pre><pre style="color: red">9	    int count = 0;</pre><pre style="color: black">10	    for (int i = 0; i &lt n; i++)</pre><pre style="color: black">11	    {</pre><pre style="color: black">12	        int sum = 0;</pre><pre style="color: black">13	        for (int j = i; j &lt n; j++)</pre><pre style="color: black">14	        {</pre><pre style="color: black">15	            if (sum + a[j] &lt= k)</pre><pre style="color: red">16	            {</pre><pre style="color: black">17	                sum = a[j] + sum;</pre><pre style="color: black">18	                count++;</pre><pre style="color: red">19	            }</pre><pre style="color: black">20	            else break;</pre><pre style="color: black">21	        }</pre><pre style="color: black">22	    }</pre><pre style="color: black">23	    return count;</pre><pre style="color: red">24	}</pre><pre style="color: red">25	</pre><pre >  </pre><pre style="color: black">26	void input()</pre><pre style="color: red">27	{</pre><pre >  </pre><pre style="color: black">28	    cin &gt&gt n &gt&gt m;</pre><pre style="color: black">29	    for (int i = 0; i &lt n; i++)</pre><pre style="color: black">30	        cin &gt&gt a[i];</pre><pre style="color: black">31	}</pre><pre style="color: black">32	</pre><pre style="color: black">33	void solve()</pre><pre style="color: black">34	{</pre><pre style="color: black">35	    int size = sizeof (a);</pre><pre style="color: black">36	    res = countsub (a, n, m);</pre><pre style="color: black">37	    cout &lt&lt res &lt&lt endl;</pre><pre style="color: red">38	}</pre><pre >  </pre><pre style="color: red">39	</pre><pre style="color: black">40	int main()</pre><pre style="color: black">41	{</pre><pre style="color: red">42	    input();</pre><pre >  </pre><pre style="color: black">43	    solve();</pre><pre style="color: red">44	}</pre></td>
+    <td><pre style="color: black">1	#include &ltiostream&gt</pre><pre style="color: black">2	#define MAX 100001</pre><pre style="color: red">3	</pre><pre >  </pre><pre style="color: black">4	using namespace std;</pre><pre style="color: red">5	</pre><pre style="color: black">6	int m, n;</pre><pre style="color: black">7	int x[MAX];</pre><pre style="color: red">8	int count = 0;</pre><pre style="color: black">9	int sum = 0;</pre><pre style="color: black">10	</pre><pre style="color: black">11	</pre><pre style="color: black">12	void input(){</pre><pre style="color: black">13	  cin &gt&gt n &gt&gt m;</pre><pre style="color: black">14	  for(int i = 1; i &lt= n; i++)</pre><pre style="color: red">15	  {</pre><pre style="color: black">16	    cin &gt&gt x[i];</pre><pre style="color: black">17	  }</pre><pre style="color: red">18	}</pre><pre style="color: black">19	</pre><pre style="color: black">20	bool check(int c){</pre><pre style="color: black">21	  if(c &lt= m) return true;</pre><pre style="color: black">22	  else return false;</pre><pre style="color: red">23	}</pre><pre style="color: red">24	</pre><pre >25	int solve(){</pre><pre style="color: black">26	  for(int i = 1; i &lt= n; i++)</pre><pre style="color: red">27	  {</pre><pre >28	    int tmp = i;</pre><pre style="color: black">29	    sum = x[tmp];</pre><pre style="color: black">30	    while(sum &lt= m && tmp &lt= n)</pre><pre style="color: black">31	    {</pre><pre style="color: black">32	      tmp++;</pre><pre style="color: black">33	      if(sum &lt= m)</pre><pre style="color: black">34	        count++;</pre><pre style="color: black">35	      sum += x[tmp];</pre><pre style="color: black">36	    }</pre><pre style="color: black">37	  }</pre><pre style="color: black">38	  return count;</pre><pre style="color: red">39	}</pre><pre >40	</pre><pre style="color: red">41	</pre><pre style="color: black">42	int main() {</pre><pre style="color: black">43	    int c;</pre><pre style="color: red">44	    input();</pre><pre >45	    c = solve();</pre><pre style="color: black">46	    cout &lt&lt c &lt&lt endl;</pre><pre style="color: red">47	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

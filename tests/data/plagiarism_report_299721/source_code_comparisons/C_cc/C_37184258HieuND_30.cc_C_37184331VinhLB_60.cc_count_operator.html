@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>C_37184296NgaNT_0.cc</a></td>
+    <td>C_37184251HaHT_100.cc</a></td>
+    <td><span style="color: rgb(135, 0, 0)">52.94%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>C_37184296NgaNT_0.cc</th>
+    <th>C_37184251HaHT_100.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: red">1	#include &ltbits/stdc++.h&gt</pre><pre style="color: red">2	using namespace std;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">3	</pre><pre style="color: black">4	int TSP(int grph[][16], int p, int n, int m) {</pre><pre style="color: black">5	   vector&ltint&gt ver;</pre><pre style="color: black">6	   int count = 0;</pre><pre style="color: black">7	   for (int i = 0; i &lt n; i++)</pre><pre style="color: black">8	      if (i != p)</pre><pre style="color: black">9	         ver.push_back(i);</pre><pre style="color: red">10	         </pre><pre style="color: black">11	   do {</pre><pre style="color: black">12	      int cur_pth = 0;</pre><pre style="color: black">13	      int k = p;</pre><pre style="color: black">14	      for (int i = 0; i &lt ver.size(); i++) {</pre><pre style="color: black">15	         cur_pth += grph[k][ver[i]];</pre><pre style="color: black">16	         k = ver[i];</pre><pre style="color: red">17	      }</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">18	      cur_pth += grph[k][p];</pre><pre style="color: black">19	      if (cur_pth &lt= m) count++;</pre><pre style="color: red">20	   }</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">21	   while (next_permutation(ver.begin(), ver.end()));</pre><pre style="color: black">22	   return count;</pre><pre style="color: red">23	}</pre><pre >  </pre><pre >  </pre><pre style="color: black">24	int main() {</pre><pre style="color: black">25		int n , m;</pre><pre style="color: black">26		cin &gt&gtn &gt&gtm;</pre><pre style="color: black">27		int grph[16][16];</pre><pre style="color: black">28	   for (int i =0; i &lt n; i++) {</pre><pre style="color: black">29	   	for(int j =0; j &ltn; j++) {</pre><pre style="color: black">30	   		int a;</pre><pre style="color: black">31	   		cin &gt&gt a;</pre><pre style="color: black">32	   		grph[i][j] = a;</pre><pre style="color: red">33		   }</pre><pre >  </pre><pre style="color: red">34	   }</pre><pre style="color: black">35	   cout&lt&lt TSP(grph, 0, n, m) &lt&lt endl;</pre><pre style="color: black">36	   return 0;</pre><pre style="color: red">37	}</pre></td>
+    <td><pre style="color: red">1	#include &ltbits/stdc++.h&gt</pre><pre style="color: red">2	using namespace std;</pre><pre >3	</pre><pre >4	const int MAX = 20;</pre><pre >5	</pre><pre >6	int M, N, noTour = 0, curDistance = 0;</pre><pre >7	int a[MAX][MAX];</pre><pre >8	bool visited[MAX];</pre><pre >9	pair&ltbool, int&gt init = pair&ltbool, int&gt(false, 0);</pre><pre >10	</pre><pre >11	bool check(int k, int v) {</pre><pre >12	    if (k == v) return false;</pre><pre >13	    if (visited[v]) return false;</pre><pre >14	    return true;</pre><pre >15	}</pre><pre style="color: red">16	</pre><pre style="color: black">17	bool done() {</pre><pre style="color: black">18	    for (int i = 1; i &lt= N; i++) {</pre><pre style="color: black">19	        if (!visited[i]) return false;</pre><pre style="color: black">20	    }</pre><pre style="color: black">21	    return true;</pre><pre style="color: black">22	}</pre><pre style="color: red">23	</pre><pre style="color: black">24	void goTour(int k) {</pre><pre style="color: black">25	    for (int v = 1; v &lt= N; v++) {</pre><pre style="color: black">26	        if (check(k, v)) {</pre><pre style="color: black">27	            if (!init.first) {</pre><pre style="color: black">28	                init.first = true;</pre><pre style="color: black">29	                init.second = k;</pre><pre style="color: red">30	            }</pre><pre >31	            curDistance += a[k][v];</pre><pre >32	            visited[k] = true;</pre><pre >33	            visited[v] = true;</pre><pre >34	            if (done()) {</pre><pre >35	                curDistance += a[v][init.second];</pre><pre style="color: black">36	                if (curDistance &lt= M) {</pre><pre style="color: black">37	                    noTour += 1;</pre><pre style="color: red">38	                }</pre><pre >39	                curDistance -= a[v][init.second];</pre><pre >40	            } else {</pre><pre >41	                if (curDistance &lt M) {</pre><pre style="color: black">42	                    goTour(v);</pre><pre style="color: black">43	                }</pre><pre style="color: red">44	            }</pre><pre >45	            curDistance -= a[k][v];</pre><pre >46	            visited[v] = false;</pre><pre style="color: black">47	        }</pre><pre style="color: black">48	    }</pre><pre style="color: black">49	}</pre><pre style="color: black">50	</pre><pre style="color: black">51	int main() {</pre><pre style="color: black">52	    cin &gt&gt N &gt&gt M;</pre><pre style="color: black">53	    for (int i = 1; i &lt= N; i++) {</pre><pre style="color: black">54	        for (int j = 1; j &lt= N; j++) {</pre><pre style="color: black">55	            cin &gt&gt a[i][j];</pre><pre style="color: red">56	        }</pre><pre >57	        visited[i] = false;</pre><pre style="color: red">58	    }</pre><pre style="color: black">59	    goTour(1);</pre><pre style="color: black">60	    cout &lt&lt noTour;</pre><pre style="color: red">61	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

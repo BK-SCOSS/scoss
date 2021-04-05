@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>D_37194884VinhTT_100.cc</a></td>
+    <td>D_37184258HieuND_10.cc</a></td>
+    <td><span style="color: rgb(130, 0, 0)">51.16%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>D_37194884VinhTT_100.cc</th>
+    <th>D_37184258HieuND_10.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: red">1	#include &ltiostream&gt</pre><pre style="color: black">2	#include &ltvector&gt</pre><pre style="color: red">3	using namespace std;</pre><pre >  </pre><pre style="color: black">4	 </pre><pre style="color: black">5	int nTask,nStaff,k;</pre><pre style="color: black">6	int a[21][31];</pre><pre style="color: black">7	vector &ltint&gt staff[21];</pre><pre style="color: black">8	int Totalcost[21] = {};</pre><pre style="color: black">9	int cmin[31];</pre><pre style="color: black">10	void input()</pre><pre style="color: black">11	{</pre><pre style="color: black">12	    cin &gt&gt nTask &gt&gt nStaff &gt&gt k;</pre><pre style="color: black">13	    for (int i = 1; i &lt= nStaff ; i++)</pre><pre style="color: black">14	    {</pre><pre style="color: black">15	        for (int j = 1; j &lt= nTask; j++)</pre><pre style="color: black">16	        {</pre><pre style="color: black">17	            cin &gt&gt a[i][j];</pre><pre style="color: black">18	 </pre><pre style="color: red">19	        }</pre><pre style="color: red">20	    }</pre><pre style="color: black">21	    for (int i = nTask ;i &gt= 1; i-- )</pre><pre style="color: black">22	    {</pre><pre style="color: black">23	        int mi = 99999;</pre><pre style="color: black">24	        for (int j = 1; j &lt= nStaff; j++)</pre><pre style="color: black">25	        {</pre><pre style="color: black">26	            mi = min(mi,a[j][i]);</pre><pre style="color: red">27	        }</pre><pre >28	        if (i == nTask)</pre><pre style="color: black">29	        {</pre><pre style="color: black">30	            cmin[i] = mi;</pre><pre style="color: black">31	        }else</pre><pre style="color: black">32	        {</pre><pre style="color: black">33	            cmin[i] = cmin[i+1] + mi;</pre><pre style="color: black">34	        }</pre><pre style="color: black">35	    }</pre><pre style="color: black">36	}</pre><pre style="color: black">37	int ans = 999999;</pre><pre style="color: black">38	int max1 ;</pre><pre style="color: black">39	void Try(int i)</pre><pre style="color: black">40	{</pre><pre style="color: black">41	    for (int v = 1; v &lt= nStaff; v++)</pre><pre style="color: black">42	    {</pre><pre style="color: black">43	        if (staff[v].size() &lt k)</pre><pre style="color: black">44	        {</pre><pre style="color: black">45	            staff[v].push_back(i);</pre><pre style="color: black">46	            Totalcost[v] += a[v][i];</pre><pre style="color: black">47	            max1 = 0;</pre><pre style="color: black">48	            for (int j = 1; j &lt= nStaff; j++)</pre><pre style="color: black">49	            {</pre><pre style="color: black">50	                max1 += Totalcost[j];</pre><pre style="color: black">51	            }</pre><pre style="color: black">52	            if (i == nTask)</pre><pre style="color: black">53	            {</pre><pre style="color: black">54	 </pre><pre style="color: black">55	                ans = ans &gt max1 ? max1 : ans;</pre><pre style="color: black">56	            }else</pre><pre style="color: black">57	            {</pre><pre style="color: black">58	                if (max1 + cmin[i+1] &lt ans)</pre><pre style="color: black">59	                {</pre><pre style="color: black">60	                    Try(i+1);</pre><pre style="color: red">61	                }</pre><pre style="color: red">62	            }</pre><pre style="color: black">63	            staff[v].pop_back();</pre><pre style="color: black">64	            Totalcost[v] -= a[v][i];</pre><pre style="color: black">65	 </pre><pre style="color: black">66	        }</pre><pre style="color: black">67	    }</pre><pre style="color: black">68	}</pre><pre style="color: black">69	 </pre><pre style="color: black">70	int main()</pre><pre style="color: black">71	{</pre><pre style="color: black">72	    input();</pre><pre style="color: black">73	    Try(1);</pre><pre style="color: black">74	    cout&lt&ltans;</pre><pre style="color: red">75	}</pre></td>
+    <td><pre style="color: red">1	#include&ltiostream&gt</pre><pre style="color: black">2	</pre><pre style="color: red">3	using namespace std;</pre><pre >4	const int N = 100;</pre><pre style="color: black">5	int x[N];</pre><pre style="color: black">6	int n, m, Q;</pre><pre style="color: black">7	bool appear[N][N];</pre><pre style="color: black">8	int load[N];</pre><pre style="color: black">9	int f;</pre><pre style="color: black">10	int c[31][31];</pre><pre style="color: black">11	int cmin = 1000000000;</pre><pre style="color: black">12	int fmin = 100000000;</pre><pre style="color: black">13	</pre><pre style="color: black">14	void input(){</pre><pre style="color: black">15	    cin &gt&gt n &gt&gt m &gt&gt Q;</pre><pre style="color: black">16	    for (int i = 1; i &lt= m ; i++)</pre><pre style="color: black">17	        for (int j = 1; j &lt= n ; j++){</pre><pre style="color: black">18	            cin &gt&gt c[i][j];//i la gvien// j la bai hoc </pre><pre style="color: black">19	            if ( fmin &gt c[i][j] ) fmin = c[i][j];</pre><pre style="color: red">20		}</pre><pre style="color: red">21	}</pre><pre style="color: black">22	</pre><pre style="color: black">23	bool check (int v, int k){</pre><pre style="color: black">24	   </pre><pre style="color: black">25	    if (appear[v][k] == false && load[v] &lt Q)</pre><pre style="color: black">26	        return true;</pre><pre style="color: black">27	    else return false;</pre><pre style="color: red">28	}</pre><pre >  </pre><pre style="color: black">29	</pre><pre style="color: black">30	void solution(int k){</pre><pre style="color: black">31	   // cout &lt&lt f &lt&lt endl;</pre><pre style="color: black">32	    if (f &lt cmin ) cmin =f;</pre><pre style="color: black">33	}</pre><pre style="color: black">34	</pre><pre style="color: black">35	//m la giao vien</pre><pre style="color: black">36	// n la bai hoc </pre><pre style="color: black">37	</pre><pre style="color: black">38	void TRY(int k){</pre><pre style="color: black">39	    for (int v = 1 ;v &lt= m; v++){</pre><pre style="color: black">40	        if (check(v, k)){</pre><pre style="color: black">41	              x[k] = v;</pre><pre style="color: black">42	              appear[v][k] = true;</pre><pre style="color: black">43	</pre><pre style="color: black">44	              if (v &lt= m) load[v] ++;</pre><pre style="color: black">45	              else load[v] --;</pre><pre style="color: black">46	              //cout &lt&lt "kk" &lt&ltload[v] &lt&lt"kk";</pre><pre style="color: black">47	</pre><pre style="color: black">48	              f += c[x[k]][k];</pre><pre style="color: black">49	             // cout &lt&lt x[k] &lt&lt " " &lt&lt k &lt&lt " " &lt&lt c[x[k]][k] &lt&lt endl;</pre><pre style="color: black">50	             if (cmin &gt f + (n-k)*fmin){</pre><pre style="color: black">51	                 if (k == n) solution(k);</pre><pre style="color: black">52	                 else {</pre><pre style="color: black">53	                 TRY(k+1);</pre><pre style="color: black">54	              }</pre><pre style="color: black">55	        }</pre><pre style="color: black">56	        if (v &lt= m) load[v] = load[v] -1;</pre><pre style="color: black">57	        else load[v] = load[v] + 1;</pre><pre style="color: black">58	        f -= c[x[k]][k];</pre><pre style="color: black">59	        appear[v][k] = false;</pre><pre style="color: black">60	        }</pre><pre style="color: red">61	    }</pre><pre style="color: red">62	}</pre><pre style="color: black">63	</pre><pre style="color: black">64	int main (){</pre><pre style="color: black">65	    x[0] = 0; f = 0; </pre><pre style="color: black">66	    input();</pre><pre style="color: black">67	    for (int v = 1; v &lt= m; v++){</pre><pre style="color: black">68	        for (int k = 1; k &lt= n; k++)</pre><pre style="color: black">69	                appear[v][k] = false;</pre><pre style="color: black">70	                load [v] = 0;</pre><pre style="color: black">71	    }</pre><pre style="color: black">72	    TRY(1);</pre><pre style="color: black">73	    cout &lt&lt cmin &lt&lt endl;</pre><pre style="color: black">74	    return 0;</pre><pre style="color: red">75	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>hash_operator</th>
+    </tr>
+    <tr>
+    <td>C_37184296NgaNT_0.cc</a></td>
+    <td>C_37184251HaHT_100.cc</a></td>
+    <td><span style="color: rgb(255, 0, 0)">100.00%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>C_37184296NgaNT_0.cc</th>
+    <th>C_37184251HaHT_100.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: red">1	#include &ltbits/stdc++.h&gt</pre><pre >2	 </pre><pre style="color: red">3	    using namespace std;</pre><pre >4	 </pre><pre style="color: red">5	    const int N=1000;</pre><pre style="color: red">6	    bool appear[N];</pre><pre style="color: red">7	    long long f;</pre><pre style="color: red">8	    int n,m,cmin;;</pre><pre style="color: red">9	    int c[N][N];</pre><pre style="color: red">10	    int x[N];</pre><pre style="color: red">11	    int countt = 0;</pre><pre >12	 </pre><pre style="color: red">13	    bool check(int v){</pre><pre style="color: red">14	    if (appear[v]) return false;</pre><pre style="color: red">15	    return true;</pre><pre style="color: red">16	}</pre><pre style="color: red">17	 </pre><pre style="color: red">18	 </pre><pre style="color: red">19	    void solution(){</pre><pre style="color: red">20	        if (f+c[x[n]][x[1]]&lt= m) countt++;</pre><pre style="color: red">21	    }</pre><pre >22	 </pre><pre style="color: red">23	    void input(){</pre><pre style="color: red">24	        cin &gt&gt n &gt&gt m;</pre><pre style="color: red">25	        for (int i=1;i&lt=n;i++)</pre><pre style="color: red">26	            for (int j=1;j&lt=n;j++){</pre><pre style="color: red">27	                cin &gt&gt c[i][j];</pre><pre style="color: red">28	                if (c[i][j]&ltcmin && i!=j) cmin=c[i][j];</pre><pre style="color: red">29	            }</pre><pre style="color: red">30	    }</pre><pre >31	 </pre><pre style="color: red">32	    void TRY(int k){</pre><pre style="color: red">33	        for (int v=1;v&lt=n;v++){</pre><pre style="color: red">34	            if (check(v)){</pre><pre style="color: red">35	                x[k]=v;</pre><pre style="color: red">36	                appear[v]=true;</pre><pre style="color: red">37	                f=f+c[x[k-1]][x[k]];</pre><pre style="color: red">38	                if (k==n){</pre><pre style="color: red">39	                    solution();</pre><pre style="color: red">40	                }</pre><pre style="color: red">41	                else{</pre><pre style="color: red">42	                    if (f+cmin*(n-k+1) &lt= m)</pre><pre style="color: red">43	                    TRY(k+1);</pre><pre style="color: red">44	                }</pre><pre style="color: red">45	                appear[v]=false;</pre><pre style="color: red">46	                f=f-c[x[k-1]][x[k]];</pre><pre style="color: red">47	            }</pre><pre style="color: red">48	        }</pre><pre style="color: red">49	    }</pre><pre >50	 </pre><pre style="color: red">51	    void solve(){</pre><pre style="color: red">52	        x[1]=1;</pre><pre style="color: red">53	        cmin=9999999;</pre><pre style="color: red">54	        appear[1]=true;</pre><pre style="color: red">55	        input();</pre><pre style="color: red">56	        TRY(2);</pre><pre style="color: red">57	        cout &lt&lt countt &lt&lt endl;</pre><pre style="color: red">58	    }</pre><pre >59	 </pre><pre style="color: red">60	    int main(){</pre><pre style="color: red">61	        solve();</pre><pre style="color: red">62	    }</pre></td>
+    <td><pre style="color: red">1	#include &ltbits/stdc++.h&gt</pre><pre >  </pre><pre style="color: red">2	    using namespace std;</pre><pre >  </pre><pre style="color: red">3	    const int N=1000;</pre><pre style="color: red">4	    bool appear[N];</pre><pre style="color: red">5	    long long f;</pre><pre style="color: red">6	    int n,m,cmin;;</pre><pre style="color: red">7	    int c[N][N];</pre><pre style="color: red">8	    int x[N];</pre><pre style="color: red">9	    int countt = 0;</pre><pre >  </pre><pre style="color: red">10	    bool check(int v){</pre><pre style="color: red">11	    if (appear[v]) return false;</pre><pre style="color: red">12	    return true;</pre><pre style="color: red">13	}</pre><pre style="color: red">14	</pre><pre style="color: red">15	</pre><pre style="color: red">16	    void solution(){</pre><pre style="color: red">17	        if (f+c[x[n]][x[1]] &lt= m) countt++;</pre><pre style="color: red">18	    }</pre><pre >  </pre><pre style="color: red">19	    void input(){</pre><pre style="color: red">20	        cin &gt&gt n &gt&gt m;</pre><pre style="color: red">21	        for (int i=1;i&lt=n;i++)</pre><pre style="color: red">22	            for (int j=1;j&lt=n;j++){</pre><pre style="color: red">23	                cin &gt&gt c[i][j];</pre><pre style="color: red">24	                if (c[i][j]&ltcmin && i!=j) cmin=c[i][j];</pre><pre style="color: red">25	            }</pre><pre style="color: red">26	    }</pre><pre >  </pre><pre style="color: red">27	    void TRY(int k){</pre><pre style="color: red">28	        for (int v=1;v&lt=n;v++){</pre><pre style="color: red">29	            if (check(v)){</pre><pre style="color: red">30	                x[k]=v;</pre><pre style="color: red">31	                appear[v]=true;</pre><pre style="color: red">32	                f=f+c[x[k-1]][x[k]];</pre><pre style="color: red">33	                if (k==n){</pre><pre style="color: red">34	                    solution();</pre><pre style="color: red">35	                }</pre><pre style="color: red">36	                else{</pre><pre style="color: red">37	                    if (f+cmin*(n-k+1) &lt= m)</pre><pre style="color: red">38	                    TRY(k+1);</pre><pre style="color: red">39	                }</pre><pre style="color: red">40	                appear[v]=false;</pre><pre style="color: red">41	                f=f-c[x[k-1]][x[k]];</pre><pre style="color: red">42	            }</pre><pre style="color: red">43	        }</pre><pre style="color: red">44	    }</pre><pre >  </pre><pre style="color: red">45	    void solve(){</pre><pre style="color: red">46	        x[1]=1;</pre><pre style="color: red">47	        cmin=9999999;</pre><pre style="color: red">48	        appear[1]=true;</pre><pre style="color: red">49	        input();</pre><pre style="color: red">50	        TRY(2);</pre><pre style="color: red">51	        cout &lt&lt countt &lt&lt endl;</pre><pre style="color: red">52	    }</pre><pre >  </pre><pre style="color: red">53	    int main(){</pre><pre style="color: red">54	        solve();</pre><pre style="color: red">55	    }</pre></td>
+</tr>
+</table>
+</body>
+</html>

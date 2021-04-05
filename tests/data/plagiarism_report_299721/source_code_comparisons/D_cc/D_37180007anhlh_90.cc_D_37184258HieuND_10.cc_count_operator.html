@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>D_37194884VinhTT_100.cc</a></td>
+    <td>D_37184258HieuND_10.cc</a></td>
+    <td><span style="color: rgb(115, 0, 0)">45.16%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>D_37194884VinhTT_100.cc</th>
+    <th>D_37184258HieuND_10.cc</th> 
+</tr>
+<tr>
+    <td><pre >1	#include&ltbits/stdc++.h&gt</pre><pre >2	using namespace std;</pre><pre style="color: red">3	</pre><pre >4	const int N = 50;</pre><pre >5	int n, m,K;</pre><pre >6	int c[N][N];</pre><pre >7	int load[N];</pre><pre >8	int f;</pre><pre >9	int x[N];</pre><pre >10	int f_min;</pre><pre style="color: black">11	int c_min;</pre><pre style="color: red">12	</pre><pre >13	void input(){</pre><pre >14	    cin &gt&gt n &gt&gtm &gt&gtK;</pre><pre >15	    for ( int i = 1; i &lt= m; i++ ){</pre><pre >16	        for ( int j = 1; j &lt= n; j++ ){</pre><pre >17	            cin &gt&gt c[i][j];</pre><pre >18	            c_min = min(c_min, c[i][j]);</pre><pre >19	        }</pre><pre >20	    }</pre><pre >21	}</pre><pre >22	void solution(){</pre><pre >23	    f_min = min(f_min, f);</pre><pre >24	}</pre><pre >25	int check( int v, int k){</pre><pre >26	    return ( load[v] &lt K);</pre><pre >27	}</pre><pre >28	void TRY( int k){</pre><pre >29	    for ( int v = 1; v &lt= m; v++){</pre><pre >30	        if ( check ( v, k)){</pre><pre >31	            //x[k] = v;</pre><pre >32	            load[v] += 1;</pre><pre >33	            f += c[v][k];</pre><pre style="color: black">34	            if ( k == n)</pre><pre style="color: black">35	                solution();</pre><pre style="color: black">36	            else</pre><pre style="color: red">37	            {</pre><pre >38	                if (( f + c_min*(n-k) ) &lt f_min)</pre><pre style="color: black">39	                    TRY(k+1);</pre><pre style="color: black">40	            }</pre><pre style="color: black">41	            load[v] -= 1;</pre><pre style="color: black">42	            f -= c[v][k];</pre><pre style="color: black">43	        }</pre><pre style="color: black">44	    }</pre><pre style="color: red">45	}</pre><pre >46	</pre><pre >47	int main(){</pre><pre >48	    memset(c, 0, sizeof(c));</pre><pre >49	    memset(load, 0, sizeof(load));</pre><pre style="color: black">50	    //memset(x, 0, sizeof(x));</pre><pre style="color: black">51	    f = 0;</pre><pre style="color: black">52	    f_min = 1000000;</pre><pre style="color: black">53	    c_min = 1000000;</pre><pre style="color: black">54	    input();</pre><pre style="color: black">55	    TRY(1);</pre><pre style="color: black">56	    cout &lt&lt f_min &lt&lt endl;</pre><pre style="color: red">57	}</pre></td>
+    <td><pre >  </pre><pre >  </pre><pre style="color: red">1	</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">2	#include &ltiostream&gt</pre><pre style="color: red">3	</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">4	using namespace std;</pre><pre style="color: black">5	</pre><pre style="color: black">6	int main()</pre><pre style="color: red">7	{</pre><pre >  </pre><pre style="color: black">8	    int n,m,k;</pre><pre style="color: black">9	    cin &gt&gt n &gt&gt m &gt&gt k;</pre><pre style="color: black">10	    </pre><pre style="color: black">11	    for(int i=0; i&lt n; i++){</pre><pre style="color: black">12	        int b;</pre><pre style="color: black">13	        cin&gt&gt b;</pre><pre style="color: red">14	    }</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">15	    for(int i =0 ; i&ltn ; i++){</pre><pre style="color: black">16	        int c;</pre><pre style="color: black">17	        cin &gt&gt c;</pre><pre style="color: black">18	    }</pre><pre style="color: black">19	    int d=27;</pre><pre style="color: black">20	    cout &lt&lt d;</pre><pre style="color: black">21	    return 0;</pre><pre style="color: red">22	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

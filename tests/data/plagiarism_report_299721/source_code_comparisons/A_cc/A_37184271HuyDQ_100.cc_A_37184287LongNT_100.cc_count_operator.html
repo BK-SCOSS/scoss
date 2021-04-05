@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>A_371947999MinhNM_100.cc</a></td>
+    <td>A_37184284lanch_100.cc</a></td>
+    <td><span style="color: rgb(170, 0, 0)">66.67%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>A_371947999MinhNM_100.cc</th>
+    <th>A_37184284lanch_100.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: red">1	#include&ltbits/stdc++.h&gt</pre><pre >  </pre><pre style="color: red">2	using namespace std;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">3	int main(){</pre><pre style="color: black">4		int n,m,s=0,cnt=0;</pre><pre style="color: black">5		cin &gt&gtn&gt&gtm;</pre><pre style="color: black">6		int arr[n];</pre><pre style="color: black">7		for(int i=0;i&ltn;i++){</pre><pre style="color: black">8			cin &gt&gtarr[i];</pre><pre style="color: red">9		}</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">10		for(int i=0;i&ltn;i++){</pre><pre style="color: black">11	        s=arr[i];</pre><pre style="color: black">12	        if(s&lt=m) cnt++;</pre><pre style="color: black">13	        for(int j=i+1;j&ltn;j++){</pre><pre style="color: black">14	            s+=arr[j];</pre><pre style="color: black">15	            if(s&lt=m) cnt++;</pre><pre style="color: black">16	            else break;</pre><pre style="color: red">17	        }</pre><pre style="color: red">18	    }</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">19	    cout &lt&ltcnt;</pre><pre style="color: red">20	}</pre></td>
+    <td><pre style="color: red">1	#include&ltbits/stdc++.h&gt</pre><pre >2	</pre><pre style="color: red">3	using namespace std;</pre><pre >4	</pre><pre >5	typedef unsigned long long ull;</pre><pre >6	ull N;</pre><pre >7	ull M;</pre><pre >8	int S[10002];</pre><pre >9	ull tmpSum;</pre><pre >10	ull cnt;</pre><pre style="color: black">11	</pre><pre style="color: black">12	void INPUT()</pre><pre style="color: black">13	{</pre><pre style="color: black">14	    cin &gt&gt N &gt&gt M;</pre><pre style="color: black">15	    for(int i = 1; i &lt= N; i++)</pre><pre style="color: black">16	        cin &gt&gt S[i];</pre><pre style="color: red">17	}</pre><pre >18	</pre><pre >19	</pre><pre >20	void TRY()</pre><pre >21	{</pre><pre >22	    for(int i = 1; i &lt= N; i++)</pre><pre >23	    {</pre><pre >24	        for(int j = i; j &lt= N; j++)</pre><pre >25	        {</pre><pre >26	            if(tmpSum + S[j] &lt= M)</pre><pre >27	            {</pre><pre >28	                cnt++;</pre><pre >29	                tmpSum += S[j];</pre><pre >30	                if(j == N)</pre><pre >31	                    tmpSum = 0;</pre><pre style="color: black">32	            }</pre><pre style="color: black">33	            else</pre><pre style="color: black">34	            {</pre><pre style="color: black">35	                tmpSum = 0;</pre><pre style="color: black">36	                break;</pre><pre style="color: black">37	            }</pre><pre style="color: black">38	        }</pre><pre style="color: red">39	    }</pre><pre style="color: red">40	}</pre><pre >41	</pre><pre >42	int main()</pre><pre >43	{</pre><pre >44	    tmpSum = 0;</pre><pre >45	    cnt = 0;</pre><pre >46	    INPUT();</pre><pre >47	    TRY();</pre><pre style="color: red">48	    cout &lt&lt cnt;</pre><pre style="color: red">49	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

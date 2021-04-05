@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>B_8858173193KhanhNQ_100.cc</a></td>
+    <td>B_37180007anhlh_80.cc</a></td>
+    <td><span style="color: rgb(127, 0, 0)">50.00%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>B_8858173193KhanhNQ_100.cc</th>
+    <th>B_37180007anhlh_80.cc</th> 
+</tr>
+<tr>
+    <td><pre >1	//</pre><pre >2	//  main.cpp</pre><pre >3	//  Midterm_PRODMOD</pre><pre >4	//</pre><pre >5	//  Created by Nguyễn Trường on 10/23/20.</pre><pre >6	//</pre><pre >7	</pre><pre style="color: red">8	#include &ltiostream&gt</pre><pre style="color: black">9	</pre><pre style="color: red">10	using namespace std;</pre><pre >11	</pre><pre >12	int n, m = 1000000007;</pre><pre >13	</pre><pre >14	unsigned long long addMod(unsigned long long a, unsigned long long b, unsigned long long p){</pre><pre >15	    a=a%p;</pre><pre >16	    b=b%p;</pre><pre >17	    unsigned long long tmp = p - a;</pre><pre >18	    if (tmp&gtb) {</pre><pre >19	        return a+b;</pre><pre >20	    }</pre><pre >21	    return b-tmp;</pre><pre >22	}</pre><pre >23	 </pre><pre >24	unsigned long long mulmod(unsigned long long a, unsigned long long b, unsigned long long p){</pre><pre >25	    if (a==0 || b==0) {</pre><pre >26	        return 0;</pre><pre >27	    }</pre><pre >28	    if (a==1) {</pre><pre >29	        return b%p;</pre><pre >30	    }</pre><pre >31	    if (b==1) {</pre><pre >32	        return a%p;</pre><pre >33	    }</pre><pre >34	    if (a&gtb) {</pre><pre >35	        unsigned long long tmp = a; a=b; b=tmp;</pre><pre >36	    }</pre><pre >37	    unsigned long long c = mulmod(a/2, b, p);</pre><pre >38	    c = addMod(c, c, p);</pre><pre >39	    if (a%2==0) {</pre><pre >40	        return c;</pre><pre >41	    } else {</pre><pre >42	        return addMod(c, b, p);</pre><pre >43	    }</pre><pre style="color: black">44	}</pre><pre style="color: black">45	</pre><pre style="color: black">46	int main(int argc, const char * argv[]) {</pre><pre style="color: red">47	    cin &gt&gt n;</pre><pre style="color: black">48	    long long ans = 1;</pre><pre style="color: black">49	    for (int i=1; i&lt=n; i++) {</pre><pre style="color: black">50	        long long a;</pre><pre style="color: black">51	        cin &gt&gt a;</pre><pre style="color: black">52	        ans = (ans * (a%m)) % m;</pre><pre style="color: red">53	    }</pre><pre >54	    cout &lt&lt ans;</pre><pre style="color: black">55	    return 0;</pre><pre style="color: red">56	}</pre></td>
+    <td><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">1	#include&ltiostream&gt</pre><pre style="color: black">2	#include&ltbits/stdc++.h&gt</pre><pre style="color: red">3	using namespace std;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">4	const long long N = 1000000007;</pre><pre style="color: black">5	int main(){</pre><pre style="color: black">6	    long long n;</pre><pre style="color: red">7	    cin &gt&gt n;</pre><pre style="color: black">8	    long long product = 1;</pre><pre style="color: black">9	    long long a[1000000];</pre><pre style="color: black">10	    for(long long i = 0;i&ltn;i++){</pre><pre style="color: black">11	        cin &gt&gt a[i];</pre><pre style="color: black">12	        product = (product*(a[i]))%N;</pre><pre style="color: red">13	    }</pre><pre >  </pre><pre style="color: black">14	    cout &lt&lt product%N;</pre><pre style="color: red">15	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

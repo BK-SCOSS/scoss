@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>B_8858173193KhanhNQ_100.cc</a></td>
+    <td>B_37180007anhlh_80.cc</a></td>
+    <td><span style="color: rgb(158, 0, 0)">62.07%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>B_8858173193KhanhNQ_100.cc</th>
+    <th>B_37180007anhlh_80.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: red">1	#include &ltbits/stdc++.h&gt</pre><pre >  </pre><pre style="color: red">2	using namespace std;</pre><pre style="color: red">3	</pre><pre >  </pre><pre style="color: black">4	const int p = 1e9+7; </pre><pre style="color: black">5	const int MAXN = 1e6+1;</pre><pre style="color: red">6	</pre><pre >  </pre><pre >  </pre><pre style="color: black">7	int a[MAXN];</pre><pre style="color: black">8	int n;</pre><pre style="color: red">9	</pre><pre style="color: black">10	int main() {</pre><pre style="color: black">11		cin &gt&gt n;</pre><pre style="color: black">12		for(int i=1;i&lt=n;i++)</pre><pre style="color: black">13			cin &gt&gta[i];</pre><pre style="color: black">14		int tmp=a[1];</pre><pre style="color: black">15		for(int i = 2; i &lt= n; i++) {</pre><pre style="color: black">16			//tmp=(unsigned long long)(tmp*a[i])%p;</pre><pre style="color: black">17			tmp=((unsigned long long)(tmp)*a[i])%p;</pre><pre style="color: red">18		}</pre><pre style="color: red">19	</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">20		cout &lt&lt tmp;</pre><pre style="color: black">21		return 0;</pre><pre style="color: red">22	}</pre></td>
+    <td><pre style="color: red">1	#include&ltbits/stdc++.h&gt</pre><pre >2	</pre><pre style="color: red">3	using namespace std;</pre><pre style="color: red">4	</pre><pre >5	typedef unsigned long long ull;</pre><pre style="color: black">6	</pre><pre style="color: black">7	const ull MOD = 1e9 + 7;</pre><pre style="color: red">8	</pre><pre >9	ull ADDMOD(ull a, ull b)</pre><pre >10	{</pre><pre style="color: black">11	    return (a%MOD + b%MOD)%MOD;</pre><pre style="color: black">12	}</pre><pre style="color: red">13	</pre><pre style="color: black">14	ull MULMOD(ull a, ull b)</pre><pre style="color: black">15	{</pre><pre style="color: black">16	    ull tmp = a;</pre><pre style="color: black">17	    for(int i = 1; i &lt b; i++)</pre><pre style="color: black">18	    {</pre><pre style="color: black">19	        tmp = ADDMOD(tmp, a);</pre><pre style="color: black">20	    }</pre><pre style="color: black">21	    return tmp;</pre><pre style="color: red">22	}</pre><pre style="color: red">23	</pre><pre >24	int main()</pre><pre >25	{</pre><pre >26	    ull n;</pre><pre >27	    cin &gt&gt n;</pre><pre >28	    ull tmp;</pre><pre >29	    ull tmp2;</pre><pre >30	    cin &gt&gt tmp;</pre><pre >31	    for(int i = 0; i &lt n - 1; i++)</pre><pre >32	    {</pre><pre >33	        cin &gt&gt tmp2;</pre><pre >34	        tmp = MULMOD(tmp, tmp2);</pre><pre style="color: black">35	    }</pre><pre style="color: black">36	    cout &lt&lt tmp;</pre><pre style="color: red">37	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

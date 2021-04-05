@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>A_371947999MinhNM_100.cc</a></td>
+    <td>A_37184284lanch_100.cc</a></td>
+    <td><span style="color: rgb(200, 0, 0)">78.57%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>A_371947999MinhNM_100.cc</th>
+    <th>A_37184284lanch_100.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: black">1	#include&ltbits/stdc++.h&gt</pre><pre style="color: black">2	#include&ltiostream&gt</pre><pre style="color: red">3	#include&ltalgorithm&gt</pre><pre style="color: red">4	using namespace std;</pre><pre >5	const int MAX = 10000;</pre><pre >6	int a[MAX];</pre><pre style="color: black">7	int main(){</pre><pre style="color: black">8		int n, m, count=0;</pre><pre style="color: black">9	    int sum = 0;</pre><pre style="color: black">10	    </pre><pre style="color: red">11	   cin &gt&gt n &gt&gt m;</pre><pre style="color: red">12	   for (int i=0;i&ltn;i++){</pre><pre style="color: red">13	    cin&gt&gta[i];</pre><pre style="color: red">14	    }</pre><pre style="color: black">15	    </pre><pre style="color: black">16	    for (int i=0;i&ltn;i++){</pre><pre style="color: red">17	        sum = 0;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">18	        for (int j=i;j&ltn;j++){</pre><pre style="color: red">19	        sum = sum + a[j];</pre><pre style="color: red">20	         if (sum&lt=m){</pre><pre style="color: red">21	        count++;    </pre><pre style="color: red">22	        }</pre><pre style="color: red">23	        }      </pre><pre >  </pre><pre style="color: red">24	    }</pre><pre style="color: red">25	        cout&lt&ltcount;</pre><pre >  </pre><pre style="color: red">26	}</pre></td>
+    <td><pre style="color: black">1	#include&ltiostream&gt</pre><pre style="color: black">2	#include&ltbits/stdc++.h&gt</pre><pre style="color: red">3	#include&ltalgorithm&gt</pre><pre style="color: red">4	using namespace std;</pre><pre >  </pre><pre >  </pre><pre style="color: black">5	int n, m;</pre><pre style="color: black">6	int a[100000];</pre><pre style="color: black">7	long long sum;</pre><pre style="color: black">8	void input(){</pre><pre style="color: red">9	    cin &gt&gt n &gt&gt m;</pre><pre style="color: red">10	    for(int i = 0;i&ltn;i++){</pre><pre style="color: red">11	        cin &gt&gt a[i];</pre><pre style="color: red">12	    }</pre><pre style="color: black">13	}</pre><pre style="color: black">14	int main(){</pre><pre style="color: red">15	    sum = 0;</pre><pre >16	    input();</pre><pre >17	    int count = 0;</pre><pre >18	    for(int i = 0; i&ltn;i++){</pre><pre style="color: red">19	        for(int j=i;j&ltn;j++){</pre><pre style="color: red">20	            sum = sum + a[j];</pre><pre style="color: red">21	            if(sum&lt=m){</pre><pre style="color: red">22	                count++;</pre><pre style="color: red">23	            }</pre><pre style="color: red">24	        }</pre><pre >25	        sum = 0;</pre><pre style="color: red">26	    }</pre><pre style="color: red">27	    cout &lt&lt count;</pre><pre >28	    return 0;</pre><pre style="color: red">29	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

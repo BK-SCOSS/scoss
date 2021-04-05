@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>B_8858173193KhanhNQ_100.cc</a></td>
+    <td>B_37180007anhlh_80.cc</a></td>
+    <td><span style="color: rgb(160, 0, 0)">62.96%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>B_8858173193KhanhNQ_100.cc</th>
+    <th>B_37180007anhlh_80.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: black">1	#include&ltbits/stdc++.h&gt</pre><pre style="color: red">2	</pre><pre style="color: black">3	using namespace std;</pre><pre style="color: black">4	</pre><pre style="color: black">5	typedef unsigned long long ull;</pre><pre style="color: black">6	</pre><pre style="color: black">7	const ull MOD = 1e9 + 7;</pre><pre style="color: red">8	</pre><pre style="color: black">9	ull ADDMOD(ull a, ull b)</pre><pre style="color: red">10	{</pre><pre >11	    return (a%MOD + b%MOD)%MOD;</pre><pre >12	}</pre><pre >13	</pre><pre style="color: black">14	ull MULMOD(ull a, ull b)</pre><pre style="color: black">15	{</pre><pre style="color: black">16	    ull tmp = a;</pre><pre style="color: black">17	    for(int i = 1; i &lt b; i++)</pre><pre style="color: red">18	    {</pre><pre >19	        tmp = ADDMOD(tmp, a);</pre><pre >20	    }</pre><pre style="color: black">21	    return tmp;</pre><pre style="color: red">22	}</pre><pre >23	</pre><pre >24	int main()</pre><pre >25	{</pre><pre >26	    ull n;</pre><pre >27	    cin &gt&gt n;</pre><pre >28	    ull tmp;</pre><pre >29	    ull tmp2;</pre><pre >30	    cin &gt&gt tmp;</pre><pre style="color: black">31	    for(int i = 0; i &lt n - 1; i++)</pre><pre style="color: red">32	    {</pre><pre style="color: black">33	        cin &gt&gt tmp2;</pre><pre style="color: black">34	        tmp = MULMOD(tmp, tmp2);</pre><pre style="color: black">35	    }</pre><pre style="color: black">36	    cout &lt&lt tmp;</pre><pre style="color: red">37	}</pre></td>
+    <td><pre style="color: black">1	/*Given a sequence of positive integers a1,…,aN (0&ltai≤109+7). You are required to compute the product S=a1×⋯×aN. In order to avoid overflow (if any), You should report the value S modulo 109+7. */</pre><pre style="color: red">2	</pre><pre style="color: black">3	#include &ltbits/stdc++.h&gt</pre><pre style="color: black">4	using namespace std;</pre><pre style="color: black">5	const int C = 1000000007;</pre><pre style="color: black">6	const int N = 1000000;</pre><pre style="color: black">7	unsigned long long res = 1;</pre><pre style="color: red">8	</pre><pre style="color: black">9	int main()</pre><pre style="color: red">10	{</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">11	  int n;</pre><pre style="color: black">12	  cin &gt&gt n;</pre><pre style="color: black">13	  unsigned long long a[N];</pre><pre style="color: black">14	  for(int i=0; i&ltn; i++)</pre><pre style="color: red">15	  {</pre><pre >  </pre><pre >  </pre><pre style="color: black">16	    cin &gt&gt a[i];</pre><pre style="color: red">17	  }</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">18	  for(int i=0; i&ltn; i++)</pre><pre style="color: red">19	  {</pre><pre style="color: black">20	    res = (res*(a[i]%C))%C;</pre><pre style="color: black">21	  }</pre><pre style="color: black">22	  cout &lt&lt res;</pre><pre style="color: black">23	  return 0;</pre><pre style="color: red">24	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

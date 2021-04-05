@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>hash_operator</th>
+    </tr>
+    <tr>
+    <td>B_8858173193KhanhNQ_100.cc</a></td>
+    <td>B_37180007anhlh_80.cc</a></td>
+    <td><span style="color: rgb(76, 0, 0)">30.14%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>B_8858173193KhanhNQ_100.cc</th>
+    <th>B_37180007anhlh_80.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: red">1	#include &ltiostream&gt</pre><pre >  </pre><pre style="color: black">2	#include &ltalgorithm&gt  </pre><pre style="color: red">3	using namespace std;</pre><pre style="color: black">4	</pre><pre style="color: red">5	int n;</pre><pre >6	long long ans = 1;</pre><pre >7	const long long mod = 1e9+7;</pre><pre >8	</pre><pre >9	int main() {</pre><pre style="color: red">10	    cin &gt&gt n;</pre><pre style="color: black">11		for(int i = 1 ; i&lt=n ;++i)</pre><pre style="color: black">12		{</pre><pre style="color: black">13		    long long x;</pre><pre style="color: black">14		    cin &gt&gt x;</pre><pre style="color: black">15		    ans *= x;</pre><pre style="color: black">16		    ans %= mod;</pre><pre style="color: black">17		}</pre><pre style="color: black">18		cout&lt&ltans;</pre><pre style="color: black">19		return 0;</pre><pre style="color: red">20	}</pre></td>
+    <td><pre style="color: red">1	#include &ltiostream&gt</pre><pre >2	#include &ltbits/stdc++.h&gt</pre><pre style="color: black">3	#define M 1000000007;</pre><pre style="color: red">4	using namespace std;</pre><pre style="color: black">5	int main(){</pre><pre style="color: red">6	    int n;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">7	    cin &gt&gt n;</pre><pre style="color: black">8	    long long *A;</pre><pre style="color: black">9	    unsigned long long product = 1; </pre><pre style="color: black">10	    A = (long long*)malloc(sizeof(long long)*(n));</pre><pre style="color: black">11	    for(int i=0;i&ltn;i++){</pre><pre style="color: black">12	        cin &gt&gt A[i];</pre><pre style="color: black">13	        product *= A[i]%M;</pre><pre style="color: black">14	        product %=M;</pre><pre style="color: black">15	    }</pre><pre style="color: black">16	    cout &lt&lt product;</pre><pre style="color: red">17	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

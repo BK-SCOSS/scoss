@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>hash_operator</th>
+    </tr>
+    <tr>
+    <td>B_8858173193KhanhNQ_100.cc</a></td>
+    <td>B_37180007anhlh_80.cc</a></td>
+    <td><span style="color: rgb(44, 0, 0)">17.50%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>B_8858173193KhanhNQ_100.cc</th>
+    <th>B_37180007anhlh_80.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: black">1	#include&ltiostream&gt</pre><pre style="color: red">2	using namespace std;</pre><pre >3	#define MAX 1000009</pre><pre >4	typedef unsigned long long ull;</pre><pre >5	const ull P = 1e9 + 7;</pre><pre >6	ull arr[MAX];</pre><pre >7	ull n; </pre><pre >8	ull addmod(ull a, ull b) {</pre><pre >9	    // a = a % P;</pre><pre >10		// b = b % P;</pre><pre >11		// ull c = P - a;</pre><pre >12		// if (c&gtb) return (a + b);</pre><pre >13		// else return (b - c);</pre><pre style="color: black">14	    return (a + b) % P;</pre><pre style="color: black">15	}</pre><pre style="color: red">16	</pre><pre style="color: black">17	ull mulmod(ull a, ull b) // calculate a*b mod P</pre><pre style="color: red">18	{</pre><pre >19	    if ( b == 1)</pre><pre >20	    return a % P;</pre><pre >21	    if (a == 1)</pre><pre >22	    return b % P;</pre><pre >23	    ull retval = 0;</pre><pre style="color: black">24	    </pre><pre style="color: black">25	    if (a &lt b) {</pre><pre style="color: black">26	        ull tmp = a;</pre><pre style="color: black">27	        a = b;</pre><pre style="color: black">28	        b = tmp;</pre><pre style="color: red">29	    }</pre><pre style="color: black">30	        while(b&gt 0){</pre><pre style="color: black">31	        if (b % 2 == 1)</pre><pre style="color: red">32	        {</pre><pre >33	            retval = addmod(retval,a);</pre><pre >34	        }</pre><pre >35	        b /= 2;</pre><pre >36	        a = addmod(a,a);</pre><pre >37	        }</pre><pre style="color: black">38	    </pre><pre style="color: black">39	    return retval;</pre><pre style="color: black">40	    </pre><pre style="color: red">41	}</pre><pre style="color: red">42	</pre><pre >43	ull expmod(ull a, ull b) {</pre><pre >44	    ull retval = 1; // initialize result</pre><pre style="color: black">45	    a = a % P;</pre><pre style="color: black">46	    if ( a == 0) return 0;</pre><pre style="color: black">47	    while (b &gt 0) {</pre><pre style="color: black">48	        if ( b & 1)</pre><pre style="color: black">49	            retval = mulmod(retval, a);</pre><pre style="color: black">50	        b = b &gt&gt 1; // b/2</pre><pre style="color: black">51	        a = mulmod(a,a);</pre><pre style="color: black">52	</pre><pre style="color: red">53	    }</pre><pre >54	    return retval;</pre><pre style="color: black">55	</pre><pre style="color: red">56	}</pre><pre style="color: red">57	</pre><pre >58	int main() {</pre><pre >59	    cin &gt&gt n;</pre><pre >60	    ull ret = 1;</pre><pre >61	    ull tmp;</pre><pre >62	    for(int i = 1; i&lt= n; i++ ) {</pre><pre >63	        cin &gt&gt tmp;</pre><pre >64	        arr[i] = tmp;</pre><pre style="color: black">65	        ret = mulmod(ret, tmp);</pre><pre style="color: black">66	    }</pre><pre style="color: black">67	     cout &lt&lt ret;</pre><pre style="color: black">68	    </pre><pre style="color: red">69	}</pre></td>
+    <td><pre style="color: black">1	#include &ltbits/stdc++.h&gt</pre><pre style="color: red">2	using namespace std;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">3	</pre><pre style="color: black">4	unsigned long long a[100001], n, s, k;</pre><pre style="color: red">5	</pre><pre style="color: black">6	unsigned long long factorial(int n)</pre><pre style="color: red">7	{</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">8	    const unsigned int M = 1000000007;</pre><pre style="color: black">9	    unsigned long long f = 1;</pre><pre style="color: black">10	    for (int i = 1; i &lt= n; i++)</pre><pre style="color: black">11	    f = (f*i) % M; </pre><pre style="color: black">12	    return f;</pre><pre style="color: red">13	}</pre><pre style="color: black">14	</pre><pre style="color: black">15	void input()</pre><pre style="color: red">16	{</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">17	    cin &gt&gt n;</pre><pre style="color: black">18	    for (int i = 0; i &lt n; i++)</pre><pre style="color: black">19	        cin &gt&gt a[i];</pre><pre style="color: red">20	}</pre><pre style="color: red">21	</pre><pre >  </pre><pre >  </pre><pre style="color: black">22	void solve()</pre><pre style="color: black">23	{</pre><pre style="color: black">24	    s = 1;</pre><pre style="color: black">25	    for (int i = 0; i &lt n; i++)</pre><pre style="color: black">26	    {</pre><pre style="color: black">27	        a[i] = a[i] % 1000000007;</pre><pre style="color: black">28	        s = s % 1000000007;</pre><pre style="color: black">29	        s = s * a[i]; </pre><pre style="color: red">30	    }</pre><pre >  </pre><pre style="color: black">31	    cout &lt&lt s &lt&lt endl;</pre><pre style="color: red">32	}</pre><pre style="color: red">33	</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">34	int main()</pre><pre style="color: black">35	{</pre><pre style="color: black">36	    input();</pre><pre style="color: black">37	    solve();</pre><pre style="color: red">38	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

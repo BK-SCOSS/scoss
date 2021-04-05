@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>D_37194884VinhTT_100.cc</a></td>
+    <td>D_37184258HieuND_10.cc</a></td>
+    <td><span style="color: rgb(145, 0, 0)">57.14%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>D_37194884VinhTT_100.cc</th>
+    <th>D_37184258HieuND_10.cc</th> 
+</tr>
+<tr>
+    <td><pre >1	#include &ltiostream&gt</pre><pre >2	#include &ltvector&gt</pre><pre >3	using namespace std;</pre><pre >4	 </pre><pre >5	int nTask,nStaff,k;</pre><pre >6	int a[21][31];</pre><pre >7	vector &ltint&gt staff[21];</pre><pre >8	int Totalcost[21] = {};</pre><pre >9	int cmin[31];</pre><pre >10	void input()</pre><pre >11	{</pre><pre style="color: black">12	    cin &gt&gt nTask &gt&gt nStaff &gt&gt k;</pre><pre style="color: black">13	    for (int i = 1; i &lt= nStaff ; i++)</pre><pre style="color: black">14	    {</pre><pre style="color: black">15	        for (int j = 1; j &lt= nTask; j++)</pre><pre style="color: black">16	        {</pre><pre style="color: black">17	            cin &gt&gt a[i][j];</pre><pre style="color: red">18	 </pre><pre style="color: black">19	        }</pre><pre style="color: black">20	    }</pre><pre style="color: black">21	    for (int i = nTask ;i &gt= 1; i-- )</pre><pre style="color: black">22	    {</pre><pre style="color: black">23	        int mi = 99999;</pre><pre style="color: black">24	        for (int j = 1; j &lt= nStaff; j++)</pre><pre style="color: black">25	        {</pre><pre style="color: black">26	            mi = min(mi,a[j][i]);</pre><pre style="color: red">27	        }</pre><pre >28	        if (i == nTask)</pre><pre >29	        {</pre><pre >30	            cmin[i] = mi;</pre><pre >31	        }else</pre><pre >32	        {</pre><pre >33	            cmin[i] = cmin[i+1] + mi;</pre><pre style="color: black">34	        }</pre><pre style="color: black">35	    }</pre><pre style="color: red">36	}</pre><pre >37	int ans = 999999;</pre><pre >38	int max1 ;</pre><pre >39	void Try(int i)</pre><pre style="color: black">40	{</pre><pre style="color: black">41	    for (int v = 1; v &lt= nStaff; v++)</pre><pre style="color: black">42	    {</pre><pre style="color: black">43	        if (staff[v].size() &lt k)</pre><pre style="color: black">44	        {</pre><pre style="color: black">45	            staff[v].push_back(i);</pre><pre style="color: black">46	            Totalcost[v] += a[v][i];</pre><pre style="color: black">47	            max1 = 0;</pre><pre style="color: black">48	            for (int j = 1; j &lt= nStaff; j++)</pre><pre style="color: red">49	            {</pre><pre style="color: black">50	                max1 += Totalcost[j];</pre><pre style="color: red">51	            }</pre><pre >52	            if (i == nTask)</pre><pre >53	            {</pre><pre >54	 </pre><pre >55	                ans = ans &gt max1 ? max1 : ans;</pre><pre >56	            }else</pre><pre >57	            {</pre><pre style="color: black">58	                if (max1 + cmin[i+1] &lt ans)</pre><pre style="color: black">59	                {</pre><pre style="color: black">60	                    Try(i+1);</pre><pre style="color: red">61	                }</pre><pre style="color: red">62	            }</pre><pre style="color: black">63	            staff[v].pop_back();</pre><pre style="color: black">64	            Totalcost[v] -= a[v][i];</pre><pre style="color: black">65	 </pre><pre style="color: black">66	        }</pre><pre style="color: black">67	    }</pre><pre style="color: black">68	}</pre><pre style="color: black">69	 </pre><pre style="color: black">70	int main()</pre><pre style="color: black">71	{</pre><pre style="color: black">72	    input();</pre><pre style="color: black">73	    Try(1);</pre><pre style="color: black">74	    cout&lt&ltans;</pre><pre style="color: red">75	}</pre></td>
+    <td><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">1	//</pre><pre style="color: black">2	//  main.cpp</pre><pre style="color: black">3	//  TASK_ASSIGNMENT</pre><pre style="color: black">4	//</pre><pre style="color: black">5	//  Created by Nguyen Thi Thu Thao on 10/23/20.</pre><pre style="color: black">6	//</pre><pre style="color: red">7	</pre><pre style="color: black">8	#include &ltbits/stdc++.h&gt</pre><pre style="color: black">9	using namespace std;</pre><pre style="color: black">10	int N,M,K;int c[50][50];int x[50];int cmin=999999;</pre><pre style="color: black">11	int cost=0;int STAFF[50];</pre><pre style="color: black">12	int cost_best=99999999;</pre><pre style="color: black">13	bool check(int v,int k){ // STAFF v and task K</pre><pre style="color: black">14	    if (STAFF[v]+1&lt=K) return true;</pre><pre style="color: black">15	    return false;</pre><pre style="color: red">16	}</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">17	void solution(){</pre><pre style="color: black">18	    cost_best=cost_best&gtcost?cost:cost_best;</pre><pre style="color: red">19	}</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">20	</pre><pre style="color: black">21	void TRY(int k){</pre><pre style="color: black">22	    for (int v=1;v&lt=M;v++){</pre><pre style="color: black">23	        if (check(v,k)){</pre><pre style="color: black">24	            x[k]=v;</pre><pre style="color: black">25	            STAFF[v]++;</pre><pre style="color: black">26	            cost=cost+ c[v][k];</pre><pre style="color: black">27	            if (k==N) solution();</pre><pre style="color: black">28	            else</pre><pre style="color: red">29	            {</pre><pre style="color: black">30	                if (cost + (N-k+1)*cmin &lt cost_best) TRY(k+1);</pre><pre style="color: red">31	            }</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">32	            STAFF[v]--;</pre><pre style="color: black">33	            cost=cost - c[v][k];</pre><pre style="color: black">34	        }</pre><pre style="color: red">35	    }</pre><pre style="color: red">36	}</pre><pre style="color: black">37	int main() {</pre><pre style="color: black">38	    cin &gt&gt N &gt&gt M &gt&gt K;</pre><pre style="color: black">39	    for (int i =1;i&lt=M;i++)</pre><pre style="color: black">40	    for (int j=1;j&lt=N;j++)</pre><pre style="color: black">41	    {</pre><pre style="color: black">42	        cin &gt&gt c[i][j];</pre><pre style="color: black">43	        cmin = c[i][j]&lt cmin ? c[i][j]:cmin;</pre><pre style="color: black">44	    }</pre><pre style="color: black">45	    for (int i=1;i&lt=M;i++) STAFF[i]=0;</pre><pre style="color: black">46	    TRY(1);</pre><pre style="color: black">47	    cout &lt&lt cost_best;</pre><pre style="color: black">48	    return 0;</pre><pre style="color: red">49	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>hash_operator</th>
+    </tr>
+    <tr>
+    <td>C_37184296NgaNT_0.cc</a></td>
+    <td>C_37184251HaHT_100.cc</a></td>
+    <td><span style="color: rgb(91, 0, 0)">35.77%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>C_37184296NgaNT_0.cc</th>
+    <th>C_37184251HaHT_100.cc</th> 
+</tr>
+<tr>
+    <td><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">1	#include &ltbits/stdc++.h&gt</pre><pre style="color: black">2	using namespace std;</pre><pre style="color: black">3	const int N = 100;</pre><pre style="color: black">4	const int INF = 1000000000;</pre><pre style="color: black">5	long long c[N][N];</pre><pre style="color: black">6	long long cmin=INF;</pre><pre style="color: black">7	int x[N];</pre><pre style="color: red">8	int n;</pre><pre style="color: red">9	int m;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">10	int cnt=0;</pre><pre style="color: black">11	bool appear[N];</pre><pre style="color: black">12	long long f;</pre><pre style="color: black">13	void input(){</pre><pre style="color: red">14	    cin &gt&gt n &gt&gt m;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">15	    for(int i = 1; i &lt= n; i++){</pre><pre style="color: black">16	        for(int j = 1; j &lt= n; j++){</pre><pre style="color: black">17	            cin &gt&gt c[i][j];</pre><pre style="color: black">18	            if (i != j && cmin &gt c[i][j])</pre><pre style="color: black">19	                cmin = c[i][j];</pre><pre style="color: red">20	    }</pre><pre style="color: red">21	    }</pre><pre style="color: red">22	}</pre><pre >  </pre><pre style="color: black">23	void solution(){</pre><pre style="color: black">24	    if(f + c[x[n]][x[1]] &lt= m){</pre><pre style="color: black">25	        cnt++;</pre><pre style="color: black">26	    }</pre><pre style="color: red">27	}</pre><pre style="color: black">28	void TRY(int k){</pre><pre style="color: black">29	    for(int v =1; v &lt= n; v++){</pre><pre style="color: black">30	        if(!appear[v]){</pre><pre style="color: black">31	            x[k] = v;</pre><pre style="color: black">32	            appear[v] = true;</pre><pre style="color: black">33	            f = f + c[x[k-1]][x[k]];</pre><pre style="color: black">34	            if(k == n) solution();</pre><pre style="color: black">35	            else{</pre><pre style="color: black">36	                 if((n  - k) * cmin + f &lt m)</pre><pre style="color: black">37	                    TRY(k+1);</pre><pre style="color: black">38	            }</pre><pre style="color: black">39	            appear[v] = false;</pre><pre style="color: black">40	            f = f - c[x[k-1]][x[k]];</pre><pre style="color: red">41	        }</pre><pre style="color: red">42	</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">43	    }</pre><pre style="color: red">44	}</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">45	void solve(){</pre><pre style="color: black">46	    for(int v = 1; v &lt= n; v++) appear[v] = false;</pre><pre style="color: black">47	    f = 0;</pre><pre style="color: black">48	    x[1] = 1;</pre><pre style="color: black">49	    appear[1] = true;</pre><pre style="color: black">50	    TRY(2);</pre><pre style="color: black">51	    cout &lt&lt  cnt &lt&lt endl;</pre><pre style="color: red">52	}</pre><pre >  </pre><pre style="color: black">53	int main(){</pre><pre style="color: red">54	    input();</pre><pre style="color: black">55	    // cout &lt&lt cmin;</pre><pre style="color: black">56	    solve();</pre><pre style="color: red">57	}</pre></td>
+    <td><pre >1	//</pre><pre >2	//  main.cpp</pre><pre >3	//  TSPTour</pre><pre >4	//</pre><pre >5	//  Created by Lan Chu on 10/23/20.</pre><pre >6	//</pre><pre style="color: black">7	</pre><pre style="color: black">8	#include &ltiostream&gt</pre><pre style="color: black">9	#include &ltvector&gt</pre><pre style="color: black">10	</pre><pre style="color: black">11	using namespace std;</pre><pre style="color: black">12	</pre><pre style="color: black">13	const int N = 15;</pre><pre style="color: red">14	int n;</pre><pre style="color: red">15	int m;</pre><pre >16	int cost[N+1][N+1];</pre><pre >17	</pre><pre >18	int path[N];</pre><pre >19	int curTotalCost;</pre><pre >20	int numSolution;</pre><pre >21	bool visited[N+1];</pre><pre style="color: black">22	int minCost;</pre><pre style="color: black">23	</pre><pre style="color: black">24	void input()</pre><pre style="color: black">25	{</pre><pre style="color: red">26	    cin &gt&gt n &gt&gt m;</pre><pre >27	    minCost = INT_MAX;</pre><pre >28	    for(int i=1; i&lt=n; ++i)</pre><pre >29	    {</pre><pre >30	        visited[i] = false;</pre><pre style="color: black">31	        for(int j=1; j&lt=n; ++j)</pre><pre style="color: black">32	        {</pre><pre style="color: black">33	            cin &gt&gt cost[i][j];</pre><pre style="color: black">34	            if(cost[i][j] != 0)</pre><pre style="color: black">35	            minCost = cost[i][j] &lt minCost ? cost[i][j] : minCost;</pre><pre style="color: red">36	        }</pre><pre style="color: red">37	    }</pre><pre style="color: red">38	}</pre><pre >39	</pre><pre style="color: black">40	bool isPromisingPath(int curPos)</pre><pre style="color: black">41	{</pre><pre style="color: black">42	    int numCityLeft = n - curPos;</pre><pre style="color: black">43	    return curTotalCost + numCityLeft * minCost &lt= m;</pre><pre style="color: red">44	}</pre><pre style="color: black">45	</pre><pre style="color: black">46	void tryPath(int curPos)</pre><pre style="color: black">47	{</pre><pre style="color: black">48	    if(curPos == n)</pre><pre style="color: black">49	    {</pre><pre style="color: black">50	        int prevCity = path[curPos - 1];</pre><pre style="color: black">51	        curTotalCost += cost[prevCity][1];</pre><pre style="color: black">52	        </pre><pre style="color: black">53	        if(curTotalCost &lt= m)</pre><pre style="color: black">54	            numSolution++;</pre><pre style="color: black">55	        </pre><pre style="color: black">56	        curTotalCost -= cost[prevCity][1];</pre><pre style="color: black">57	        return;</pre><pre style="color: red">58	    }</pre><pre style="color: red">59	    </pre><pre >60	    int prevCity = path[curPos-1];</pre><pre >61	    for(int curCity = 1; curCity &lt= n; ++curCity)</pre><pre >62	    {</pre><pre >63	        if(!visited[curCity])</pre><pre >64	        {</pre><pre >65	            path[curPos] = curCity;</pre><pre >66	            curTotalCost += cost[prevCity][curCity];</pre><pre >67	            visited[curCity] = true;</pre><pre >68	            if(isPromisingPath(curPos))</pre><pre >69	                tryPath(curPos + 1);</pre><pre >70	            path[curPos] = 0;</pre><pre >71	            curTotalCost -= cost[prevCity][curCity];</pre><pre >72	            visited[curCity] = false;</pre><pre >73	        }</pre><pre style="color: red">74	    }</pre><pre style="color: red">75	}</pre><pre >76	</pre><pre >77	void solve()</pre><pre >78	{</pre><pre style="color: black">79	    path[0] = 1;</pre><pre style="color: black">80	    visited[1] = true;</pre><pre style="color: black">81	    curTotalCost = 0;</pre><pre style="color: black">82	    numSolution = 0;</pre><pre style="color: black">83	    </pre><pre style="color: black">84	    tryPath(1);</pre><pre style="color: black">85	    cout &lt&lt numSolution;</pre><pre style="color: red">86	}</pre><pre >87	</pre><pre style="color: black">88	int main(int argc, const char * argv[]) {</pre><pre style="color: red">89	    input();</pre><pre style="color: black">90	    solve();</pre><pre style="color: black">91	    return 0;</pre><pre style="color: red">92	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

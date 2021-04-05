@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>hash_operator</th>
+    </tr>
+    <tr>
+    <td>B_8858173193KhanhNQ_100.cc</a></td>
+    <td>B_37180007anhlh_80.cc</a></td>
+    <td><span style="color: rgb(52, 0, 0)">20.63%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>B_8858173193KhanhNQ_100.cc</th>
+    <th>B_37180007anhlh_80.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: red">1	#include &ltbits/stdc++.h&gt</pre><pre >2	using namespace std;</pre><pre style="color: red">3	 </pre><pre style="color: black">4	const long long P = 1e9+7;</pre><pre style="color: red">5	</pre><pre >6	unsigned long long summod(unsigned long long a, unsigned long long b){</pre><pre >7	    return ((a % P) + (b % P)) % P;</pre><pre style="color: black">8	}</pre><pre style="color: black">9	 </pre><pre style="color: black">10	unsigned long long timemod(unsigned long long a, unsigned long long b){</pre><pre style="color: black">11		if (b==1) return a%P;</pre><pre style="color: black">12		unsigned long long tmp=timemod(a,b/2);</pre><pre style="color: black">13		if (b%2) return ((tmp+tmp)%P+a%P)%P;</pre><pre style="color: black">14		return (tmp+tmp)%P;</pre><pre style="color: black">15	}</pre><pre style="color: black">16	</pre><pre style="color: black">17	unsigned long long advanced_timemod(unsigned long long a, unsigned long long b){</pre><pre style="color: black">18	    if (b==1) return a%P;</pre><pre style="color: black">19	    unsigned long long tmp=timemod(a,b/2);</pre><pre style="color: black">20	    if (b%2) return summod(summod(tmp,tmp),a)%P;</pre><pre style="color: black">21	    return summod(tmp,tmp)%P;</pre><pre style="color: red">22	}</pre><pre style="color: red">23	</pre><pre style="color: red">24	int main(){</pre><pre >25	    // freopen("inp.txt","r", stdin);</pre><pre >26		int n,k;</pre><pre >27		unsigned long long res = 1ll*1;</pre><pre >28		int res1=1;</pre><pre >29		cin &gt&gt n;</pre><pre >30		for (int i=0; i&ltn; i++){</pre><pre >31			cin &gt&gt k;</pre><pre >32	        res = timemod(res,k);</pre><pre >33		} </pre><pre style="color: black">34		cout &lt&lt res;</pre><pre style="color: black">35		return 0;</pre><pre style="color: red">36	}</pre></td>
+    <td><pre style="color: red">1	#include &ltbits/stdc++.h&gt</pre><pre >  </pre><pre style="color: red">2	</pre><pre style="color: black">3	using namespace std;</pre><pre style="color: red">4	</pre><pre >  </pre><pre >  </pre><pre style="color: black">5	const int MOD=1000000007;</pre><pre style="color: black">6	const int N=1000001;</pre><pre style="color: black">7	int a[N];</pre><pre style="color: black">8	int n;</pre><pre style="color: black">9	long long kq;</pre><pre style="color: black">10	</pre><pre style="color: black">11	void in_solve(){</pre><pre style="color: black">12	    cin &gt&gt n;</pre><pre style="color: black">13	    kq=1;</pre><pre style="color: black">14	    for (int i=1;i&lt=n;i++){</pre><pre style="color: black">15	        cin &gt&gt a[i];</pre><pre style="color: black">16	        kq= ((kq%MOD) *(a[i]%MOD ))%MOD ;</pre><pre style="color: black">17	    }</pre><pre style="color: black">18	    cout &lt&lt kq%MOD &lt&lt endl;</pre><pre style="color: red">19	}</pre><pre style="color: red">20	</pre><pre style="color: red">21	int main(){</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">22	    in_solve();</pre><pre style="color: black">23	</pre><pre style="color: red">24	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

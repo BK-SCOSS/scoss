@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>hash_operator</th>
+    </tr>
+    <tr>
+    <td>B_8858173193KhanhNQ_100.cc</a></td>
+    <td>B_37180007anhlh_80.cc</a></td>
+    <td><span style="color: rgb(29, 0, 0)">11.46%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>B_8858173193KhanhNQ_100.cc</th>
+    <th>B_37180007anhlh_80.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: black">1	#include &ltiostream&gt</pre><pre style="color: black">2	#include &ltbits/stdc++.h&gt </pre><pre style="color: red">3	</pre><pre >  </pre><pre style="color: black">4	#define MOD 1000000007</pre><pre style="color: red">5	</pre><pre style="color: black">6	using namespace std;</pre><pre style="color: red">7	</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">8	</pre><pre style="color: red">9	</pre><pre style="color: black">10	unsigned long long mod(string num, unsigned long long a) </pre><pre style="color: black">11	{ </pre><pre style="color: black">12	    unsigned long long res = 0; </pre><pre style="color: black">13	  </pre><pre style="color: black">14	    for (int i = 0; i &lt num.length(); i++) </pre><pre style="color: black">15	         res = (res*10 + (int)num[i] - '0') % a; </pre><pre style="color: black">16	  </pre><pre style="color: black">17	    return res; </pre><pre style="color: red">18	}</pre><pre >  </pre><pre style="color: red">19	</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">20	int main()</pre><pre style="color: black">21	{</pre><pre style="color: black">22	    int n;</pre><pre style="color: black">23	    cin &gt&gt n;</pre><pre style="color: black">24	    unsigned long prod = 1;</pre><pre style="color: red">25	    </pre><pre style="color: black">26	    for (int i = 0; i &lt n; i++)</pre><pre style="color: black">27	    {</pre><pre style="color: black">28	        int num;</pre><pre style="color: black">29	        cin &gt&gt num;</pre><pre style="color: black">30	        prod = prod * num;</pre><pre style="color: black">31	        prod = mod(to_string(prod), MOD);</pre><pre style="color: red">32	    }</pre><pre style="color: red">33	    </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">34	    cout &lt&lt prod;</pre><pre style="color: black">35	    return 0;</pre><pre style="color: red">36	}</pre></td>
+    <td><pre style="color: black">1	#include &ltbits/stdc++.h&gt</pre><pre style="color: black">2	using namespace std;</pre><pre style="color: red">3	</pre><pre >4	const int P = 1000000007;</pre><pre style="color: black">5	const int MAX = 1000001;</pre><pre style="color: red">6	</pre><pre style="color: black">7	int a[MAX], N;</pre><pre style="color: red">8	</pre><pre >9	unsigned long long addMod(unsigned long long a, unsigned long long b) {</pre><pre >10	    a = a % P;</pre><pre >11	    b = b % P;</pre><pre >12	    int temp = P - a;</pre><pre >13	    if (temp &lt b) {</pre><pre >14	        return b - temp;</pre><pre >15	    }</pre><pre >16	    return a + b;</pre><pre style="color: black">17	}</pre><pre style="color: red">18	</pre><pre style="color: black">19	unsigned long long mulMod(unsigned long long a, unsigned long long b) {</pre><pre style="color: black">20	    if (a == 0 || b == 0) return 0;</pre><pre style="color: black">21	    if (a == 1) return b % P;</pre><pre style="color: black">22	    if (b == 1) return a % P;</pre><pre style="color: black">23	    if (a &gt b) {</pre><pre style="color: black">24	        int temp = a;</pre><pre style="color: black">25	        a = b;</pre><pre style="color: black">26	        b = temp;</pre><pre style="color: red">27	    }</pre><pre >28	    unsigned long long c = 0;</pre><pre style="color: red">29	</pre><pre >30	    if (b % 2 == 0) {</pre><pre >31	        c = mulMod(a, b / 2);</pre><pre >32	        c = addMod(c, c);</pre><pre style="color: black">33	    } else {</pre><pre style="color: black">34	        c = mulMod(a, (b - 1) / 2);</pre><pre style="color: black">35	        c = addMod(c, c);</pre><pre style="color: black">36	        c = addMod(a, c);</pre><pre style="color: black">37	    }</pre><pre style="color: red">38	    </pre><pre style="color: black">39	    return c;</pre><pre style="color: black">40	}</pre><pre style="color: black">41	</pre><pre style="color: black">42	unsigned long long prodMod(int k) {</pre><pre style="color: black">43	    if (k == 1) return a[k] % P;</pre><pre style="color: black">44	    return mulMod(prodMod(k - 1), a[k]);</pre><pre style="color: red">45	}</pre><pre style="color: red">46	</pre><pre >47	int main() {</pre><pre >48	    cin &gt&gt N;</pre><pre >49	    for (int i = 1; i &lt= N; i++) {</pre><pre >50	        cin &gt&gt a[i];</pre><pre style="color: black">51	    }</pre><pre style="color: black">52	    cout &lt&lt prodMod(N);</pre><pre style="color: red">53	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

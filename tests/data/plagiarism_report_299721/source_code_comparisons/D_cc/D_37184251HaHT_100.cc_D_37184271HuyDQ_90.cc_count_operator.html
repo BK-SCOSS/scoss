@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>D_37194884VinhTT_100.cc</a></td>
+    <td>D_37184258HieuND_10.cc</a></td>
+    <td><span style="color: rgb(111, 0, 0)">43.90%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>D_37194884VinhTT_100.cc</th>
+    <th>D_37184258HieuND_10.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: red">1	#include &ltbits/stdc++.h&gt</pre><pre style="color: red">2	using namespace std;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">3	</pre><pre style="color: black">4	const int MAXN = 30+1;</pre><pre style="color: black">5	const int MAXM = 20+1;</pre><pre style="color: black">6	const int INF = 1e9+7;</pre><pre style="color: black">7	int c[MAXM][MAXN];</pre><pre style="color: black">8	int n, m, k;</pre><pre style="color: black">9	</pre><pre style="color: black">10	int ans;</pre><pre style="color: black">11	int cmin;</pre><pre style="color: black">12	int visited[MAXM];</pre><pre style="color: black">13	void exhsearch(int task, int cost) {</pre><pre style="color: black">14		for(int i = 0; i &lt m; i++) {</pre><pre style="color: black">15			if(visited[i] &lt k && cost + c[i][task] + cmin*(n-task-1) &lt ans) {</pre><pre style="color: black">16				visited[i]++;</pre><pre style="color: black">17				if(task == n-1) </pre><pre style="color: black">18					ans = cost + c[i][task];</pre><pre style="color: black">19				else</pre><pre style="color: black">20					exhsearch(task+1, cost + c[i][task]);</pre><pre style="color: black">21				visited[i]--;</pre><pre style="color: red">22			}</pre><pre >  </pre><pre >  </pre><pre style="color: red">23		}</pre><pre >  </pre><pre style="color: red">24	}</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">25	int main() {</pre><pre style="color: black">26		//freopen("1.inp", "r", stdin);</pre><pre style="color: black">27	</pre><pre style="color: black">28		scanf("%d %d %d", &n, &m, &k);</pre><pre style="color: black">29		cmin = INF;</pre><pre style="color: black">30		for(int i = 0; i &lt m; i++)</pre><pre style="color: black">31			for(int j = 0; j &lt n; j++) {</pre><pre style="color: black">32				scanf("%d", &c[i][j]);</pre><pre style="color: black">33				cmin = min(cmin, c[i][j]);</pre><pre style="color: red">34			}</pre><pre >  </pre><pre >  </pre><pre style="color: black">35	</pre><pre style="color: black">36		ans = INF;</pre><pre style="color: black">37		memset(visited, 0, sizeof visited);</pre><pre style="color: black">38	</pre><pre style="color: black">39		exhsearch(0, 0);</pre><pre style="color: black">40		</pre><pre style="color: black">41		printf("%d\n", ans);</pre><pre style="color: black">42	</pre><pre style="color: black">43		return 0;</pre><pre style="color: red">44	}</pre></td>
+    <td><pre style="color: red">1	#include &ltbits/stdc++.h&gt</pre><pre style="color: red">2	using namespace std;</pre><pre >3	const int N = 30;</pre><pre >4	int n, m, q;</pre><pre >5	int c[N][N];</pre><pre >6	int cmin=1e7;</pre><pre >7	bool appear[N];</pre><pre >8	int f;</pre><pre >9	int cnt[N];</pre><pre >10	int min_f;</pre><pre >11	void input()</pre><pre >12	{</pre><pre >13	    cin &gt&gt n &gt&gt m &gt&gt q;</pre><pre >14	    for (int i = 1; i &lt= m; i++)</pre><pre >15	    {</pre><pre >16	        for (int j = 1; j &lt= n; j++)</pre><pre >17	        {</pre><pre >18	            cin &gt&gt c[i][j];</pre><pre >19	            cmin = c[i][j] &lt cmin ? c[i][j] : cmin;</pre><pre >20	        }</pre><pre >21	    }</pre><pre >22	    // for (int i = 1; i &lt= n; i++)</pre><pre >23	    // {</pre><pre style="color: black">24	    //     appear[i] = false;</pre><pre style="color: black">25	    // }</pre><pre style="color: black">26	    // for (int i = 1; i &lt= m; i++)</pre><pre style="color: black">27	    // {</pre><pre style="color: black">28	    //     cnt[i] = 0;</pre><pre style="color: black">29	    // }</pre><pre style="color: black">30	    f = 0;</pre><pre style="color: black">31	    min_f = 100000;</pre><pre style="color: black">32	}</pre><pre style="color: black">33	void solution()</pre><pre style="color: black">34	{</pre><pre style="color: black">35	    if (f &lt min_f)</pre><pre style="color: black">36	    {</pre><pre style="color: black">37	        min_f = f;</pre><pre style="color: black">38	    }</pre><pre style="color: black">39	}</pre><pre style="color: black">40	bool check(int v,int k){</pre><pre style="color: black">41	    if(appear[k]){</pre><pre style="color: black">42	        return false;</pre><pre style="color: red">43	    }</pre><pre >44	    if(cnt[v]&gt=q){</pre><pre >45	        return false;</pre><pre style="color: red">46	    }</pre><pre >47	    return true;</pre><pre style="color: red">48	}</pre><pre >49	void TRY(int k)</pre><pre >50	{</pre><pre >51	    for (int v = 1; v &lt= m; v++)</pre><pre >52	    {</pre><pre >53	        if (check(v,k))</pre><pre >54	        {</pre><pre >55	            f += c[v][k];</pre><pre >56	            appear[k] = true;</pre><pre style="color: black">57	            cnt[v] += 1;</pre><pre style="color: black">58	            if (k == n)</pre><pre style="color: black">59	            {</pre><pre style="color: black">60	                solution();</pre><pre style="color: black">61	            }</pre><pre style="color: black">62	            else</pre><pre style="color: black">63	            {</pre><pre style="color: black">64	                if(f + cmin*(n-k) &lt min_f)</pre><pre style="color: black">65	                    TRY(k + 1);</pre><pre style="color: red">66	            }</pre><pre >67	            appear[k] = false;</pre><pre >68	            cnt[v] -= 1;</pre><pre style="color: black">69	            f -= c[v][k];</pre><pre style="color: black">70	        }</pre><pre style="color: black">71	    }</pre><pre style="color: black">72	}</pre><pre style="color: black">73	int main()</pre><pre style="color: black">74	{</pre><pre style="color: black">75	    input();</pre><pre style="color: black">76	    TRY(1);</pre><pre style="color: black">77	    cout &lt&lt min_f;</pre><pre style="color: red">78	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

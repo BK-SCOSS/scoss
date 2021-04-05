@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>B_8858173193KhanhNQ_100.cc</a></td>
+    <td>B_37180007anhlh_80.cc</a></td>
+    <td><span style="color: rgb(149, 0, 0)">58.62%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>B_8858173193KhanhNQ_100.cc</th>
+    <th>B_37180007anhlh_80.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: black">1	#include&ltbits/stdc++.h&gt</pre><pre style="color: red">2	using namespace std;</pre><pre >3	</pre><pre >4	const unsigned long long N = 10e7;</pre><pre >5	unsigned long long a;</pre><pre >6	unsigned long long n;</pre><pre >7	unsigned long long result;</pre><pre >8	</pre><pre >9	const long long p = 1e9+7;</pre><pre >10	unsigned long long plus_mod (unsigned long long a, unsigned long long b ){</pre><pre >11	    unsigned long long c;</pre><pre >12	    	a = a % p;</pre><pre >13	    	b = b % p;</pre><pre >14	    	//return (a+b)%p;</pre><pre >15	    	c = p - a;</pre><pre >16	    	if ( c &lt= b)</pre><pre >17	    		return b - c;</pre><pre >18	    	else</pre><pre >19	    		return a + b; 	</pre><pre >20	    	</pre><pre >21	    }</pre><pre style="color: red">22	     </pre><pre >23	unsigned long long time_mod(unsigned long long a, unsigned long long b){</pre><pre >24	    	if ( a == 1)</pre><pre >25	    		return b % p;</pre><pre >26	    	if ( b == 1)</pre><pre >27	    		return a % p;</pre><pre >28	    	unsigned long long c = b / 2;</pre><pre >29	    	unsigned long long tmp = time_mod(a, c);</pre><pre >30	    	if ( b % 2 == 0)</pre><pre >31	    		return plus_mod(tmp, tmp);</pre><pre style="color: black">32	    	else</pre><pre style="color: black">33	    		return plus_mod(plus_mod(tmp, tmp), a); </pre><pre style="color: black">34	    }</pre><pre style="color: black">35	void input(){</pre><pre style="color: red">36	    cin &gt&gt n;</pre><pre >37	    unsigned long long tmp;</pre><pre >38	    result = 1;</pre><pre style="color: black">39	    for ( int i = 0 ; i &lt n; i++){</pre><pre style="color: black">40	       cin &gt&gt tmp;</pre><pre style="color: black">41	       a = tmp;</pre><pre style="color: black">42	       result = time_mod( result, a); </pre><pre style="color: black">43	    }</pre><pre style="color: red">44	}</pre><pre >45	</pre><pre >46	int main(){</pre><pre >47	    input();</pre><pre style="color: black">48	    cout &lt&lt result &lt&lt endl;</pre><pre style="color: red">49	}</pre></td>
+    <td><pre style="color: black">1	#include &ltiostream&gt</pre><pre style="color: red">2	using namespace std;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">3	</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">4	int main ()</pre><pre style="color: black">5	{</pre><pre style="color: black">6	    long long n;</pre><pre style="color: black">7	    long long ans = 1;</pre><pre style="color: red">8	    cin &gt&gt n;</pre><pre >  </pre><pre >  </pre><pre style="color: black">9	    for (long long i = 1; i &lt=n ;i++)</pre><pre style="color: black">10	    {</pre><pre style="color: black">11	        long long x;</pre><pre style="color: black">12	        cin &gt&gt x;</pre><pre style="color: black">13	        ans = (ans * (x%1000000007))%1000000007;</pre><pre style="color: red">14	    }</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">15	    cout &lt&lt ans;</pre><pre style="color: red">16	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

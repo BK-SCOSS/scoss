@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>A_371947999MinhNM_100.cc</a></td>
+    <td>A_37184284lanch_100.cc</a></td>
+    <td><span style="color: rgb(191, 0, 0)">75.00%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>A_371947999MinhNM_100.cc</th>
+    <th>A_37184284lanch_100.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: black">1	#include&ltbits/stdc++.h&gt</pre><pre style="color: red">2	using namespace std;</pre><pre style="color: red">3	int main(){</pre><pre style="color: black">4		int n,m,s=0,cnt=0;</pre><pre style="color: red">5		cin &gt&gtn&gt&gtm;</pre><pre >6		int arr[n];</pre><pre >7		for(int i=0;i&ltn;i++){</pre><pre >8			cin &gt&gtarr[i];</pre><pre style="color: black">9		}</pre><pre style="color: black">10		for(int i=0;i&ltn;i++){</pre><pre style="color: black">11	        s=arr[i];</pre><pre style="color: black">12	        if(s&lt=m) cnt++;</pre><pre style="color: black">13	        for(int j=i+1;j&ltn;j++){</pre><pre style="color: black">14	            s+=arr[j];</pre><pre style="color: black">15	            if(s&lt=m) cnt++;</pre><pre style="color: black">16	            else break;</pre><pre style="color: red">17	        }</pre><pre style="color: black">18	    }</pre><pre style="color: black">19	    cout &lt&ltcnt;</pre><pre style="color: red">20	}</pre></td>
+    <td><pre style="color: black">1	#include &ltiostream&gt</pre><pre style="color: red">2	using namespace std;</pre><pre style="color: red">3	int main() {</pre><pre style="color: black">4		int n,m;</pre><pre style="color: red">5		cin&gt&gtn&gt&gtm;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">6		int a[n];</pre><pre style="color: black">7		for (int i=0;i&ltn;i++) cin&gt&gta[i];</pre><pre style="color: black">8		int kq;</pre><pre style="color: black">9		int kqend= a[0];</pre><pre style="color: black">10		if (kqend&lt=m) kq=1; else kq=0;</pre><pre style="color: black">11		for (int i=1;i&ltn;i++) {</pre><pre style="color: black">12		if ((kqend+a[i])&lt=m) {kqend+=a[i];kq++;} else {kqend=a[i];kq++;}</pre><pre style="color: black">13		if (a[i]&lt=m&&a[i]!=kqend) kq++;</pre><pre style="color: red">14	}</pre><pre style="color: black">15	cout&lt&ltkq;</pre><pre style="color: black">16	return 0;</pre><pre style="color: red">17	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

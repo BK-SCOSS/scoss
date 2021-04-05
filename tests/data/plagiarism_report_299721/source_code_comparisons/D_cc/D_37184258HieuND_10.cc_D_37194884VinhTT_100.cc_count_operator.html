@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>D_37194884VinhTT_100.cc</a></td>
+    <td>D_37184258HieuND_10.cc</a></td>
+    <td><span style="color: rgb(93, 0, 0)">36.67%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>D_37194884VinhTT_100.cc</th>
+    <th>D_37184258HieuND_10.cc</th> 
+</tr>
+<tr>
+    <td><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">1	</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">2	#include &ltiostream&gt</pre><pre style="color: red">3	</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">4	using namespace std;</pre><pre style="color: red">5	</pre><pre style="color: red">6	int main()</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">7	{</pre><pre >  </pre><pre >  </pre><pre style="color: black">8	    int n,m,k;</pre><pre style="color: black">9	    cin &gt&gt n &gt&gt m &gt&gt k;</pre><pre style="color: red">10	    </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">11	    for(int i=0; i&lt n; i++){</pre><pre style="color: black">12	        int b;</pre><pre style="color: black">13	        cin&gt&gt b;</pre><pre style="color: red">14	    }</pre><pre >  </pre><pre >  </pre><pre style="color: black">15	    for(int i =0 ; i&ltn ; i++){</pre><pre style="color: black">16	        int c;</pre><pre style="color: black">17	        cin &gt&gt c;</pre><pre style="color: red">18	    }</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">19	    int d=27;</pre><pre style="color: black">20	    cout &lt&lt d;</pre><pre style="color: black">21	    return 0;</pre><pre style="color: red">22	}</pre></td>
+    <td><pre >1	#include&ltbits/stdc++.h&gt</pre><pre >2	</pre><pre >3	using namespace std ;</pre><pre >4	</pre><pre >5	#define INF 1000000000</pre><pre style="color: red">6	</pre><pre >7	const int N = 100 ;</pre><pre >8	int c[N][N] , min_c , res , d ;</pre><pre >9	int n , m , kk , total_task[N] ;</pre><pre >10	int task[N];</pre><pre style="color: black">11	bool appear[N] ;</pre><pre style="color: red">12	</pre><pre >13	void input() ;</pre><pre >14	bool check(int v,int k) ;</pre><pre >15	void solution() ;</pre><pre >16	void TRY( int k ) ;</pre><pre style="color: black">17	void solve() ;</pre><pre style="color: red">18	</pre><pre style="color: red">19	int main()</pre><pre >20	{</pre><pre >21	    input() ;</pre><pre >22	    solve() ;</pre><pre >23	}</pre><pre >24	</pre><pre >25	bool check(int v,int k){</pre><pre >26	    if (appear[k]) return false;</pre><pre >27	    if (total_task[v]&gt=kk) return false;</pre><pre >28	    return true;</pre><pre >29	}</pre><pre >30	</pre><pre >31	void input()</pre><pre >32	{</pre><pre >33	    cin &gt&gt n &gt&gt m &gt&gt kk ;</pre><pre >34	        min_c = INF ;</pre><pre >35	    for( int i=1 ; i&lt=m ; i++ )</pre><pre >36	        for( int j=1 ; j&lt=n ; j++ )</pre><pre >37	        {</pre><pre >38	            cin &gt&gt c[i][j] ;</pre><pre >39	            if( min_c &gt c[i][j])</pre><pre >40	                min_c = c[i][j] ;</pre><pre >41	        }</pre><pre >42	}</pre><pre >43	</pre><pre >44	</pre><pre >45	</pre><pre >46	void solution()</pre><pre >47	{</pre><pre >48	    if( res &gt= d )</pre><pre style="color: red">49	    {</pre><pre >50	        res = d ;</pre><pre >51	    }</pre><pre style="color: black">52	</pre><pre style="color: black">53	}</pre><pre style="color: red">54	</pre><pre >55	void TRY( int k )</pre><pre >56	{</pre><pre >57	    for( int v=1; v&lt=m ; v++ )</pre><pre >58	    {</pre><pre >59	        if( check( v , k ) )</pre><pre >60	        {</pre><pre >61	            appear[k] = true ;</pre><pre >62	            task[k] = v ;</pre><pre >63	            total_task[v]++ ;</pre><pre >64	            d = d + c[task[k]][k] ;</pre><pre >65	            if( k==n ) solution() ;</pre><pre >66	            else</pre><pre >67	            {</pre><pre >68	                    if (n==25)</pre><pre >69	                    {</pre><pre >70	                        if (d+min_c*(n-k+1)&ltres)</pre><pre >71	                            TRY(k+1);</pre><pre >72	                    }</pre><pre >73	                    else</pre><pre >74	                    {</pre><pre style="color: black">75	                        if (d+min_c*(n-k+1)&lt=res)</pre><pre style="color: black">76	                            TRY(k+1);</pre><pre style="color: black">77	                    }</pre><pre style="color: red">78	            }</pre><pre >79	            appear[k] = false ;</pre><pre >80	            total_task[v]-- ;</pre><pre style="color: black">81	            d = d- c[task[k]][k] ;</pre><pre style="color: black">82	        }</pre><pre style="color: black">83	    }</pre><pre style="color: red">84	}</pre><pre >85	</pre><pre >86	void solve()</pre><pre >87	{</pre><pre >88	    res = INF ;</pre><pre >89	    for( int i=1 ; i&lt=m ; i++ ) total_task[i] = 0;</pre><pre >90	    for (int i=1;i&lt=n;i++) appear[i]=false;</pre><pre style="color: black">91	    d = 0 ;</pre><pre style="color: black">92	    TRY(1) ;</pre><pre style="color: black">93	    cout &lt&lt res &lt&lt endl ;</pre><pre style="color: red">94	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

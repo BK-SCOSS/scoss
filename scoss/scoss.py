@@ -380,3 +380,6 @@ class Scoss():
             with open(os.path.join(output_dir, 'summary.html'), 'w') as file:
                 file.write(page)
         print("Done!")
+
+    def get_sources(self):
+        return self.__sources

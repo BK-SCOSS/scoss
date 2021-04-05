@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>B_8858173193KhanhNQ_100.cc</a></td>
+    <td>B_37180007anhlh_80.cc</a></td>
+    <td><span style="color: rgb(153, 0, 0)">60.00%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>B_8858173193KhanhNQ_100.cc</th>
+    <th>B_37180007anhlh_80.cc</th> 
+</tr>
+<tr>
+    <td><pre >1	//</pre><pre >2	//  main.cpp</pre><pre >3	//  ProMod</pre><pre >4	//</pre><pre >5	//  Created by Lan Chu on 10/23/20.</pre><pre >6	//</pre><pre >7	</pre><pre >8	#include &ltbits/stdc++.h&gt</pre><pre >9	#include &ltvector&gt</pre><pre >10	</pre><pre style="color: black">11	</pre><pre style="color: red">12	using namespace std;</pre><pre >13	</pre><pre >14	/*</pre><pre >15	vector&ltunsigned long long&gt arr;</pre><pre >16	unsigned long long P;</pre><pre >17	int n;</pre><pre >18	</pre><pre >19	void swap(unsigned long long *a, unsigned long long *b)</pre><pre >20	{</pre><pre >21	    unsigned long long temp = *a;</pre><pre >22	    *a = *b;</pre><pre >23	    *b = temp;</pre><pre >24	}</pre><pre >25	 </pre><pre >26	unsigned long long remainOfSum(unsigned long long a, unsigned long long b, unsigned long long P)</pre><pre >27	{</pre><pre >28	    a%=P;</pre><pre >29	    b%=P;</pre><pre >30	    unsigned long long temp = P - a;</pre><pre >31	    if(temp &lt b)// if a+b &gt P</pre><pre >32	        return b - temp;</pre><pre >33	    else</pre><pre >34	        return (a+b)%P;</pre><pre >35	}</pre><pre >36	 </pre><pre >37	unsigned long long remainOfProd(unsigned long long a, unsigned long long b, unsigned long long P)</pre><pre >38	{</pre><pre >39	    if(a==0||b==0)  return 0;</pre><pre >40	    if(a==1) return b%P;</pre><pre >41	    if(b==1) return a%P;</pre><pre >42	 </pre><pre >43	    if(a &lt b)  swap(&a, &b);</pre><pre >44	    unsigned long long remainOfHalf = remainOfProd(a, b/2, P);</pre><pre >45	    unsigned long long result = remainOfSum(remainOfHalf, remainOfHalf, P);</pre><pre >46	 </pre><pre >47	    if(b%2 == 0)</pre><pre >48	        return result;</pre><pre >49	    else</pre><pre >50	        return remainOfSum(result, a, P);</pre><pre >51	    return 0;</pre><pre >52	}</pre><pre >53	</pre><pre >54	unsigned long long remainOfExp(unsigned long long a, unsigned long long b, unsigned long long P)</pre><pre >55	{</pre><pre >56	    if(a &lt= 1 || b == 1) return a%P;</pre><pre >57	    if(b == 0) return 1%P;</pre><pre >58	 </pre><pre >59	    unsigned long long remainOfHalf = remainOfExp(a, b/2, P);</pre><pre >60	    unsigned long long result = remainOfProd(remainOfHalf, remainOfHalf, P);</pre><pre >61	 </pre><pre >62	    if(b%2 == 0)</pre><pre >63	        return result;</pre><pre >64	    else</pre><pre >65	        return remainOfProd(result, a, P);</pre><pre >66	    return 0;</pre><pre >67	}</pre><pre >68	</pre><pre >69	unsigned long long remainOfSequence()</pre><pre >70	{</pre><pre >71	    sort(arr.begin(), arr.end());</pre><pre >72	    </pre><pre >73	    unsigned long long result = 1;</pre><pre >74	    int b = 1;</pre><pre >75	    unsigned long long</pre><pre >76	    for(int i=0; i&ltn-1; ++i)</pre><pre >77	    {</pre><pre >78	        if(arr[i] == arr[i + 1])</pre><pre >79	            b++;</pre><pre >80	        else</pre><pre >81	        {</pre><pre >82	            unsigned long long tempRemain = remainOfExp(arr[i], b, P);</pre><pre >83	            result = remainOfProd(result, tempRemain, P);</pre><pre >84	        }</pre><pre >85	    }</pre><pre >86	    </pre><pre >87	    return result;</pre><pre >88	    </pre><pre >89	}</pre><pre >90	</pre><pre >91	int main(int argc, const char * argv[]) {</pre><pre >92	    P = (int)pow(10, 9) + 7;</pre><pre >93	    cin &gt&gt n;</pre><pre >94	    for(int i=0; i&ltn; ++i)</pre><pre >95	    {</pre><pre >96	        unsigned long long x; cin &gt&gt x;</pre><pre >97	        arr.push_back(x);</pre><pre style="color: red">98	    }</pre><pre style="color: black">99	    </pre><pre style="color: black">100	    cout &lt&lt remainOfSequence();</pre><pre style="color: black">101	    </pre><pre style="color: black">102	    return 0;</pre><pre style="color: black">103	}</pre><pre style="color: black">104	 */</pre><pre style="color: black">105	</pre><pre style="color: black">106	</pre><pre style="color: black">107	int main(int argc, const char * argv[])</pre><pre style="color: red">108	{</pre><pre >109	    unsigned long long result = 1;</pre><pre >110	    unsigned long long n;</pre><pre >111	    unsigned long long P = (unsigned long long)(pow(10, 9)) + 7;</pre><pre >112	    </pre><pre style="color: black">113	    cin &gt&gt n;</pre><pre style="color: black">114	    </pre><pre style="color: black">115	    for(int i=0; i&ltn; ++i)</pre><pre style="color: black">116	    {</pre><pre style="color: black">117	        unsigned long long inputNum;</pre><pre style="color: black">118	        cin &gt&gt inputNum;</pre><pre style="color: black">119	        result = (inputNum * result) % P;</pre><pre style="color: red">120	    }</pre><pre >121	    </pre><pre style="color: black">122	    cout &lt&lt result;</pre><pre style="color: black">123	    return 0;</pre><pre style="color: red">124	}</pre></td>
+    <td><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">1	#include&ltiostream&gt</pre><pre style="color: red">2	using namespace std;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">3	</pre><pre style="color: black">4	int main()</pre><pre style="color: black">5	{</pre><pre style="color: black">6	    int n;</pre><pre style="color: black">7	    cin&gt&gtn;</pre><pre style="color: black">8	    int s[n];</pre><pre style="color: black">9	    int temp=1;</pre><pre style="color: black">10	    int sodu;</pre><pre style="color: black">11	    int a=1;</pre><pre style="color: black">12	    for(int i=0;i&ltn;i++)</pre><pre style="color: red">13	    {</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">14	        cin&gt&gts[i];</pre><pre style="color: black">15	        temp*=s[i];</pre><pre style="color: black">16	        sodu=s[i]%(1000000000+7);</pre><pre style="color: black">17	        if(sodu!=0)</pre><pre style="color: black">18	        a*=sodu;</pre><pre style="color: black">19	        else a=0;</pre><pre style="color: black">20	        if(a&gt1000000000+7) a=a%(100000000+7);</pre><pre style="color: red">21	    }</pre><pre >  </pre><pre style="color: black">22	    cout &lt&lt a;</pre><pre style="color: black">23	</pre><pre style="color: red">24	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

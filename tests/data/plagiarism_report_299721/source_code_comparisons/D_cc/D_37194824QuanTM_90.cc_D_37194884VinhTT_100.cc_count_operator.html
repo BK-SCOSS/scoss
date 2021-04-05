@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>D_37194884VinhTT_100.cc</a></td>
+    <td>D_37184258HieuND_10.cc</a></td>
+    <td><span style="color: rgb(156, 0, 0)">61.54%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>D_37194884VinhTT_100.cc</th>
+    <th>D_37184258HieuND_10.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: black">1	#include &ltiostream&gt</pre><pre style="color: black">2	#include &ltbits/stdc++.h&gt</pre><pre style="color: red">3	using namespace std;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">4	int n,m,k; // tasks | staffs | max tasks</pre><pre style="color: black">5	int C[40][40];</pre><pre style="color: black">6	bool visited[40];</pre><pre style="color: black">7	long long sumCost; </pre><pre style="color: black">8	long long minimalCost = LONG_LONG_MAX;</pre><pre style="color: black">9	int minCostArr[40];</pre><pre style="color: black">10	int taskNum[40]; // number of task to staff ith</pre><pre style="color: black">11	void input(){</pre><pre style="color: black">12	    cin &gt&gt n &gt&gt m &gt&gt k;</pre><pre style="color: black">13	    for(int i=1;i&lt=m;i++){</pre><pre style="color: black">14	        for(int j=1;j&lt=n;j++){</pre><pre style="color: black">15	            cin &gt&gt C[i][j];</pre><pre style="color: red">16	        }</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">17	    }</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">18	    minCostArr[n+1] = INT_MAX;</pre><pre style="color: black">19	    for(int i=n;i&gt=1;i--){</pre><pre style="color: black">20	        minCostArr[i] = min(minCostArr[i+1],C[1][i]);</pre><pre style="color: black">21	        for(int j=1;j&lt=m;j++){</pre><pre style="color: black">22	            minCostArr[i] = min(C[j][i],minCostArr[i]);</pre><pre style="color: red">23	        }</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">24	    }</pre><pre style="color: black">25	    for(int i=n-1;i&gt=1;i--) minCostArr[i] += minCostArr[i+1];</pre><pre style="color: red">26	}</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">27	bool check(int i, int v){</pre><pre style="color: black">28	    if(visited[i]==true) return false;</pre><pre style="color: black">29	    if(taskNum[v] &lt k) return true;</pre><pre style="color: black">30	    else return false;</pre><pre style="color: black">31	}</pre><pre style="color: black">32	// i is ith staff</pre><pre style="color: black">33	void Try(int i){</pre><pre style="color: black">34	    for(int v=1;v&lt=m;v++){</pre><pre style="color: black">35	        if(check(i,v)){</pre><pre style="color: black">36	            visited[i] = true;</pre><pre style="color: black">37	            sumCost += C[v][i];</pre><pre style="color: black">38	            taskNum[v]++;</pre><pre style="color: black">39	            if(i==n){</pre><pre style="color: black">40	                if(sumCost&ltminimalCost) minimalCost = sumCost;</pre><pre style="color: red">41	            }</pre><pre style="color: black">42	            else if(sumCost+minCostArr[i+1] &lt minimalCost) Try(i+1);</pre><pre style="color: black">43	            visited[i] = false;</pre><pre style="color: black">44	            taskNum[v]--;</pre><pre style="color: black">45	            sumCost -= C[v][i];</pre><pre style="color: red">46	        }</pre><pre style="color: red">47	    }</pre><pre style="color: red">48	}</pre><pre style="color: red">49	</pre><pre >  </pre><pre >  </pre><pre style="color: black">50	int main(){</pre><pre style="color: black">51	    input();</pre><pre style="color: black">52	    Try(1);</pre><pre style="color: black">53	    // for(int i=1;i&lt=n;i++) cout &lt&lt minCostArr[i] &lt&lt " ";</pre><pre style="color: black">54	    // cout &lt&lt endl;</pre><pre style="color: black">55	    cout &lt&lt minimalCost &lt&lt endl;</pre><pre style="color: red">56	}</pre></td>
+    <td><pre style="color: black">1	#include&ltbits/stdc++.h&gt</pre><pre style="color: black">2	</pre><pre style="color: red">3	using namespace std ;</pre><pre >4	</pre><pre >5	#define INF 1000000000</pre><pre >6	</pre><pre >7	const int N = 100 ;</pre><pre >8	int c[N][N] , min_c , res , d ;</pre><pre >9	int n , m , kk , total_task[N] ;</pre><pre >10	int task[N];</pre><pre style="color: black">11	bool appear[N] ;</pre><pre style="color: black">12	</pre><pre style="color: black">13	void input() ;</pre><pre style="color: black">14	bool check(int v,int k) ;</pre><pre style="color: black">15	void solution() ;</pre><pre style="color: black">16	void TRY( int k ) ;</pre><pre style="color: black">17	void solve() ;</pre><pre style="color: black">18	</pre><pre style="color: black">19	int main()</pre><pre style="color: black">20	{</pre><pre style="color: black">21	    input() ;</pre><pre style="color: black">22	    solve() ;</pre><pre style="color: red">23	}</pre><pre >24	</pre><pre >25	bool check(int v,int k){</pre><pre >26	    if (appear[k]) return false;</pre><pre >27	    if (total_task[v]&gt=kk) return false;</pre><pre >28	    return true;</pre><pre style="color: red">29	}</pre><pre >30	</pre><pre >31	void input()</pre><pre >32	{</pre><pre >33	    cin &gt&gt n &gt&gt m &gt&gt kk ;</pre><pre >34	        min_c = INF ;</pre><pre >35	    for( int i=1 ; i&lt=m ; i++ )</pre><pre >36	        for( int j=1 ; j&lt=n ; j++ )</pre><pre style="color: black">37	        {</pre><pre style="color: black">38	            cin &gt&gt c[i][j] ;</pre><pre style="color: black">39	            if( min_c &gt c[i][j])</pre><pre style="color: black">40	                min_c = c[i][j] ;</pre><pre style="color: black">41	        }</pre><pre style="color: red">42	}</pre><pre >43	</pre><pre >44	</pre><pre >45	</pre><pre >46	void solution()</pre><pre >47	{</pre><pre >48	    if( res &gt= d )</pre><pre >49	    {</pre><pre >50	        res = d ;</pre><pre style="color: red">51	    }</pre><pre style="color: black">52	</pre><pre style="color: red">53	}</pre><pre >54	</pre><pre >55	void TRY( int k )</pre><pre >56	{</pre><pre >57	    for( int v=1; v&lt=m ; v++ )</pre><pre >58	    {</pre><pre >59	        if( check( v , k ) )</pre><pre >60	        {</pre><pre >61	            appear[k] = true ;</pre><pre >62	            task[k] = v ;</pre><pre style="color: black">63	            total_task[v]++ ;</pre><pre style="color: black">64	            d = d + c[task[k]][k] ;</pre><pre style="color: black">65	            if( k==n ) solution() ;</pre><pre style="color: black">66	            else</pre><pre style="color: black">67	            {</pre><pre style="color: black">68	                    if (n==25)</pre><pre style="color: black">69	                    {</pre><pre style="color: black">70	                        if (d+min_c*(n-k+1)&ltres)</pre><pre style="color: black">71	                            TRY(k+1);</pre><pre style="color: black">72	                    }</pre><pre style="color: black">73	                    else</pre><pre style="color: black">74	                    {</pre><pre style="color: black">75	                        if (d+min_c*(n-k+1)&lt=res)</pre><pre style="color: black">76	                            TRY(k+1);</pre><pre style="color: red">77	                    }</pre><pre style="color: black">78	            }</pre><pre style="color: black">79	            appear[k] = false ;</pre><pre style="color: black">80	            total_task[v]-- ;</pre><pre style="color: black">81	            d = d- c[task[k]][k] ;</pre><pre style="color: red">82	        }</pre><pre style="color: red">83	    }</pre><pre style="color: red">84	}</pre><pre style="color: red">85	</pre><pre >86	void solve()</pre><pre >87	{</pre><pre style="color: black">88	    res = INF ;</pre><pre style="color: black">89	    for( int i=1 ; i&lt=m ; i++ ) total_task[i] = 0;</pre><pre style="color: black">90	    for (int i=1;i&lt=n;i++) appear[i]=false;</pre><pre style="color: black">91	    d = 0 ;</pre><pre style="color: black">92	    TRY(1) ;</pre><pre style="color: black">93	    cout &lt&lt res &lt&lt endl ;</pre><pre style="color: red">94	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

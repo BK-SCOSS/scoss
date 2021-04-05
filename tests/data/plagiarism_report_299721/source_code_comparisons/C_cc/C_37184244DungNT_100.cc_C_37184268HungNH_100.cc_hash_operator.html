@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>hash_operator</th>
+    </tr>
+    <tr>
+    <td>C_37184296NgaNT_0.cc</a></td>
+    <td>C_37184251HaHT_100.cc</a></td>
+    <td><span style="color: rgb(123, 0, 0)">48.25%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>C_37184296NgaNT_0.cc</th>
+    <th>C_37184251HaHT_100.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: black">1	#include&ltiostream&gt</pre><pre style="color: red">2	using namespace std;</pre><pre >3	const long INF = 100000000000;</pre><pre style="color: red">4	const int N = 100;</pre><pre >5	#define ll long long</pre><pre style="color: black">6	ll c[N][N];</pre><pre style="color: black">7	ll c_min;</pre><pre style="color: black">8	int x[N];</pre><pre style="color: black">9	int n,m, M;</pre><pre style="color: black">10	ll f;</pre><pre style="color: black">11	ll min_f; // minimal distance.</pre><pre style="color: black">12	ll cnt = 0;</pre><pre style="color: black">13	</pre><pre style="color: black">14	bool appear[N];</pre><pre style="color: red">15	 </pre><pre style="color: black">16	void solution() {</pre><pre style="color: black">17	    // if(f+c[x[n]][x[1]] &lt min_f) {</pre><pre style="color: black">18	    //     min_f = f + c[x[n]][x[1]];</pre><pre style="color: black">19	    // // }</pre><pre style="color: red">20	    // cout &lt&lt "solution: " &lt&lt endl;</pre><pre style="color: red">21	    // for(int i = 1; i&lt= n ; i++) {</pre><pre style="color: red">22	    //     cout &lt&lt x[i] &lt&lt " ";</pre><pre style="color: red">23	    // }</pre><pre style="color: red">24	    // cout &lt&lt endl;</pre><pre >25	    if ( f + c[x[n]][x[1]] &lt= m) {</pre><pre >26	        cnt += 1;</pre><pre style="color: red">27	    }</pre><pre style="color: red">28	}</pre><pre >29	 </pre><pre >30	void input() {</pre><pre >31	    cin &gt&gt n &gt&gt m;</pre><pre >32	    c_min = INF;</pre><pre style="color: red">33	 </pre><pre >34	    for(int i =1; i&lt= n; i++) {</pre><pre style="color: black">35	        for(int j = 1; j &lt=n; j++)</pre><pre style="color: black">36	        // c[i][j] = INF;</pre><pre style="color: red">37	        {</pre><pre style="color: black">38	            int tmp;</pre><pre style="color: black">39	            cin &gt&gt tmp;</pre><pre style="color: black">40	            if (tmp &lt c_min && tmp!= 0) {</pre><pre style="color: black">41	                c_min = tmp;</pre><pre style="color: black">42	            }</pre><pre style="color: black">43	            c[i][j] = tmp;</pre><pre style="color: black">44	        }</pre><pre style="color: black">45	 </pre><pre style="color: red">46	    }</pre><pre >47	 </pre><pre >48	    // for (int k = 1; k&lt= m ; k++) {</pre><pre >49	    //     int i, j;</pre><pre >50	    //     ll w;</pre><pre style="color: black">51	    //     cin &gt&gt i &gt&gt j &gt&gt w;</pre><pre style="color: black">52	    //     c[i][j] = w;</pre><pre style="color: black">53	    //     c_min = w &lt c_min ? w: c_min;</pre><pre style="color: black">54	    // }</pre><pre style="color: red">55	}</pre><pre style="color: red">56	 </pre><pre >57	void TRY(int k) {</pre><pre >58	    for(int v = 1; v&lt= n ; v++) </pre><pre >59	    if(!appear[v]) {</pre><pre >60	        x[k] = v;</pre><pre >61	        appear[v] = true;</pre><pre >62	        f = f + c[x[k-1]][x[k]];</pre><pre style="color: black">63	        if(k == n) solution();</pre><pre style="color: black">64	        else {</pre><pre style="color: black">65	            if(f+ c_min*(n-k) &lt m)</pre><pre style="color: black">66	            TRY(k+1);</pre><pre style="color: black">67	        }</pre><pre style="color: black">68	        // x[k] = 0;</pre><pre style="color: black">69	        appear[v] = false;</pre><pre style="color: black">70	        f = f - c[x[k-1]][x[k]];</pre><pre style="color: red">71	    }</pre><pre style="color: red">72	}</pre><pre style="color: black">73	 </pre><pre style="color: black">74	void solve() {</pre><pre style="color: black">75	    for(int v = 1; v &lt= n; v++) appear[v] = false;</pre><pre style="color: black">76	    f = 0;</pre><pre style="color: black">77	    x[1] = 1;</pre><pre style="color: black">78	    appear[1] = true;</pre><pre style="color: black">79	    // min_f = INF;</pre><pre style="color: black">80	    TRY(2);</pre><pre style="color: black">81	    cout &lt&lt cnt &lt&lt endl;</pre><pre style="color: black">82	}</pre><pre style="color: black">83	 </pre><pre style="color: black">84	int main() {</pre><pre style="color: black">85	    input();</pre><pre style="color: black">86	    // cout &lt&lt " cmin: " &lt&lt c_min &lt&lt endl;</pre><pre style="color: black">87	    solve();</pre><pre style="color: red">88	}</pre></td>
+    <td><pre style="color: black">1	#include &ltbits/stdc++.h&gt</pre><pre style="color: red">2	using namespace std;</pre><pre >  </pre><pre style="color: red">3	const int N=100;</pre><pre >  </pre><pre style="color: black">4	const long long INF=1e18;</pre><pre style="color: black">5	long long c[20][20];</pre><pre style="color: black">6	long long x[100],appear[100];</pre><pre style="color: black">7	long long n,m,f,minf,dem;</pre><pre style="color: black">8	long long cmin;</pre><pre style="color: black">9	</pre><pre style="color: black">10	bool check(int v,int k){</pre><pre style="color: black">11		return appear[v]==0;</pre><pre style="color: black">12	}</pre><pre style="color: red">13	</pre><pre style="color: black">14	void in(){</pre><pre style="color: black">15		if (f+c[x[n]][x[1]]&ltminf) minf=f+c[x[n]][x[1]];</pre><pre style="color: black">16		if (f+c[x[n]][x[1]]&lt=m) {</pre><pre style="color: black">17			dem++;</pre><pre style="color: red">18			// for (int i = 1; i &lt= n; ++i)</pre><pre style="color: red">19			// {</pre><pre style="color: red">20			// 	cout&lt&ltx[i]&lt&lt" ";</pre><pre style="color: red">21			// }</pre><pre style="color: red">22			// cout&lt&ltf+c[x[n]][x[1]]&lt&ltendl;</pre><pre >  </pre><pre >  </pre><pre style="color: red">23		}</pre><pre style="color: red">24	}</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">25	</pre><pre >  </pre><pre style="color: black">26	void xuly(int k){</pre><pre style="color: black">27		for (int v = 2; v &lt= n; ++v)</pre><pre style="color: red">28		{</pre><pre style="color: black">29			if(check(v,k)){</pre><pre style="color: black">30				x[k]=v;</pre><pre style="color: black">31				appear[v]=1; //update</pre><pre style="color: black">32				f=f+c[x[k-1]][x[k]];</pre><pre style="color: black">33				if (k==n) in();</pre><pre style="color: black">34				else {</pre><pre style="color: black">35					if (f+cmin*(n-k+1)&lt=m)</pre><pre style="color: black">36						xuly(k+1);</pre><pre style="color: red">37				}</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">38				appear[v]=0; //recover</pre><pre style="color: black">39				f=f-c[x[k-1]][x[k]];</pre><pre style="color: black">40			}</pre><pre style="color: black">41		}</pre><pre style="color: red">42	}</pre><pre style="color: red">43	</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">44	int main(){</pre><pre style="color: black">45	// 	freopen("inp.txt","r", stdin);</pre><pre style="color: black">46		cin &gt&gtn&gt&gtm;</pre><pre style="color: black">47		for (int i = 1; i &lt= n; ++i)</pre><pre style="color: black">48		{</pre><pre style="color: black">49			for (int j = 1; j &lt= n; ++j)</pre><pre style="color: black">50			{</pre><pre style="color: black">51				c[i][j]=INF;</pre><pre style="color: red">52			}</pre><pre style="color: red">53		}</pre><pre style="color: black">54		memset(appear,0,100);</pre><pre style="color: black">55		minf=INF; f=0;</pre><pre style="color: black">56		cmin=INF; dem=0;</pre><pre style="color: black">57		x[1]=1;</pre><pre style="color: black">58		appear[1]=1;</pre><pre style="color: black">59		for (int i = 1; i &lt= n; ++i)</pre><pre style="color: black">60		{</pre><pre style="color: black">61			for (int j = 1; j &lt= n; ++j)</pre><pre style="color: black">62			{</pre><pre style="color: black">63				cin&gt&gtc[i][j];</pre><pre style="color: black">64				if (c[i][j]!=0) cmin = c[i][j]&gtcmin ? cmin:c[i][j];</pre><pre style="color: black">65			}</pre><pre style="color: black">66		}</pre><pre style="color: black">67		xuly(2);</pre><pre style="color: black">68		cout&lt&ltdem;</pre><pre style="color: red">69	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

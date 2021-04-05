@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>hash_operator</th>
+    </tr>
+    <tr>
+    <td>B_8858173193KhanhNQ_100.cc</a></td>
+    <td>B_37180007anhlh_80.cc</a></td>
+    <td><span style="color: rgb(82, 0, 0)">32.35%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>B_8858173193KhanhNQ_100.cc</th>
+    <th>B_37180007anhlh_80.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: red">1	#include &ltiostream&gt</pre><pre style="color: red">2	#include &ltmath.h&gt</pre><pre style="color: red">3	using namespace std;</pre><pre >4	</pre><pre style="color: black">5	unsigned long long int a[1000001], exp_t;</pre><pre style="color: black">6	</pre><pre style="color: black">7	int main() {</pre><pre style="color: black">8	    int n;</pre><pre style="color: black">9	</pre><pre style="color: black">10	    exp_t = 1;</pre><pre style="color: black">11		cin&gt&gtn;</pre><pre style="color: black">12	    for (int i = 1; i &lt= n; i++){</pre><pre style="color: black">13	        cin &gt&gt a[i];</pre><pre style="color: black">14	        exp_t *= a[i];</pre><pre style="color: red">15	    }</pre><pre >16	    cout &lt&lt exp_t;</pre><pre style="color: black">17	</pre><pre style="color: red">18		return 0;</pre><pre style="color: red">19	}</pre></td>
+    <td><pre style="color: red">1	#include &ltiostream&gt</pre><pre style="color: red">2	#include &ltmath.h&gt</pre><pre style="color: red">3	using namespace std;</pre><pre >  </pre><pre style="color: black">4	int main() {</pre><pre style="color: black">5		unsigned long long n, kq;</pre><pre style="color: black">6		cin&gt&gtn;</pre><pre style="color: black">7		unsigned long long a[n];</pre><pre style="color: black">8		for (int i=0;i&ltn;i++) cin&gt&gta[i];</pre><pre style="color: black">9		kq=a[0]%1000000007;</pre><pre style="color: black">10		for (int i=1;i&ltn;i++) {</pre><pre style="color: black">11			a[i]%=1000000007;</pre><pre style="color: black">12			kq*=a[i];</pre><pre style="color: black">13			kq%=1000000007;</pre><pre style="color: red">14		}</pre><pre >  </pre><pre style="color: black">15		cout&lt&ltkq;</pre><pre style="color: red">16		return 0;</pre><pre style="color: red">17	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

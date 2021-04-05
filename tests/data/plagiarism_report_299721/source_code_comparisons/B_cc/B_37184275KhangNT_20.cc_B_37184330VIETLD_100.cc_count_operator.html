@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>B_8858173193KhanhNQ_100.cc</a></td>
+    <td>B_37180007anhlh_80.cc</a></td>
+    <td><span style="color: rgb(114, 0, 0)">44.83%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>B_8858173193KhanhNQ_100.cc</th>
+    <th>B_37180007anhlh_80.cc</th> 
+</tr>
+<tr>
+    <td><pre >1	#include &ltbits/stdc++.h&gt</pre><pre >2	#define MAX_N 1000000</pre><pre >3	using namespace std;</pre><pre >4	unsigned long long N,a[MAX_N],S;</pre><pre >5	void input(){</pre><pre >6	    cin&gt&gtN;</pre><pre >7	    for(int i=0;i&lt=N-1;i++){</pre><pre >8	        cin&gt&gta[i];</pre><pre >9	    }</pre><pre >10	}</pre><pre >11	unsigned long long add_MOD(unsigned long long a,unsigned long long b){</pre><pre >12	    unsigned long long c;</pre><pre >13	    c=(10^9+7)-a;</pre><pre >14	    if(b&ltc){</pre><pre >15	        return a+b;</pre><pre >16	    }</pre><pre >17	    else return b-c;</pre><pre >18	}</pre><pre >19	unsigned mutil_MOD(unsigned long long a,unsigned long long b){</pre><pre style="color: black">20	    unsigned long long c=a;</pre><pre style="color: black">21	    for(int i=1;i&lt=b-1;i++){</pre><pre style="color: black">22	        c=add_MOD(c,a);</pre><pre style="color: black">23	    }</pre><pre style="color: black">24	    return c;</pre><pre style="color: black">25	}</pre><pre style="color: black">26	void pro_MOD(){</pre><pre style="color: black">27	unsigned long long c=a[0];</pre><pre style="color: black">28	    for(int i=1;i&lt=N-1;i++){</pre><pre style="color: black">29	        c=mutil_MOD(c,a[i]);</pre><pre style="color: black">30	    }</pre><pre style="color: black">31	    cout&lt&ltc&lt&ltendl;</pre><pre style="color: red">32	}</pre><pre >33	int main(){</pre><pre >34	    input();</pre><pre >35	    pro_MOD();</pre><pre style="color: black">36	    return 0;</pre><pre style="color: red">37	}</pre></td>
+    <td><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">1	#include&ltiostream&gt</pre><pre style="color: black">2	#include&ltbits/stdc++.h&gt</pre><pre style="color: black">3	using namespace std;</pre><pre style="color: black">4	const long long N = 1000000007;</pre><pre style="color: black">5	int main(){</pre><pre style="color: black">6	    long long n;</pre><pre style="color: black">7	    cin &gt&gt n;</pre><pre style="color: black">8	    long long product = 1;</pre><pre style="color: black">9	    long long a[1000000];</pre><pre style="color: black">10	    for(long long i = 0;i&ltn;i++){</pre><pre style="color: black">11	        cin &gt&gt a[i];</pre><pre style="color: black">12	        product = (product*(a[i]))%N;</pre><pre style="color: red">13	    }</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">14	    cout &lt&lt product%N;</pre><pre style="color: red">15	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

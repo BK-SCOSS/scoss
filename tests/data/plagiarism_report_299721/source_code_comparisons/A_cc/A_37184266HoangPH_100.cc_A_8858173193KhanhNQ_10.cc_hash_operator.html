@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>hash_operator</th>
+    </tr>
+    <tr>
+    <td>A_371947999MinhNM_100.cc</a></td>
+    <td>A_37184284lanch_100.cc</a></td>
+    <td><span style="color: rgb(69, 0, 0)">27.10%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>A_371947999MinhNM_100.cc</th>
+    <th>A_37184284lanch_100.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: red">1	#include &ltiostream&gt</pre><pre >2	#include &ltvector&gt</pre><pre style="color: red">3	using namespace std;</pre><pre style="color: black">4	</pre><pre style="color: red">5	int n,m;</pre><pre >6	</pre><pre >7	int ans = 0;</pre><pre >8	</pre><pre >9	int main()</pre><pre >10	{</pre><pre style="color: red">11	    cin &gt&gt n &gt&gt m;</pre><pre style="color: red">12	    int a[n];</pre><pre >13	    for (int i = 0; i &ltn ;i++)</pre><pre >14	    {</pre><pre >15	        cin &gt&gt a[i];</pre><pre >16	    }</pre><pre >17	    vector &ltint&gt b[n];</pre><pre >18	</pre><pre >19	    for (int i = 0; i &lt n ; i++)</pre><pre >20	    {</pre><pre >21	        if (a[i] &lt= m )</pre><pre >22	        {</pre><pre >23	            b[i].push_back(a[i]);</pre><pre >24	        }</pre><pre >25	    }</pre><pre >26	    int j = 1;</pre><pre >27	     for (int i = 1; i&ltn ; i++)</pre><pre >28	    {</pre><pre >29	        for (int v = j-1 ; v &gt= 0 ; v--)</pre><pre >30	        {</pre><pre >31	            int M = b[i][b[i].size()-1] + a[v];</pre><pre >32	            if (M &lt= m)</pre><pre >33	            {</pre><pre >34	                b[i].push_back(M);</pre><pre >35	            }else</pre><pre >36	            {</pre><pre >37	                break;</pre><pre style="color: black">38	            }</pre><pre style="color: black">39	        }</pre><pre style="color: black">40	        j++;</pre><pre style="color: black">41	    }</pre><pre style="color: black">42	    for (int i = 0 ; i&lt n ;i++ )</pre><pre style="color: black">43	    {</pre><pre style="color: black">44	        ans += b[i].size();</pre><pre style="color: red">45	    }</pre><pre >46	    cout&lt&ltans;</pre><pre >47	</pre><pre style="color: black">48	</pre><pre style="color: black">49	</pre><pre style="color: red">50	}</pre></td>
+    <td><pre style="color: red">1	#include &ltiostream&gt</pre><pre >  </pre><pre style="color: red">2	using namespace std;</pre><pre style="color: black">3	int main() {</pre><pre style="color: red">4		int n,m;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">5		cin&gt&gtn&gt&gtm;</pre><pre style="color: red">6		int a[n];</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">7		for (int i=0;i&ltn;i++) cin&gt&gta[i];</pre><pre style="color: black">8		int kq;</pre><pre style="color: black">9		int kqend= a[0];</pre><pre style="color: black">10		if (kqend&lt=m) kq=1; else kq=0;</pre><pre style="color: black">11		for (int i=1;i&ltn;i++) {</pre><pre style="color: black">12		if ((kqend+a[i])&lt=m) {kqend+=a[i];kq++;} else {kqend=a[i];kq++;}</pre><pre style="color: black">13		if (a[i]&lt=m&&a[i]!=kqend) kq++;</pre><pre style="color: red">14	}</pre><pre >  </pre><pre >  </pre><pre style="color: black">15	cout&lt&ltkq;</pre><pre style="color: black">16	return 0;</pre><pre style="color: red">17	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

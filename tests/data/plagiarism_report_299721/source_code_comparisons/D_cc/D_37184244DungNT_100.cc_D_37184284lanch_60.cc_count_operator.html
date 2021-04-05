@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>D_37194884VinhTT_100.cc</a></td>
+    <td>D_37184258HieuND_10.cc</a></td>
+    <td><span style="color: rgb(162, 0, 0)">63.64%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>D_37194884VinhTT_100.cc</th>
+    <th>D_37184258HieuND_10.cc</th> 
+</tr>
+<tr>
+    <td><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">1	</pre><pre style="color: red">2	#include &ltiostream&gt</pre><pre style="color: red">3	 </pre><pre style="color: red">4	using namespace std;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: red">5	 </pre><pre >  </pre><pre >  </pre><pre style="color: black">6	typedef unsigned long long ull;</pre><pre style="color: black">7	const int N = 32, M = 22;</pre><pre style="color: black">8	int n, m, K;</pre><pre style="color: black">9	int c[M][N];</pre><pre style="color: red">10	 </pre><pre >  </pre><pre >  </pre><pre style="color: black">11	int load[M];</pre><pre style="color: black">12	int cost;</pre><pre style="color: black">13	// bool assigned[N];</pre><pre style="color: black">14	int min_c = 1000000;</pre><pre style="color: black">15	int min_tt;</pre><pre style="color: red">16	 </pre><pre >  </pre><pre >  </pre><pre style="color: black">17	void input()</pre><pre style="color: red">18	{</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">19	    cin &gt&gt n &gt&gt m &gt&gt K;</pre><pre style="color: black">20	    for (int i = 1; i &lt= m; i++)</pre><pre style="color: red">21	    {</pre><pre style="color: black">22	        for (int j = 1; j &lt= n; j++)</pre><pre style="color: red">23	        {</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">24	            cin &gt&gt c[i][j];</pre><pre style="color: black">25	            min_c = min_c &lt c[i][j] ? min_c : c[i][j];</pre><pre style="color: black">26	        }</pre><pre style="color: red">27	    }</pre><pre style="color: black">28	    min_tt = 1000000;</pre><pre style="color: red">29	}</pre><pre style="color: red">30	 </pre><pre style="color: red">31	void solve()</pre><pre style="color: red">32	{</pre><pre >  </pre><pre >  </pre><pre style="color: black">33	    if (cost &lt min_tt)</pre><pre style="color: black">34	        min_tt = cost;</pre><pre style="color: black">35	}</pre><pre style="color: black">36	 </pre><pre style="color: black">37	void TRY(int k)</pre><pre style="color: red">38	{</pre><pre style="color: black">39	    for (int v = 1; v &lt= m; v++) //assign course k to teacher v</pre><pre style="color: black">40	    {</pre><pre style="color: black">41	        if (load[v] &lt K)</pre><pre style="color: black">42	        {</pre><pre style="color: black">43	            load[v]++;</pre><pre style="color: black">44	            // assigned[k] = true;</pre><pre style="color: black">45	            cost += c[v][k];</pre><pre style="color: black">46	            if (k == n)</pre><pre style="color: black">47	                solve();</pre><pre style="color: black">48	            else if (cost + min_c * (n-k) &lt min_tt)</pre><pre style="color: black">49	                TRY(k + 1);</pre><pre style="color: black">50	            cost -= c[v][k];</pre><pre style="color: red">51	            // assigned[k] = false;</pre><pre style="color: black">52	            load[v]--;</pre><pre style="color: black">53	        }</pre><pre style="color: black">54	    }</pre><pre style="color: black">55	}</pre><pre style="color: red">56	 </pre><pre >  </pre><pre style="color: black">57	int main()</pre><pre style="color: black">58	{</pre><pre style="color: black">59	    input();</pre><pre style="color: black">60	    TRY(1);</pre><pre style="color: black">61	    cout &lt&lt min_tt &lt&lt endl;</pre><pre style="color: red">62	}</pre></td>
+    <td><pre >1	//</pre><pre >2	//  main.cpp</pre><pre >3	//  takeAssignment</pre><pre >4	//</pre><pre >5	//  Created by Lan Chu on 10/23/20.</pre><pre >6	//</pre><pre style="color: red">7	</pre><pre style="color: red">8	#include &ltiostream&gt</pre><pre style="color: red">9	</pre><pre style="color: red">10	using namespace std;</pre><pre >11	</pre><pre >12	const int N = 20;</pre><pre >13	const int M = 30;</pre><pre >14	int n, m, k;</pre><pre style="color: red">15	</pre><pre >16	int cost[M+1][N+1];</pre><pre >17	int minTotalCost;</pre><pre style="color: black">18	int curTotalCost;</pre><pre style="color: black">19	int minCost;</pre><pre style="color: black">20	int numTaskOfStaff[M+1];</pre><pre style="color: black">21	int minCostOfTask[N+1];</pre><pre style="color: red">22	</pre><pre >23	bool promisingAssignment(int curTask)</pre><pre >24	{</pre><pre style="color: black">25	    int expectedCost = 0;</pre><pre style="color: black">26	    for(int i=curTask + 1; i&lt=n; ++i)</pre><pre style="color: black">27	        expectedCost += minCostOfTask[i];</pre><pre style="color: black">28	    return curTotalCost + expectedCost &lt= minTotalCost && curTotalCost + minCost * (n - curTask) &lt= minTotalCost;</pre><pre style="color: black">29	}</pre><pre style="color: red">30	</pre><pre >31	void tryAssign(int curTask)</pre><pre >32	{</pre><pre style="color: black">33	    if(curTask &gt n)</pre><pre style="color: red">34	    {</pre><pre >35	        minTotalCost = curTotalCost &lt minTotalCost ? curTotalCost : minTotalCost;</pre><pre >36	        return ;</pre><pre >37	    }</pre><pre style="color: black">38	    </pre><pre style="color: black">39	    for(int staff = 1; staff &lt= m; ++staff)</pre><pre style="color: red">40	    {</pre><pre style="color: black">41	        if(numTaskOfStaff[staff] &lt k)</pre><pre style="color: red">42	        {</pre><pre >43	            curTotalCost += cost[staff][curTask];</pre><pre >44	            numTaskOfStaff[staff]++;</pre><pre >45	            </pre><pre >46	            if(promisingAssignment(curTask))</pre><pre >47	                tryAssign(curTask + 1);</pre><pre style="color: black">48	            </pre><pre style="color: black">49	            curTotalCost -= cost[staff][curTask];</pre><pre style="color: black">50	            numTaskOfStaff[staff]--;</pre><pre style="color: red">51	        }</pre><pre style="color: black">52	    }</pre><pre style="color: red">53	}</pre><pre style="color: red">54	</pre><pre style="color: red">55	void solve()</pre><pre style="color: red">56	{</pre><pre >57	    // input</pre><pre >58	    cin &gt&gt n &gt&gt m &gt&gt k;</pre><pre style="color: black">59	    minCost = INT_MAX;</pre><pre style="color: black">60	    for(int i=1; i&lt=m; i++)</pre><pre style="color: black">61	    {</pre><pre style="color: black">62	        numTaskOfStaff[i] = 0;</pre><pre style="color: black">63	        for(int j=1; j&lt=n; ++j)</pre><pre style="color: red">64	        {</pre><pre style="color: black">65	            minCostOfTask[j] = INT_MAX;</pre><pre style="color: black">66	            cin &gt&gt cost[i][j];</pre><pre style="color: black">67	            minCost = cost[i][j] &lt minCost ? cost[i][j] : minCost;</pre><pre style="color: black">68	        }</pre><pre style="color: black">69	    }</pre><pre style="color: black">70	    </pre><pre style="color: black">71	    for(int i = 1; i&lt= n; ++i)</pre><pre style="color: black">72	    {</pre><pre style="color: black">73	        for(int j= 1; j &lt=m; ++j)</pre><pre style="color: black">74	            minCostOfTask[j] = cost[j][i] &lt minCostOfTask[j] ? cost[j][i] : minCostOfTask[j];</pre><pre style="color: black">75	    }</pre><pre style="color: black">76	    </pre><pre style="color: red">77	    // solve</pre><pre style="color: black">78	    minTotalCost = INT_MAX;</pre><pre style="color: black">79	    curTotalCost = 0;</pre><pre style="color: black">80	    tryAssign(1);</pre><pre style="color: black">81	    cout &lt&lt minTotalCost;</pre><pre style="color: red">82	    </pre><pre >83	}</pre><pre style="color: black">84	</pre><pre style="color: black">85	</pre><pre style="color: black">86	int main(int argc, const char * argv[]) {</pre><pre style="color: black">87	    solve();</pre><pre style="color: black">88	    return 0;</pre><pre style="color: red">89	}</pre></td>
+</tr>
+</table>
+</body>
+</html>

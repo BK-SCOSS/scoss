@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Result</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        td, th {
+        min-width: 150px;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        }
+        
+
+        </style>
+</head>
+<body>
+<h2>File Result</h2>
+<table style="text-align: center">
+    <tr>
+        <th>source1</th>
+        <th>source2</th>
+        <th>count_operator</th>
+    </tr>
+    <tr>
+    <td>A_371947999MinhNM_100.cc</a></td>
+    <td>A_37184284lanch_100.cc</a></td>
+    <td><span style="color: rgb(167, 0, 0)">65.62%</span></a></td>
+    </tr>
+
+</table>
+
+<table style="width:100%; margin-top: 50px;">
+<tr>
+    <th>A_371947999MinhNM_100.cc</th>
+    <th>A_37184284lanch_100.cc</th> 
+</tr>
+<tr>
+    <td><pre style="color: red">1	#include &ltiostream&gt</pre><pre >2	</pre><pre style="color: red">3	using namespace std;</pre><pre >4	</pre><pre >5	typedef unsigned long long ull;</pre><pre >6	const int MAX = 100000;</pre><pre >7	</pre><pre >8	int M, N;</pre><pre >9	int a[MAX + 1];</pre><pre >10	int ans;</pre><pre >11	</pre><pre >12	void input()</pre><pre >13	{</pre><pre >14	    cin &gt&gt N &gt&gt M;</pre><pre >15	    for (int i = 1; i &lt= N; i++)</pre><pre >16	    {</pre><pre >17	        cin &gt&gt a[i];</pre><pre >18	    }</pre><pre >19	}</pre><pre >20	</pre><pre >21	void TRY(int start)</pre><pre >22	{</pre><pre >23	    int tmp = a[start];</pre><pre >24	    if (tmp &lt= M)</pre><pre >25	        ans++;</pre><pre >26	    for (int i = start + 1; i &lt= N; i++)</pre><pre >27	    {</pre><pre >28	        if (tmp + a[i] &lt= M)</pre><pre >29	        {</pre><pre >30	            tmp += a[i];</pre><pre >31	            ans++;</pre><pre >32	        }</pre><pre style="color: black">33	        else</pre><pre style="color: black">34	            break;</pre><pre style="color: black">35	    }</pre><pre style="color: black">36	}</pre><pre style="color: black">37	</pre><pre style="color: black">38	void solve()</pre><pre style="color: black">39	{</pre><pre style="color: black">40	    for (int i = 1; i &lt= N; i++)</pre><pre style="color: black">41	        TRY(i);</pre><pre style="color: black">42	</pre><pre style="color: black">43	    cout &lt&lt ans &lt&lt endl;</pre><pre style="color: red">44	}</pre><pre >45	</pre><pre >46	int main()</pre><pre >47	{</pre><pre style="color: black">48	    input();</pre><pre style="color: black">49	    solve();</pre><pre style="color: red">50	}</pre></td>
+    <td><pre style="color: red">1	#include &ltiostream&gt</pre><pre >  </pre><pre style="color: red">2	using namespace std;</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">3	int main() {</pre><pre style="color: black">4		int n,m;</pre><pre style="color: black">5		cin&gt&gtn&gt&gtm;</pre><pre style="color: black">6		int a[n];</pre><pre style="color: black">7		for (int i=0;i&ltn;i++) cin&gt&gta[i];</pre><pre style="color: black">8		int kq;</pre><pre style="color: black">9		int kqend= a[0];</pre><pre style="color: black">10		if (kqend&lt=m) kq=1; else kq=0;</pre><pre style="color: black">11		for (int i=1;i&ltn;i++) {</pre><pre style="color: black">12		if ((kqend+a[i])&lt=m) {kqend+=a[i];kq++;} else {kqend=a[i];kq++;}</pre><pre style="color: black">13		if (a[i]&lt=m&&a[i]!=kqend) kq++;</pre><pre style="color: red">14	}</pre><pre >  </pre><pre >  </pre><pre >  </pre><pre style="color: black">15	cout&lt&ltkq;</pre><pre style="color: black">16	return 0;</pre><pre style="color: red">17	}</pre></td>
+</tr>
+</table>
+</body>
+</html>
