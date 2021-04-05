@@ -61,6 +61,8 @@ def get_all_plagiarism(input_dir, output_dir, threshold_combination_type='AND', 
         set_operator_threshold == None and hash_operator_threshold == None:
         print('Please choose at least 1 metric from [moss, count_operator, set_operator, hash_operator]', file=sys.stderr)
         sys.exit(-1)
+    if not threshold_combination_type:
+        threshold_combination_type = 'AND'
     all_files = get_all_files(input_dir)
     output_dir = os.path.join(output_dir, 'plagiarism_report_{}/'.format(os.path.basename(os.path.normpath(input_dir))))
     result_dir = os.path.join(output_dir, 'source_code_comparisons/')
@@ -98,7 +100,7 @@ def get_all_plagiarism(input_dir, output_dir, threshold_combination_type='AND', 
                 problem_dir = os.path.basename(os.path.dirname(f))
                 sc.add_file(f, '{}_{}'.format(problem_dir, user_filename))
             sc.run()
-            if threshold_combination_type == 'AND':
+            if threshold_combination_type.upper() == 'AND':
                 scoss_matches = sc.get_matches(or_thresholds=False, and_thresholds=True)
             else: # Be careful
                 scoss_matches = sc.get_matches(or_thresholds=True, and_thresholds=False)

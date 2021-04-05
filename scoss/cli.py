@@ -12,7 +12,7 @@ import click
     help='Output directory.'
 )
 @click.option(
-    '--threshold-combination', '-tc', required=True,
+    '--threshold-combination', '-tc', 
     type=click.Choice(['AND','OR'], case_sensitive=False),
     help='AND: All metrics are greater than threshold.\nOR: At least 1 metric is greater than threshold.'
 )
