@@ -48,11 +48,10 @@
     <td>{{link['source1']}}</a></td>
     <td>{{link['source2']}}</a></td>
     {%for metric in link['scores'] %}
-    
-        {% if link['scores'][metric][0] is defined and link['scores'][metric][0] %}
-            <td><a href="file:///{{link['scores'][metric][0]}}" target="_blank" >{{link['scores'][metric][1]}}</a></td>
+        {% if 'alignments' in link %}
+            <td><a href="{{link['alignments'][metric]}}"  target="_blank" >{{link['scores'][metric]}}</a></td>
         {% else %}
-            <td><a href="" target="_self" >{{link['scores'][metric][1]}}</a></td>
+            <td><span>{{link['scores'][metric]}}</span></td>
         {% endif %}
     {%endfor%}
     </tr>

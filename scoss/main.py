@@ -166,6 +166,7 @@ def get_all_plagiarism(input_dir, output_dir, threshold_combination_type='AND', 
             dic['source1'] = src1
             dic['source2'] = src2
             dic['scores'] = {}
+            dic['alignments'] = {}
             # print('scores =', scores)
             for metric in scores.keys():
                 C = int(scores[metric]*255)
@@ -174,7 +175,7 @@ def get_all_plagiarism(input_dir, output_dir, threshold_combination_type='AND', 
                 B = 0
                 span = '<span style="color: rgb({}, {}, {})">'.format(R,G,B) + str(format(scores[metric]*100, '.2f')) +'%</span>'
                 if metric == 'average_score':
-                    dic['scores'][metric] = [None, span]
+                    dic['scores'][metric] = span
                     links.append(dic)
                     continue
                 elif metric == 'moss_score':
@@ -218,12 +219,12 @@ def get_all_plagiarism(input_dir, output_dir, threshold_combination_type='AND', 
                     compe = Environment().from_string(HTML2).render(file1=match['source1'], file2=match['source2'], \
                                     metric=metric, score=span, \
                                     data1=html1, data2=html2)
-                # print('cur_dir_path = ', cur_dir_path)
-                name_file = os.path.normpath('{}/{}_{}_{}.html'.format(cur_dir_path, src1, src2, metric))
+                name_file = '{}_{}_{}.html'.format(src1, src2, metric)
                 create_dir(name_file)
-                with open(name_file, 'w', encoding='utf-8') as file:
+                with open(os.path.join(cur_dir_path, name_file), 'w', encoding='utf-8') as file:
                     file.write(compe)
-                dic['scores'][metric] = [os.path.abspath(name_file), span]
+                dic['scores'][metric] = span
+                dic['alignments'][metric] = 'source_code_comparisons/{}/{}'.format(cur_dir_name, name_file)
                 links.append(dic)
         all_links += links
 
