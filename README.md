@@ -18,9 +18,37 @@ pip install scoss
 You can use SCOSS as a Command Line Interface, or a library in your project, or web-app interface
 
 ### Command Line Interface (CLI)
+See document by passing ```--help``` argument.
+```
+scoss --help
+Usage: scoss [OPTIONS]
 
-Comming soon...
+Options:
+  -i, --input-dir TEXT      Input directory.  [required]
+  -o, --output-dir TEXT           Output directory.
+  -tc, --threshold-combination [AND|OR]
+                                  AND: All metrics are greater than threshold.
+                                  OR: At least 1 metric is greater than
+                                  threshold.
 
+  -mo, --moss FLOAT RANGE         Use moss metric and set up moss threshold.
+  -co, --count-operator FLOAT RANGE
+                                  Use count operator metric and set up count
+                                  operator threshold.
+
+  -so, --set-operator FLOAT RANGE
+                                  Use set operator metric and set up set
+                                  operator threshold.
+
+  -ho, --hash-operator FLOAT RANGE
+                                  Use hash operator metric and set up hash
+                                  operator threshold.
+
+  --help                          Show this message and exit.
+```
+To get plagiarism report of a directory containing source code files, add ```-i/ --input-dir``` option. Add at least 1 similarity metric in [```-mo/--moss```, ```-co/--count-operator```, ```-so/--set-operator```, ```-ho/--hash-operator```] and its threshold (in range [0,1]). If using 2 or more metrics, you need to define how they should be combined using ```-tc/--threshold-combination``` (```AND``` will be used by default).
+
+Basic command: ```scoss -i path/to/source_code_dir/ -tc OR -co 0.1 -ho 0.1 -mo 0.1 -o another_path/to/plagiarism_report/```
 ### Using as a library
 
 1. Define a `Scoss` object and register some metrics:

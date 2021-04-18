@@ -19,6 +19,7 @@ from sctokenizer import Source
 import requests
 
 from scoss.utils import check_language
+from scoss.html_template import *
 
 try:
     from urllib.request import urlopen
@@ -218,9 +219,8 @@ class SMoss():
         tds = soup.find_all('td')
         i = 0
         self.__matches = []
-        with open('./scoss/assets/smoss_comparison.html', mode='r') as f:
-            big_html_string = f.read()
-        bases = big_html_string.split('<<<>>>')
+
+        bases = SMOSS_COMPARISON_HTML.split('<<<>>>')
         while i < len(tds):
             score_str = tds[i].contents[0].contents[0][-4:-2]
             score_str = ''.join(c for c in score_str if c.isdigit())
@@ -271,7 +271,7 @@ class SMoss():
             else:
                 self.__matches_file[src2] = {src1:match_comparison}
             # with open(os.path.join('./tests/smoss_result/', 'big_all_html.html'), 'w') as file:
-            #     file.write(big_html_string)
+            #     file.write(SMOSS_COMPARISON_HTML)
             i += 3
 
     def upload_file(self, s, src, mask, file_id, on_send):
@@ -355,9 +355,6 @@ class SMoss():
     def save_as_html(self, output_dir=None):
         if self.__state == SMossState.INIT:
             self.run()
-        HTML1 = ""
-        with open('./scoss/assets/summary.html', mode='r') as f:
-            HTML1 = f.read()
 
         if len(self.__matches) != 0:
             heads = [x for x in self.__matches[0].keys() if x != 'link']
@@ -379,7 +376,7 @@ class SMoss():
                 dic['scores'][metric] = [name_file, span]
                 links.append(dic)
                 self.process_url(match['link'], name_file, output_dir)
-            page = Environment().from_string(HTML1).render(heads=heads, links=links)
+            page = Environment().from_string(SUMMARY_HTML).render(heads=heads, links=links)
             with open(os.path.join(output_dir, 'summary.html'), 'w') as file:
                 file.write(page)
     

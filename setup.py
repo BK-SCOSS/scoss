@@ -4,9 +4,9 @@ with open("README.md", mode='r', encoding='utf-8') as fh:
     long_description = fh.read()
 
 PROJECT_URLS = {
-    'Bug Tracker': 'https://github.com/ngocjr7/geneticpython/issues',
-    'Documentation': 'https://github.com/ngocjr7/geneticpython/blob/master/README.md',
-    'Source Code': 'https://github.com/ngocjr7/geneticpython'
+    'Bug Tracker': 'https://github.com/ngocjr7/scoss/issues',
+    'Documentation': 'https://github.com/ngocjr7/scoss/blob/master/README.md',
+    'Source Code': 'https://github.com/ngocjr7/scoss'
 }
 
 with open('requirements.txt') as f:
@@ -21,6 +21,10 @@ setup(name='scoss',
       author_email='ngocjr7@gmail.com',
       project_urls=PROJECT_URLS,
       version='0.0.2', 
+      entry_points='''
+        [console_scripts]
+        scoss=scoss.cli:scoss_command
+      ''',
       packages=find_packages(),
       install_requires=install_requires,
       python_requires='>=3.6')

@@ -15,5 +15,5 @@ def check_language(lang):
         return lang
     if lang in LANG_MAP:
         return LANG_MAP[lang]
-    raise ValueError("Unsupported languge")
+    raise ValueError("Unsupported languge: {}".format(lang))
 
