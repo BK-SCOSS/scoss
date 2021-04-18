@@ -4,6 +4,7 @@ from scoss.metrics import MetricList, Metric, all_metrics
 from scoss.metrics.token_based_metric import *
 from scoss.utils import check_language
 from scoss.my_source import MySource
+from scoss.html_template import *
 from jinja2 import Environment
 from collections import OrderedDict, defaultdict
 
@@ -246,7 +247,7 @@ class Scoss():
             trimmed:
             output_dir: save all html files in output_dir, if output_dir=None -> donot save
         Return:
-            ret: A dictionary of html files. example: {'summary.html': HTML1, 'match1.html': HTML2, ....}
+            ret: A dictionary of html files. example: {'summary.html': SUMMARY_HTML, 'match1.html': COMPARISON_HTML, ....}
         """
 
         def score_color(score):
@@ -257,13 +258,6 @@ class Scoss():
             span = '<span style="color: rgb({}, {}, {})">'.format(
                 R, G, B) + str(format(score*100, '.2f')) + '%</span>'
             return span
-
-        HTML1 = ""
-        HTML2 = ""
-        with open('./scoss/assets/summary.html', mode='r') as f:
-            HTML1 = f.read()
-        with open('./scoss/assets/comparison.html', mode='r') as f:
-            HTML2 = f.read()
 
         print("Running...")
         matches = self.get_matches(or_thresholds, and_thresholds)
@@ -283,7 +277,7 @@ class Scoss():
             links = matches 
 
         print("Saving summary...")
-        page = Environment().from_string(HTML1).render(heads=heads, links=links)
+        page = Environment().from_string(COMPARISON_HTML).render(heads=heads, links=links)
         with open(os.path.join(output_dir, 'summary.html'), 'w') as file:
             file.write(page)
 
@@ -369,14 +363,17 @@ class Scoss():
                     span = score_color(match['scores'][metric])
                     dic['scores'][metric] = span
                     dic['alignments'][metric] = name_file
-                    compe = Environment().from_string(HTML2).render(file1=match['source1'], file2=match['source2'],
+                    compe = Environment().from_string(COMPARISON_HTML).render(file1=match['source1'], file2=match['source2'],
                                                                     metric=metric, score=span,
                                                                     data1=html1, data2=html2)
                     with open(os.path.join(output_dir, name_file), 'w') as file:
                         file.write(compe)
                 links.append(dic)
 
-            page = Environment().from_string(HTML1).render(heads=heads, links=links)
+            page = Environment().from_string(SUMMARY_HTML).render(heads=heads, links=links)
             with open(os.path.join(output_dir, 'summary.html'), 'w') as file:
                 file.write(page)
         print("Done!")
+
+    def get_sources(self):
+        return self.__sources
