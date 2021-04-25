@@ -164,12 +164,13 @@ def get_all_plagiarism(input_dir, output_dir, threshold_combination_type='AND', 
             scores = list(all_matches_dict[k].values())
             all_matches_dict[k]['average_score'] = sum(scores) / len(scores)
 
+        if not all_matches_dict:
+            continue
+
         # Sort all_matches_dict by average_score
         all_matches_dict = {k: v for k, v in sorted(all_matches_dict.items(), key=lambda item: -item[1]['average_score'])}
         # all_matches_dict = sorted(all_matches_dict, key = lambda i: float(i['scores']['average_score']), reverse=True)
-        values_view = all_matches_dict.values()
-        value_iterator = iter(values_view)
-        first_score = next(value_iterator)
+        first_score = next(iter(all_matches_dict.values()))
         heads = ['source1', 'source2'] + list(first_score.keys())
         links = []
         for (src1, src2), scores in tqdm(all_matches_dict.items(), desc='Creating comparison reports', unit=' comparisons'):
