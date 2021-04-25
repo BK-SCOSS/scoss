@@ -27,25 +27,6 @@ def align_source(metric_name, src_str_1, src_str_2, lang):
     alignments = metric.align_source(src1, src2)
     return alignments[metric_name]
 
-# def get_all_files(contest_path):
-#     subdirs = [x[0] for x in os.walk(contest_path)]
-#     all_files = {}
-#     for i in range(1, len(subdirs)):
-#         listOfFiles = []
-#         subdir = subdirs[i]
-#         subdir_name = os.path.basename(os.path.normpath(subdir))
-#         for (dirpath, _, filenames) in os.walk(subdir):
-#             listOfFiles += [os.path.join(dirpath, file) for file in filenames]
-#         for f in listOfFiles:
-#             if os.stat(f).st_size == 0:
-#                 continue
-#             ext = f.split('.')[-1]
-#             if (subdir_name, ext) in all_files:
-#                 all_files[subdir_name, ext].append(f)
-#             else:
-#                 all_files[subdir_name, ext] = [f]
-#     return all_files
-
 def create_dir(filepath):
     wdir = filepath
     if os.path.isfile(os.path.abspath(filepath)):
@@ -260,6 +241,8 @@ def get_all_plagiarism(input_dir, output_dir, threshold_combination_type='AND', 
             for k, v in link['scores'].items():
                 row.append(v.split('">')[-1].split('%')[0]+'%')
             writer.writerow(row)
+
+    return all_links, heads
         
         
 
