@@ -129,8 +129,11 @@ def get_all_plagiarism(input_dir, output_dir, threshold_combination_type='AND', 
         if not scoss_matches_dict and not smoss_matches_dict:
             continue
         elif not scoss_matches_dict or not smoss_matches_dict:
-            scoss_matches_dict.update(smoss_matches_dict)
-            all_matches_dict = scoss_matches_dict
+            if threshold_combination_type == 'AND':
+                continue
+            elif threshold_combination_type == 'OR': # OR_threshold
+                scoss_matches_dict.update(smoss_matches_dict)
+                all_matches_dict = scoss_matches_dict
         else:
             for k, v in scoss_matches_dict.items():
                 if k in smoss_matches_dict:
@@ -138,9 +141,10 @@ def get_all_plagiarism(input_dir, output_dir, threshold_combination_type='AND', 
                     all_matches_dict[k].update(smoss_matches_dict[k])
                 elif threshold_combination_type == 'AND':
                     continue
-                else: # OR_threshold
+                elif threshold_combination_type == 'OR': # OR_threshold
                     all_matches_dict[k] = v
                     all_matches_dict[k].update({'moss_score':0})
+
         for k, v in all_matches_dict.items():
             scores = list(all_matches_dict[k].values())
             all_matches_dict[k]['average_score'] = sum(scores) / len(scores)
