@@ -1,14 +1,10 @@
 from __future__ import absolute_import
 
 from sctokenizer import Source, TokenType
+from scoss.utils import LANG_MAP
 
 import hashlib
 import os
-
-LANG_MAP = {
-    'cc': 'cpp',
-    'py': 'python',
-}
 
 class MySource(Source):
     def __init__(self, source_str, lang=None, name=None):
