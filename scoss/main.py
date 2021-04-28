@@ -27,25 +27,6 @@ def align_source(metric_name, src_str_1, src_str_2, lang):
     alignments = metric.align_source(src1, src2)
     return alignments[metric_name]
 
-# def get_all_files(contest_path):
-#     subdirs = [x[0] for x in os.walk(contest_path)]
-#     all_files = {}
-#     for i in range(1, len(subdirs)):
-#         listOfFiles = []
-#         subdir = subdirs[i]
-#         subdir_name = os.path.basename(os.path.normpath(subdir))
-#         for (dirpath, _, filenames) in os.walk(subdir):
-#             listOfFiles += [os.path.join(dirpath, file) for file in filenames]
-#         for f in listOfFiles:
-#             if os.stat(f).st_size == 0:
-#                 continue
-#             ext = f.split('.')[-1]
-#             if (subdir_name, ext) in all_files:
-#                 all_files[subdir_name, ext].append(f)
-#             else:
-#                 all_files[subdir_name, ext] = [f]
-#     return all_files
-
 def create_dir(filepath):
     wdir = filepath
     if os.path.isfile(os.path.abspath(filepath)):
@@ -148,8 +129,11 @@ def get_all_plagiarism(input_dir, output_dir, threshold_combination_type='AND', 
         if not scoss_matches_dict and not smoss_matches_dict:
             continue
         elif not scoss_matches_dict or not smoss_matches_dict:
-            scoss_matches_dict.update(smoss_matches_dict)
-            all_matches_dict = scoss_matches_dict
+            if threshold_combination_type == 'AND':
+                continue
+            elif threshold_combination_type == 'OR': # OR_threshold
+                scoss_matches_dict.update(smoss_matches_dict)
+                all_matches_dict = scoss_matches_dict
         else:
             for k, v in scoss_matches_dict.items():
                 if k in smoss_matches_dict:
@@ -157,19 +141,21 @@ def get_all_plagiarism(input_dir, output_dir, threshold_combination_type='AND', 
                     all_matches_dict[k].update(smoss_matches_dict[k])
                 elif threshold_combination_type == 'AND':
                     continue
-                else: # OR_threshold
+                elif threshold_combination_type == 'OR': # OR_threshold
                     all_matches_dict[k] = v
                     all_matches_dict[k].update({'moss_score':0})
+
         for k, v in all_matches_dict.items():
             scores = list(all_matches_dict[k].values())
             all_matches_dict[k]['average_score'] = sum(scores) / len(scores)
 
+        if not all_matches_dict:
+            continue
+
         # Sort all_matches_dict by average_score
         all_matches_dict = {k: v for k, v in sorted(all_matches_dict.items(), key=lambda item: -item[1]['average_score'])}
         # all_matches_dict = sorted(all_matches_dict, key = lambda i: float(i['scores']['average_score']), reverse=True)
-        values_view = all_matches_dict.values()
-        value_iterator = iter(values_view)
-        first_score = next(value_iterator)
+        first_score = next(iter(all_matches_dict.values()))
         heads = ['source1', 'source2'] + list(first_score.keys())
         links = []
         for (src1, src2), scores in tqdm(all_matches_dict.items(), desc='Creating comparison reports', unit=' comparisons'):
@@ -259,6 +245,8 @@ def get_all_plagiarism(input_dir, output_dir, threshold_combination_type='AND', 
             for k, v in link['scores'].items():
                 row.append(v.split('">')[-1].split('%')[0]+'%')
             writer.writerow(row)
+
+    return all_links, heads
         
         
 
