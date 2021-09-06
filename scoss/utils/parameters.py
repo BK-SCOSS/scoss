@@ -8,7 +8,8 @@ SUPPORTED_LANGUGES = [
 ]
 
 LANG_MAP = {
-    'cc': 'cpp',
+    'cpp': 'cc',
+    'pas': 'pascal',
     'py': 'python',
 }
 

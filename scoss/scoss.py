@@ -7,6 +7,7 @@ from scoss.my_source import MySource
 from scoss.html_template import *
 from jinja2 import Environment
 from collections import OrderedDict, defaultdict
+from pathlib import Path
 
 import pandas as pd
 import os
@@ -249,6 +250,7 @@ class Scoss():
         Return:
             ret: A dictionary of html files. example: {'summary.html': SUMMARY_HTML, 'match1.html': COMPARISON_HTML, ....}
         """
+        Path(output_dir).mkdir(parents=True, exist_ok=True)
 
         def score_color(score):
             C = int(score*255)
@@ -273,14 +275,9 @@ class Scoss():
                 link = copy.deepcopy(match)
                 for metric, score in match['scores'].items():
                     link['scores'][metric] = score_color(score) 
-                links.append(links)
-            links = matches 
+                links.append(link)
 
         print("Saving summary...")
-        page = Environment().from_string(COMPARISON_HTML).render(heads=heads, links=links)
-        with open(os.path.join(output_dir, 'summary.html'), 'w') as file:
-            file.write(page)
-
         if align:
             print("Aligning...")
             for i in range(len(matches)):
@@ -370,6 +367,10 @@ class Scoss():
                         file.write(compe)
                 links.append(dic)
 
+            page = Environment().from_string(SUMMARY_HTML).render(heads=heads, links=links)
+            with open(os.path.join(output_dir, 'summary.html'), 'w') as file:
+                file.write(page)
+        else:
             page = Environment().from_string(SUMMARY_HTML).render(heads=heads, links=links)
             with open(os.path.join(output_dir, 'summary.html'), 'w') as file:
                 file.write(page)

@@ -10,8 +10,8 @@ def get_basename(filepath):
     filename = get_filename(filepath)
     return os.path.splitext(filename)[0]
     
-def check_language(lang):
-    if lang in SUPPORTED_LANGUGES:
+def check_language(lang, isSmoss=False):
+    if lang in SUPPORTED_LANGUGES and not isSmoss:
         return lang
     if lang in LANG_MAP:
         return LANG_MAP[lang]

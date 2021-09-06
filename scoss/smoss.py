@@ -17,6 +17,7 @@ from bs4 import BeautifulSoup
 from jinja2 import Environment
 from sctokenizer import Source
 import requests
+from pathlib import Path
 
 from scoss.utils import check_language
 from scoss.html_template import *
@@ -69,7 +70,7 @@ class SMoss():
 
         self.__userid = userid
 
-        self.__lang = check_language(lang)
+        self.__lang = check_language(lang, isSmoss=True)
         self.__state = SMossState.INIT
         self.__threshold = 0
         self.__sources = OrderedDict()
@@ -281,7 +282,7 @@ class SMoss():
             file_id,
             self.__options['l'],
             size,
-            mask
+            mask.replace(' ', '_') # File path for MOSS Stanford must not have spaces.
         )
         s.send(message.encode())
         s.send(bin_str)
@@ -323,9 +324,7 @@ class SMoss():
 
     def run(self):
         if self.__state != SMossState.CLOSE:
-            start_time = time.time()
             url = self.send()
-            start_time = time.time()
             if url == '':
                 raise ValueError("MOSS Server returned empty url. Please check userid.")
             self.parse_html_table(url)
@@ -353,6 +352,8 @@ class SMoss():
             save_html(base_url + '/' + file_name, file_name)
             
     def save_as_html(self, output_dir=None):
+        Path(output_dir).mkdir(parents=True, exist_ok=True)
+
         if self.__state == SMossState.INIT:
             self.run()
 
@@ -371,7 +372,7 @@ class SMoss():
                 C = int(match['scores'][metric]*255)
                 R = C
                 G = 0
-                B = 0;
+                B = 0
                 span = '<span style="color: rgb({}, {}, {})">'.format(R,G,B) + str(format(match['scores'][metric]*100, '.2f')) +'%</span>'
                 dic['scores'][metric] = [name_file, span]
                 links.append(dic)
