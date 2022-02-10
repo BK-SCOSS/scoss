@@ -20,4 +20,3 @@ class Metric():
 
     def align_source(self, source1, source2):
         pass
-        

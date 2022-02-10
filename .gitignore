@@ -139,3 +139,5 @@ dmypy.json
 
 # thaidd virtual env
 virtual/
+
+.idea

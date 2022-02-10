@@ -77,6 +77,3 @@ class MetricList():
             ret[metric.get_name()] = metric.align_source(source1, source2)
 
         return ret
-
-     
-        
