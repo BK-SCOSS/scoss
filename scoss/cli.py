@@ -32,6 +32,10 @@ import click
     '--hash-operator', '-ho', type=click.FloatRange(0,1),
     help='Use hash operator metric and set up hash operator threshold.'
 )
+@click.option(
+    '--gmn-network', '-gmn', type=click.FloatRange(0,1),
+    help='Use gmn network'
+)
 def scoss_command(input_dir, output_dir, threshold_combination,\
     moss, count_operator, set_operator, hash_operator):
     if not output_dir:

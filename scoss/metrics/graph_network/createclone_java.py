@@ -4,27 +4,22 @@ import javalang.tree
 import javalang.ast
 import javalang.util
 from javalang.ast import Node
-from anytree import AnyNode, RenderTree
+from anytree import AnyNode
 from .edge_index import edges
 
 
 def get_token(node):
     token = ""
-    # print(isinstance(node, Node))
-    # print(type(node))
     if isinstance(node, str):
         token = node
     elif isinstance(node, set):
         token = "Modifier"
     elif isinstance(node, Node):
         token = node.__class__.__name__
-    # print(node.__class__.__name__,str(node))
-    # print(node.__class__.__name__, node)
     return token
 
 
 def get_child(root):
-    # print(root)
     if isinstance(root, Node):
         children = root.children
     elif isinstance(root, set):
@@ -36,10 +31,8 @@ def get_child(root):
         for item in nested_list:
             if isinstance(item, list):
                 for sub_item in expand(item):
-                    # print(sub_item)
                     yield sub_item
             elif item:
-                # print(item)
                 yield item
 
     return list(expand(children))
@@ -48,16 +41,15 @@ def get_child(root):
 def get_sequence(node, sequence):
     token, children = get_token(node), get_child(node)
     sequence.append(token)
-    # print(len(sequence), token)
     for child in children:
         get_sequence(child, sequence)
 
 
-def getnodes(node, nodelist):
+def get_nodes(node, nodelist):
     nodelist.append(node)
     children = get_child(node)
     for child in children:
-        getnodes(child, nodelist)
+        get_nodes(child, nodelist)
 
 
 class Queue:
@@ -93,7 +85,6 @@ def traverse(node, index):
 
 def createtree(root, node, nodelist, parent=None):
     id = len(nodelist)
-    # print(id)
     token, children = get_token(node), get_child(node)
     if id == 0:
         root.token = token
@@ -119,7 +110,7 @@ def getnodeandedge_astonly(node, nodeindexlist, vocabdict, src, tgt):
         getnodeandedge_astonly(child, nodeindexlist, vocabdict, src, tgt)
 
 
-def getnodeandedge(node, nodeindexlist, vocabdict, src, tgt, edgetype):
+def get_node_and_edge(node, nodeindexlist, vocabdict, src, tgt, edgetype):
     token = node.token
     nodeindexlist.append([vocabdict[token]])
     for child in node.children:
@@ -129,10 +120,10 @@ def getnodeandedge(node, nodeindexlist, vocabdict, src, tgt, edgetype):
         src.append(child.id)
         tgt.append(node.id)
         edgetype.append([0])
-        getnodeandedge(child, nodeindexlist, vocabdict, src, tgt, edgetype)
+        get_node_and_edge(child, nodeindexlist, vocabdict, src, tgt, edgetype)
 
 
-def getedge_nextsib(node, vocabdict, src, tgt, edgetype):
+def get_edge_next_sib(node, vocabdict, src, tgt, edgetype):
     token = node.token
     for i in range(len(node.children) - 1):
         src.append(node.children[i].id)
@@ -142,11 +133,11 @@ def getedge_nextsib(node, vocabdict, src, tgt, edgetype):
         tgt.append(node.children[i].id)
         edgetype.append([edges["Prevsib"]])
     for child in node.children:
-        getedge_nextsib(child, vocabdict, src, tgt, edgetype)
+        get_edge_next_sib(child, vocabdict, src, tgt, edgetype)
 
 
-def getedge_flow(
-    node, vocabdict, src, tgt, edgetype, ifedge=False, whileedge=False, foredge=False
+def get_edge_flow(
+        node, vocab_dict, src, tgt, edgetype, ifedge=False, whileedge=False, foredge=False
 ):
     token = node.token
     if whileedge == True:
@@ -196,7 +187,7 @@ def getedge_flow(
                 tgt.append(node.children[0].id)
                 edgetype.append([edges["Ifelse"]])
     for child in node.children:
-        getedge_flow(child, vocabdict, src, tgt, edgetype, ifedge, whileedge, foredge)
+        get_edge_flow(child, vocab_dict, src, tgt, edgetype, ifedge, whileedge, foredge)
 
 
 def getedge_nextstmt(node, vocabdict, src, tgt, edgetype):
@@ -310,18 +301,18 @@ def createast():
 
 
 def createseparategraph(
-    astdict,
-    vocablen,
-    vocabdict,
-    device,
-    mode="astonly",
-    nextsib=False,
-    ifedge=False,
-    whileedge=False,
-    foredge=False,
-    blockedge=False,
-    nexttoken=False,
-    nextuse=False,
+        astdict,
+        vocablen,
+        vocabdict,
+        device,
+        mode="astonly",
+        nextsib=False,
+        ifedge=False,
+        whileedge=False,
+        foredge=False,
+        blockedge=False,
+        nexttoken=False,
+        nextuse=False,
 ):
     pathlist = []
     treelist = []
@@ -348,42 +339,28 @@ def createseparategraph(
         if mode == "astonly":
             getnodeandedge_astonly(newtree, x, vocabdict, edgesrc, edgetgt)
         else:
-            getnodeandedge(newtree, x, vocabdict, edgesrc, edgetgt, edge_attr)
-            if nextsib == True:
-                getedge_nextsib(newtree, vocabdict, edgesrc, edgetgt, edge_attr)
-            getedge_flow(
-                newtree,
-                vocabdict,
-                edgesrc,
-                edgetgt,
-                edge_attr,
-                ifedge,
-                whileedge,
-                foredge,
-            )
-            if blockedge == True:
+            get_node_and_edge(newtree, x, vocabdict, edgesrc, edgetgt, edge_attr)
+            if nextsib:
+                get_edge_next_sib(newtree, vocabdict, edgesrc, edgetgt, edge_attr)
+            get_edge_flow(newtree, vocabdict, edgesrc, edgetgt, edge_attr, ifedge, whileedge, foredge)
+            if blockedge:
                 getedge_nextstmt(newtree, vocabdict, edgesrc, edgetgt, edge_attr)
-            tokenlist = []
-            if nexttoken == True:
+            token_list = []
+            if nexttoken:
                 getedge_nexttoken(
-                    newtree, vocabdict, edgesrc, edgetgt, edge_attr, tokenlist
+                    newtree, vocabdict, edgesrc, edgetgt, edge_attr, token_list
                 )
             variabledict = {}
-            if nextuse == True:
+            if nextuse:
                 getedge_nextuse(
                     newtree, vocabdict, edgesrc, edgetgt, edge_attr, variabledict
                 )
-        # x = torch.tensor(x, dtype=torch.long, device=device)
         edge_index = [edgesrc, edgetgt]
-        # edge_index = torch.tensor([edgesrc, edgetgt], dtype=torch.long, device=device)
         astlength = len(x)
-        # print(x)
-        # print(edge_index)
-        # print(edge_attr)
         pathlist.append(path)
         treelist.append([[x, edge_index, edge_attr], astlength])
         astdict[path] = [[x, edge_index, edge_attr], astlength]
-    # treedict=dict(zip(pathlist,treelist))
+
     return astdict
 
 
@@ -419,9 +396,7 @@ def creategmndata(id, treedict, vocablen, vocabdict, device):
     trainlist = trainfile.readlines()
     validlist = validfile.readlines()
     testlist = testfile.readlines()
-    traindata = []
-    validdata = []
-    testdata = []
+
     print("train data")
     traindata = createpairdata(treedict, trainlist, device=device)
     print("valid data")
@@ -435,18 +410,12 @@ def createpairdata(treedict, pathlist, device):
     datalist = []
     countlines = 1
     for line in pathlist:
-        # print(countlines)
         countlines += 1
         pairinfo = line.split()
         code1path = pairinfo[0].replace("\\", "/")
-        # code1path=pairinfo[0]
-        # print(pairinfo[0].replace('\\','/'))
         code2path = pairinfo[1].replace("\\", "/")
-        # code2path = pairinfo[1]
         label = int(pairinfo[2])
-        # label = torch.tensor(int(pairinfo[2]), dtype=torch.float, device=device)
-        # print(code1path,code2path)
-        # print(treedict['googlejam4_src/1/googlejam1.p507.Mushrooms.java'])
+
         data1 = treedict[code1path]
         data2 = treedict[code2path]
         x1, edge_index1, edge_attr1, ast1length = (
@@ -461,36 +430,10 @@ def createpairdata(treedict, pathlist, device):
             data2[0][2],
             data2[1],
         )
-        """matchsrc = []
-        matchtgt = []
-        for i in range(ast1length):
-            for j in range(ast2length):
-                matchsrc.append(i)
-                matchtgt.append(j)
-        match_index=[matchsrc, matchtgt]"""
-        # match_index = torch.tensor([matchsrc, matchtgt], dtype=torch.long, device=device)
+
         if edge_attr1 == []:
             edge_attr1 = None
             edge_attr2 = None
         data = [[x1, x2, edge_index1, edge_index2, edge_attr1, edge_attr2], label]
         datalist.append(data)
     return datalist
-
-
-# if __name__ == "__main__":
-    # astdict, vocabsize, vocabdict = createast()
-    # treedict = createseparategraph(
-    #     astdict,
-    #     vocabsize,
-    #     vocabdict,
-    #     device="cpu",
-    #     mode="else",
-    #     nextsib=True,
-    #     ifedge=True,
-    #     whileedge=True,
-    #     foredge=True,
-    #     blockedge=True,
-    #     nexttoken=True,
-    #     nextuse=True,
-    # )
-    # creategmndata('0small',treedict,vocabsize,vocabdict,device='cpu')
