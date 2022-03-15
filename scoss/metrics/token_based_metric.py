@@ -79,6 +79,3 @@ class TokenBasedMetric(Metric):
         diff.reverse()
 
         return diff
-
-
-        

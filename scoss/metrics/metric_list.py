@@ -2,17 +2,18 @@ from __future__ import absolute_import
 
 from scoss.metrics.operator_based_metric import *
 from scoss.metrics.token_based_metric import *
-import time
+from scoss.metrics.graph_network.gmn_network import *
 
 all_metrics = [
     CountOperator(),
     SetOperator(),
     HashOperator(),
-    TokenBasedMetric()
+    TokenBasedMetric(),
+    GMNMetric()
 ]
 
 
-class MetricList():
+class MetricList:
     def __init__(self, metric_list=None):
         self.metric_list = []
         if metric_list is not None:
@@ -77,6 +78,3 @@ class MetricList():
             ret[metric.get_name()] = metric.align_source(source1, source2)
 
         return ret
-
-     
-        

@@ -247,10 +247,3 @@ def get_all_plagiarism(input_dir, output_dir, threshold_combination_type='AND', 
             writer.writerow(row)
 
     return all_links, heads
-        
-        
-
-
-    
-
-    
